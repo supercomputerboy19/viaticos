@@ -1,0 +1,56 @@
+/* 
+    Document   : estilo
+    Created on : 14/03/2011, 02:32:42 PM
+    Author     : oalvaro
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+.nomSistema{
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Verdana;
+    color: #0C4877;
+}
+
+.nomUsuario{
+    font-size: 9px;
+    font-family: Verdana;
+    color: #0C4877;
+}
+
+.titulo{
+    font-size: 14px;
+    font-weight: bold;
+    font-family: Verdana;
+    color: #0C4877;
+    padding-top:8px;
+    padding-bottom: 8px;
+}
+
+.salto{
+    height: 8px;
+}
+
+.error{
+    color:darkred;
+}
+
+TD{
+    font-size: 12px;
+    font-family: Verdana;
+    color: #0C4877;
+}
+
+#tDetalle TD{
+    padding-left: 10px;
+}
+
+a:hover { color: navy; text-decoration: underline }
+a:link { color: black; text-decoration: none }
+a:visited { color: black; text-decoration: none }
