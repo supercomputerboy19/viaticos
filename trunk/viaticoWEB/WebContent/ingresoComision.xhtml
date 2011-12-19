@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:p="http://primefaces.prime.com.tr/ui" >
+	<h:head>
+		<!-- <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" /> -->
+		<title>Registro de sesión</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<link type="text/css" rel="stylesheet" href="css/default.css" />
+		<link type="text/css" rel="stylesheet" href="css/syntaxhighlighter.css" />
+	</h:head>
+	<h:body>
+        <h:form id="acceso" >
+        <table width="791" align="center">
+            <tr>
+              <td><img src="img/cabecera.jpg" alt="" width="971" height="62" /></td>
+            </tr>
+            <tr>
+              <td height="20">&nbsp;</td>
+            </tr>
+            <tr>
+              <td align="center" ><strong>CALCULADORA DE VIATICOS - OEFA</strong></td></tr>
+            <tr>
+              <td height="25" align="left">Organismo de Evaluación y Fiscalización Ambiente - OEFA</td>
+            </tr>
+            <tr>
+              <td align="center">
+              	Coloque en los recuadros la fecha de salida y la fecha de retorno, incluyendo las horas, para que se pueda calcular su asignación por comisión de servicios.
+              </td>
+            </tr>
+            <tr>
+              <td align="left">
+	              <fieldset>
+	                <legend>DATOS DEL COMISIONADO</legend>
+	                  <table>
+	                    <tr>
+	                      <td>NOMBRES</td>
+	                      <td>&nbsp;<p:inputText id="nombres" value="#{comisionado.nombres}" /></td>
+	                    </tr>
+	                    <tr>
+	                      <td>APELLIDOS</td>
+	                      <td>&nbsp;<p:inputText id="apellidos" value="#{comisionado.text}" /></td>
+	                    </tr>
+	                    <tr>
+	                      <td>DNI</td>
+	                      <td>&nbsp;<p:inputText id="dni" value="#{comisionado.dni}" /></td>
+	                    </tr>
+	                    <tr>
+	                      <td>SEXO</td>
+	                      <td>&nbsp;<p:inputText id="sexo" value="#{comisionado.sexo}" /></td>
+	                    </tr>
+	                  </table>
+	              </fieldset>
+              </td>
+            </tr>
+            <tr>
+            	<td align="left">
+            		<fieldset>
+	                  <table>
+	                  	<tr>
+	                  		<td>Fecha de Salida:</td>
+	                  		<td>
+	                  			<p:calendar id="fechaSalida" value="#{comisionado.fechaSalida}" pattern="dd/MM/yyyy" mode="popup" showOn="button" locale="es" />
+	                  		</td>
+	                  		<td>&nbsp;</td>
+	                  		<td>Asignación Diaria: S/.</td>
+	                  		<td><p:inputText id="asignacionDiaria" value="#{comisionado.asignacionDiaria}" /></td>
+	                  	</tr>
+	                  	<tr>
+	                  		<td>Fecha de Retorno:</td>
+	                  		<td>
+	                  			<p:calendar id="fechaRetorno" value="#{comisionado.fechaRetorno}" pattern="dd/MM/yyyy" mode="popup" showOn="button" locale="es" />
+	                  		</td>
+	                  		<td>&nbsp;</td>
+	                  		<td>Destino:</td>
+	                  		<td>
+	                  			<p:inputText id="destino" value="#{comisionado.destino}" />
+	                  		</td>
+	                  	</tr>
+	                  	<tr>
+	                  		<td>Dependencia:</td>
+	                  		<td colspan="4" >
+	                  			<p:inputText id="dependencia" value="#{comisionado.dependencia}" />
+	                  		</td>
+	                  	</tr>
+	                  	<tr>
+	                  		<td>Objetivo:</td>
+	                  		<td colspan="4" >
+	                  			<p:inputText id="objetivo" value="#{comisionado.objetivo}"  requiredMessage="El campo objetivo es obligatorio" />
+	                  		</td>
+	                  	</tr>
+	                  	<tr>
+	                  		<td>Condición Laboral:</td>
+	                  		<td>
+	                  			<p:inputText id="condicionLaboral" value="#{comisionado.condicionLaboral}" />
+	                  		</td>
+	                  		<td>&nbsp;</td>
+	                  		<td>Cargo:</td>
+	                  		<td>
+	                  			<p:inputText id="cargo" value="#{comisionado.cargo}" />
+	                  		</td>
+	                  	</tr>
+	                  	<tr>
+	                  		<td>Fecha de Gestión:</td>
+	                  		<td colspan="4" >
+	                  			<p:calendar id="fechaGestion" value="#{comisionado.fechaGestion}" pattern="dd/MM/yyyy" mode="popup" showOn="button" locale="es" requiredMessage="El campo gestión es obligatorio" />
+	                  		</td>
+	                  	</tr>
+	                  </table>
+	                </fieldset>
+            	</td>
+            </tr>
+            <tr>
+	            <td align="left">
+		            <fieldset>
+			        	<legend>PASAJES</legend>
+			            	<table>
+			                	<tr>
+			                		<td>VIA AREA</td><td><h:selectBooleanCheckbox /></td><td>TUUA</td><td></td>
+			                    </tr>
+			                    <tr>
+			                		<td>VIA TERRESTRE</td><td></td><td>PASAJE TERRESTRE</td><td></td>
+			                    </tr>
+			                </table>
+			        </fieldset>
+		        </td>
+	        </tr>
+            <tr>
+            	<td><img src="img/pie.jpg" alt="" width="971" height="40" /></td>
+            </tr>
+        </table>
+		</h:form>
+	</h:body>
+</html>
