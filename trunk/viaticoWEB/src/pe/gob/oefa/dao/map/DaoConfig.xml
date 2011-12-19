@@ -1,0 +1,13 @@
+<!DOCTYPE daoConfig PUBLIC "-//iBATIS.com//DTD DAO Configuration 2.0//EN" 
+"http://www.ibatis.com/dtd/dao-2.dtd">
+
+<daoConfig>
+    <context>
+    <transactionManager type="SQLMAP">
+        <property name="SqlMapConfigResource"
+        value="pe/gob/oefa/dao/map/SqlMapConfig.xml" />
+    </transactionManager>
+    <dao interface="pe.gob.oefa.dao.ComisionDAO"
+         implementation="pe.gob.oefa.dao.impl.ComisionImplDAO" />
+    </context>
+</daoConfig>
