@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comision">
+
+    <typeAlias alias="comision" type="pe.gob.oefa.cvbe.Comision"/>
+ 
+    <resultMap id="comisionmap" class="comision">
+       <result column="FECHASALIDA" property="fechaSalida"/>
+       <result column="FECHARETORNO" property="fechaRetorno"/>
+       <result column="OBJETIVO" property="objetivo"/>
+       <result column="FECHAGESTION" property="fechaGestion"/>
+       <result column="DESTINO" property="destino"/>
+       <result column="VIAAEREA" property="viaAerea"/>
+       <result column="VIATERRESTRE" property="viaTerrestre"/>
+       <result column="TUUA" property="tuua"/>
+       <result column="PASAJETERRESTRE" property="pasajeTerrestre"/>
+       <result column="ASIGNACIONDIARIA" property="asignacionDiaria"/>
+       <result column="COMISIONID" property="comisionId"/>
+       <result column="ASIGNACIONDIARIAID" property="asigancionDiariaId"/>
+       <result column="FECHAAUTORIZACION" property="fechaAutorizacion"/>
+       <result column="COMENTARIOESTADO" property="comentarioEstado"/>
+       <result column="NUMCERTPRESUPU" property="numcertpresupu"/>
+       <result column="NUMSIAF" property="numSIAF"/>
+       <result column="MONTOTUUA" property="montoTUUA"/>
+       <result column="MONTOVIATERRESTRE" property="montoViaTerrestre"/>
+       <result column="MONTOVIAAEREA" property="montoViaAerea"/>
+       <result column="MONTOHOSPEDAJE" property="montoHospedaje"/>
+       <result column="NUMCOMPROBANTEPAGO" property="numComprobantePago"/>
+       <result column="NUMRECIBOING" property="numReciboIng"/>
+       <result column="C_C_CODIGO" property="ccCodigo"/>
+       <result column="ESTADOID" property="estadoId"/>
+       <result column="TIPOACTIVIDADID" property="tipoActividadId"/>
+    </resultMap>
+
+    <insert id="insertComision" parameterClass="comision">
+        <selectKey resultClass="int" keyProperty="comisionId">
+            SELECT COMISIONSEQUENCE.NEXTVAL FROM DUAL
+        </selectKey>
+       INSERT INTO COMISION(
+            FECHASALIDA,        
+            FECHARETORNO,        
+            OBJETIVO,
+            FECHAGESTION,       
+            DESTINO,
+            VIAAEREA,     
+            VIATERRESTRE,   
+            TUUA,   
+            PASAJETERRESTRE,     
+            ASIGNACIONDIARIA,
+            COMISIONID,  
+            ASIGNACIONDIARIAID,
+            FECHAAUTORIZACION,       
+            COMENTARIOESTADO,
+            NUMCERTPRESUPU,
+            NUMSIAF,
+            MONTOTUUA, 
+            MONTOVIATERRESTRE,
+            MONTOVIAAEREA, 
+            MONTOHOSPEDAJE,
+            NUMCOMPROBANTEPAGO,
+            NUMRECIBOING,
+            C_C_CODIGO,
+            ESTADOID,
+            TIPOACTIVIDADID
+            ) VALUES (
+            #fechaSalida#,
+            #fechaRetorno#,
+            #objetivo#,
+            #fechaGestion#,
+            #destino#,
+            #viaAerea#,
+            #viaTerrestre#,
+            #tuua#,
+            #pasajeTerrestre#,
+            #asignacionDiaria#,
+            #comisionId#,
+            #asigancionDiariaId#,
+            #fechaAutorizacion#,
+            #comentarioEstado#,
+            #numcertpresupu#,
+            #numSIAF#,
+            #montoTUUA#,
+            #montoViaTerrestre#,
+            #montoViaAerea#,
+            #montoHospedaje#,
+            #numComprobantePago#,
+            #numReciboIng#,
+            #ccCodigo#,
+            #estadoId#,
+            #tipoActividadId#)
+    </insert>
+   
+    <update id="updateComision" parameterClass="comision">
+        UPDATE COMISION
+        SET FECHASALIDA = #fechaSalida#,        
+            FECHARETORNO = #fechaRetorno#,        
+            OBJETIVO = #objetivo#,
+            FECHAGESTION = #fechaGestion#,       
+            DESTINO = #destino#,
+            VIAAEREA = #viaAerea#,     
+            VIATERRESTRE = #viaTerrestre#,   
+            TUUA = #tuua#,   
+            PASAJETERRESTRE = #pasajeTerrestre#,     
+            ASIGNACIONDIARIA = #asignacionDiaria#,
+            ASIGNACIONDIARIAID = #asigancionDiariaId#,
+            FECHAAUTORIZACION = #fechaAutorizacion#,       
+            COMENTARIOESTADO = #comentarioEstado#,
+            NUMCERTPRESUPU = #numcertpresupu#,
+            NUMSIAF = #numSIAF#,
+            MONTOTUUA = #montoTUUA#, 
+            MONTOVIATERRESTRE = #montoViaTerrestre#,
+            MONTOVIAAEREA = #montoViaAerea#, 
+            MONTOHOSPEDAJE = #montoHospedaje#,
+            NUMCOMPROBANTEPAGO = #numComprobantePago#,
+            NUMRECIBOING = #numReciboIng#,
+            C_C_CODIGO = #ccCodigo#,
+            ESTADOID = #estadoId#,
+            TIPOACTIVIDADID = #tipoActividadId#
+            WHERE 
+               COMISIONID = #comisionId#
+    </update>
+    
+    <select id="getComisiones" parameterClass="comision" resultMap="comisionmap">
+        SELECT  FECHASALIDA,        
+                FECHARETORNO,        
+                OBJETIVO,
+                FECHAGESTION,       
+                DESTINO,
+                VIAAEREA,     
+                VIATERRESTRE,   
+                TUUA,   
+                PASAJETERRESTRE,     
+                ASIGNACIONDIARIA,
+                COMISIONID,  
+                ASIGNACIONDIARIAID,
+                FECHAAUTORIZACION,       
+                COMENTARIOESTADO,
+                NUMCERTPRESUPU,
+                NUMSIAF,
+                MONTOTUUA, 
+                MONTOVIATERRESTRE,
+                MONTOVIAAEREA, 
+                MONTOHOSPEDAJE,
+                NUMCOMPROBANTEPAGO,
+                NUMRECIBOING,
+                C_C_CODIGO,
+                ESTADOID,
+                TIPOACTIVIDADID
+      FROM COMISION
+      <dynamic prepend="WHERE">
+        <isNotEmpty prepend="AND" property="ccCodigo">
+          C_C_CODIGO = #ccCodigo#
+        </isNotEmpty>
+        <isNotEmpty prepend="AND" property="estadoId">
+          ESTADOID = #estadoId#
+        </isNotEmpty>
+        <isNotEmpty prepend="AND" property="fechaSalidaRangoInicial">
+          FECHASALIDA <![CDATA[>=]]> #fechaSalidaRangoInicial#
+        </isNotEmpty>
+        <isNotEmpty prepend="AND" property="fechaSalidaRangoFinal">
+          FECHASALIDA <![CDATA[<=]]>  #fechaSalidaRangoFinal#
+        </isNotEmpty>
+      </dynamic>
+      
+     
+    </select>
+   
+ </sqlMap>
+    
