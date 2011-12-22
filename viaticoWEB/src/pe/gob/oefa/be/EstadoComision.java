@@ -62,4 +62,18 @@ public class EstadoComision  implements Serializable {
 	public void setEstradoId(String estradoId) {
 		this.estradoId = estradoId;
 	}	
+	
+	@Override
+    public String toString() {
+	    
+        String cadena = "viaticoId = " + viaticoId +"\n" +
+                        "usuarioId = " + usuarioId +"\n" +
+                        "fechaEstado = " + fechaEstado +"\n" +
+                        "comentario = " + comentario +"\n" +
+                        "comisionId = " + comisionId +"\n" +
+                        "estradoId = " + estradoId +"\n" +
+                         "---------------------------------------------";
+        
+        return cadena;
+	}
 }
