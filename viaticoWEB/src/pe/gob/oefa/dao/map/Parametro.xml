@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Parametro">
+
+    <typeAlias alias="parametro" type="pe.gob.oefa.be.Parametro"/>
+ 
+    <resultMap id="parametromap" class="parametro">
+       <result column="PARAMETROID" property="parametroId"/>
+       <result column="DESCRIPCION" property="descripcion"/>
+       <result column="VALOR1" property="valor1"/>
+       <result column="VALOR2" property="valor2"/>
+       <result column="VALOR3" property="valor3"/>
+       <result column="TABLAID" property="tablaId"/>
+    </resultMap>
+
+    <select id="getComisiones" parameterClass="parametro" resultMap="parametromap">
+        SELECT  PARAMETROID,			
+				DESCRIPCION,			
+				VALOR1,			
+				VALOR2,			
+				VALOR3,			
+				TABLAID	
+      	FROM PARAMETRO
+      <dynamic prepend="WHERE">
+        <isNotEmpty prepend="AND" property="tablaId">
+          TABLAID = #tablaId#
+        </isNotEmpty>
+      </dynamic>
+    </select>
+ </sqlMap>
+    
