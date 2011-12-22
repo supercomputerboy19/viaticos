@@ -12,4 +12,7 @@
         </dataSource>
     </transactionManager>
     <sqlMap resource="pe/gob/oefa/dao/map/Comision.xml"/> 
+    <sqlMap resource="pe/gob/oefa/dao/map/DeclaracionJurada.xml"/> 
+    <sqlMap resource="pe/gob/oefa/dao/map/ItemRendicion.xml"/> 
+    <sqlMap resource="pe/gob/oefa/dao/map/Pärametro.xml"/> 
 </sqlMapConfig>

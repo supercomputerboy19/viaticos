@@ -33,13 +33,13 @@ public class ComisionImplDAO extends SqlMapDaoTemplate implements ComisionDAO {
 		
             getSqlMapExecutor().insert("Comision.insertComision",domain);
 		
-	} catch (DataAccessException e) {
-			
-            throw new DAOException(e.getMessage(),e);
-    		
-	} catch (Exception e) {
-			
-	    throw new UnexpectedException(e.getMessage(), e);
+		} catch (DataAccessException e) {
+				
+	            throw new DAOException(e.getMessage(),e);
+	    		
+		} catch (Exception e) {
+				
+		    throw new UnexpectedException(e.getMessage(), e);
             
         }	
 		
@@ -51,19 +51,20 @@ public class ComisionImplDAO extends SqlMapDaoTemplate implements ComisionDAO {
 		
             getSqlMapExecutor().update("Comision.updateComision",domain);
 		
-	} catch (DataAccessException e) {
-			
-            throw new DAOException(e.getMessage(),e);
-    		
-	} catch (Exception e) {
-			
-	    throw new UnexpectedException(e.getMessage(), e);
+		} catch (DataAccessException e) {
+				
+	            throw new DAOException(e.getMessage(),e);
+	    		
+		} catch (Exception e) {
+				
+		    throw new UnexpectedException(e.getMessage(), e);
             
         }
         
     }
 
-    public List<Comision> getComision(Comision domain) throws DAOException {
+    @SuppressWarnings("unchecked")
+	public List<Comision> getComision(Comision domain) throws DAOException {
         
         List<Comision> listComisiones = null;
         
@@ -71,11 +72,11 @@ public class ComisionImplDAO extends SqlMapDaoTemplate implements ComisionDAO {
 		
             listComisiones = (List<Comision>)getSqlMapExecutor().queryForList("Comision.getComisiones", domain);
 		
-	} catch (DataAccessException e) {
+        } catch (DataAccessException e) {
 			
             throw new DAOException(e.getMessage(),e);
     		
-	} catch (Exception e) {
+		} catch (Exception e) {
 			
 	    throw new UnexpectedException(e.getMessage(), e);
             
@@ -84,4 +85,25 @@ public class ComisionImplDAO extends SqlMapDaoTemplate implements ComisionDAO {
         return listComisiones;
     }
     
+    public Comision findByID(Comision domain) throws DAOException {
+    
+    	Comision comision = null;
+        
+        try {
+		
+            comision = (Comision)getSqlMapExecutor().queryForList("Comision.findById", domain);
+		
+        } catch (DataAccessException e) {
+			
+            throw new DAOException(e.getMessage(),e);
+    		
+		} catch (Exception e) {
+			
+			throw new UnexpectedException(e.getMessage(), e);
+            
+        }
+        
+        return comision;
+    	
+    }
 }

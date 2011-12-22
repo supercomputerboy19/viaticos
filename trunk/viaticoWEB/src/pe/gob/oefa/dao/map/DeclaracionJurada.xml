@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="DeclaracionJurada">
+
+    <typeAlias alias="declaracionJurada" type="pe.gob.oefa.be.DeclaracionJurada"/>
+ 
+	<insert id="insertDeclaracionJurada" parameterClass="declaracionJurada">
+		INSERT INTO DECLARACIONJURADA(
+			ITEMID,
+			FECHA,
+			DESCRIPCIONGASTO,
+			MONTO,
+			COMISIONID
+            ) VALUES (
+            #itemId#,
+			#fecha#,
+			#descripcionGasto#,
+			#monto#,
+			#comisionId#)
+    </insert>
+   
+   <update id="updateDeclaracionJurada" parameterClass="declaracionJurada">
+		UPDATE DECLARACIONJURADA
+		SET  
+			FECHA = #fecha#, 
+			DESCRIPCIONGASTO = #descripcionGasto#, 
+			MONTO = #monto#
+			WHERE
+			COMISIONID = #comisionId# AND
+			ITEMID = #itemId#
+	</update>  
+ </sqlMap>
+    

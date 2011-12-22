@@ -5,7 +5,7 @@
 
 <sqlMap namespace="Comision">
 
-    <typeAlias alias="comision" type="pe.gob.oefa.cvbe.Comision"/>
+    <typeAlias alias="comision" type="pe.gob.oefa.be.Comision"/>
  
     <resultMap id="comisionmap" class="comision">
        <result column="FECHASALIDA" property="fechaSalida"/>
@@ -123,6 +123,40 @@
                COMISIONID = #comisionId#
     </update>
     
+    <select id="findByID" parameterClass="comision" resultClass="comision">
+   		SELECT  FECHASALIDA,
+                FECHARETORNO,        
+                OBJETIVO,
+                FECHAGESTION,       
+                DESTINO,
+                VIAAEREA,     
+                VIATERRESTRE,   
+                TUUA,   
+                PASAJETERRESTRE,     
+                ASIGNACIONDIARIA,
+                COMISIONID,  
+                ASIGNACIONDIARIAID,
+                FECHAAUTORIZACION,       
+                COMENTARIOESTADO,
+                NUMCERTPRESUPU,
+                NUMSIAF,
+                MONTOTUUA, 
+                MONTOVIATERRESTRE,
+                MONTOVIAAEREA, 
+                MONTOHOSPEDAJE,
+                NUMCOMPROBANTEPAGO,
+                NUMRECIBOING,
+                C_C_CODIGO,
+                ESTADOID,
+                TIPOACTIVIDADID
+      	FROM COMISION
+   		<dynamic prepend="WHERE">
+     	 <isNotEmpty prepend="AND" property="comisionid">
+           COMISIONID = #comisionId#
+      	 </isNotEmpty>
+   		</dynamic>
+	</select>
+    
     <select id="getComisiones" parameterClass="comision" resultMap="comisionmap">
         SELECT  FECHASALIDA,        
                 FECHARETORNO,        
@@ -164,9 +198,6 @@
           FECHASALIDA <![CDATA[<=]]>  #fechaSalidaRangoFinal#
         </isNotEmpty>
       </dynamic>
-      
-     
     </select>
-   
  </sqlMap>
     
