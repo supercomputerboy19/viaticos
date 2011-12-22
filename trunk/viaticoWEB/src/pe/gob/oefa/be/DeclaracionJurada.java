@@ -49,4 +49,17 @@ COMISIONID	NUMBER(10)	N
 	public void setComisionId(Integer comisionId) {
 		this.comisionId = comisionId;
 	}
+	
+	@Override
+    public String toString() {
+	    
+        String cadena = "itemId = " + itemId +"\n" +
+                        "descripcionGasto = " + descripcionGasto +"\n" +
+                        "fecha = " + fecha +"\n" +
+                        "monto = " + monto +"\n" +
+                        "comisionId = " + comisionId +"\n" +
+                         "---------------------------------------------";
+        
+        return cadena;
+	}
 }

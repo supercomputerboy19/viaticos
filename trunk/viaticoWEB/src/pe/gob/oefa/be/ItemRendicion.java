@@ -89,4 +89,22 @@ TIPODOCID	VARCHAR2(8)	Y
 	public void setTipoDocId(String tipoDocId) {
 		this.tipoDocId = tipoDocId;
 	}
+	
+	@Override
+    public String toString() {
+	    
+        String cadena = "descripcionItem = " + descripcionItem +"\n" +
+                        "viaticoId = " + viaticoId +"\n" +
+                        "fecha = " + fecha +"\n" +
+                        "numDocumento = " + numDocumento +"\n" +
+                        "proovedor = " + proovedor +"\n" +
+                        "concepto = " + concepto +"\n" +
+                        "monto = " + monto +"\n" +
+                        "itemId = " + itemId +"\n" +
+                        "comisionId = " + comisionId +"\n" +
+                        "tipoDocId = " + tipoDocId +"\n" +
+                         "---------------------------------------------";
+        
+        return cadena;
+	}
 }

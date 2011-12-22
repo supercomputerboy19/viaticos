@@ -58,4 +58,18 @@ TABLAID	VARCHAR2(4)	Y
 		this.tablaId = tablaId;
 	}
 
+	@Override
+    public String toString() {
+	   
+        String cadena = "parametroId = " + parametroId +"\n" +
+                        "descripcion = " + descripcion +"\n" +
+                        "valor1 = " + valor1 +"\n" +
+                        "valor2 = " + valor2 +"\n" +
+                        "valor3 = " + valor3 +"\n" +
+                        "tablaId = " + tablaId +"\n" +
+                         "---------------------------------------------";
+        
+        return cadena;
+	}
+	
 }
