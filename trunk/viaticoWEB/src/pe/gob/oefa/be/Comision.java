@@ -4,7 +4,9 @@
  */
 package pe.gob.oefa.be;
 
+import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -43,9 +45,13 @@ ESTADOID                    VARCHAR2(8)
 TIPOACTIVIDADID             VARCHAR2(8) 
    */ 
 
-public class Comision {    
+public class Comision implements Serializable {    
     
-    private Date fechaSalida;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Date fechaSalida;
     private String fechaSalidaRangoInicial;
     private String fechaSalidaRangoFinal;
     private Date fechaRetorno;
@@ -72,9 +78,30 @@ public class Comision {
     private String ccCodigo;
     private String estadoId;
     private String tipoActividadId;
- 
+    private DeclaracionJurada declaracionJurada;
+    private List<ItemRendicion> items;
     
-    public String getFechaSalidaRangoFinal() {
+    public DeclaracionJurada getDeclaracionJurada() {
+		return declaracionJurada;
+	}
+
+	public void setDeclaracionJurada(DeclaracionJurada declaracionJurada) {
+		this.declaracionJurada = declaracionJurada;
+	}
+
+	public List<ItemRendicion> getItems() {
+		return items;
+	}
+
+	public void setItems(List<ItemRendicion> items) {
+		this.items = items;
+	}
+
+	public void setFechaSalidaRangoInicial(String fechaSalidaRangoInicial) {
+		this.fechaSalidaRangoInicial = fechaSalidaRangoInicial;
+	}
+
+	public String getFechaSalidaRangoFinal() {
         return fechaSalidaRangoFinal;
     }
 
