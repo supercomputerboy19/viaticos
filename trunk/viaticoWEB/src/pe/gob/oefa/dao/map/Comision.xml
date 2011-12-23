@@ -7,6 +7,38 @@
 
     <typeAlias alias="comision" type="pe.gob.oefa.be.Comision"/>
  
+    <parameterMap id="insertveccomision" class="comision">
+       <parameter property="fechaSalida" javaType="date" mode="IN" jdbcType="DATE"/>
+       <parameter property="fechaRetorno" javaType="date" mode="IN" jdbcType="DATE"/>
+       <parameter property="objetivo" javaType="string" mode="IN" jdbcType="VARCHAR"/>
+       <parameter property="fechaGestion" javaType="date" mode="IN" jdbcType="DATE"/>
+       <parameter property="destino" javaType="string" mode="IN" jdbcType="CHAR"/>
+       <parameter property="viaAerea" javaType="string" mode="IN" jdbcType="CHAR"/>
+       <parameter property="viaTerrestre" javaType="string" mode="IN" jdbcType="CHAR"/>
+       <parameter property="tuua" javaType="string" mode="IN" jdbcType="CHAR"/>
+       <parameter property="pasajeTerrestre" javaType="string" mode="IN" jdbcType="CHAR"/>
+       <parameter property="asignacionDiaria" javaType="string" mode="IN" jdbcType="VARCHAR"/>
+       <parameter property="asigancionDiariaId" javaType="string" mode="IN" jdbcType="VARCHAR"/>
+       <parameter property="fechaAutorizacion" javaType="date" mode="IN" jdbcType="DATE"/>
+       <parameter property="comentarioEstado" javaType="string" mode="IN" jdbcType="VARCHAR"/>
+       <parameter property="numcertpresupu" javaType="string" mode="IN" jdbcType="VARCHAR"/>
+       <parameter property="numSIAF" javaType="string" mode="IN" jdbcType="VARCHAR"/>
+       <parameter property="montoTUUA" javaType="double" mode="IN" jdbcType="NUMBER"/>
+       <parameter property="montoViaTerrestre" javaType="double" mode="IN" jdbcType="NUMBER"/>
+       <parameter property="montoViaAerea" javaType="double" mode="IN" jdbcType="NUMBER"/>
+       <parameter property="montoHospedaje" javaType="double" mode="IN" jdbcType="NUMBER"/>
+       <parameter property="numComprobantePago" javaType="string" mode="IN" jdbcType="VARCHAR"/>
+       <parameter property="numReciboIng" javaType="string" mode="IN" jdbcType="VARCHAR"/>
+       <parameter property="ccCodigo" javaType="string" mode="IN" jdbcType="VARCHAR"/>
+       <parameter property="estadoId" javaType="string" mode="IN" jdbcType="VARCHAR"/>
+       <parameter property="tipoActividadId" javaType="string" mode="IN" jdbcType="VARCHAR"/>
+       <parameter property="comisionId" javaType="int" mode="OUT" jdbcType="NUMBER"/>
+    </parameterMap> 
+ 
+ 	<procedure id="insertComisionSp"  parameterMap="insertveccomision">
+ 	    { call COMISION_PKG.NP_PAYMENTS_MANAGER_PKG.insertComision(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) }
+    </procedure>
+ 
     <resultMap id="comisionmap" class="comision">
        <result column="FECHASALIDA" property="fechaSalida"/>
        <result column="FECHARETORNO" property="fechaRetorno"/>
