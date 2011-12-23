@@ -27,22 +27,20 @@ public class ComisionImplDAO extends SqlMapDaoTemplate implements ComisionDAO {
         super(daoManager);
     }
     
-    public void insertComision(Comision domain) throws DAOException {
+    public Integer insertComision(Comision domain) throws DAOException {
 		
-        try {
-		
-            getSqlMapExecutor().insert("Comision.insertComision",domain);
-		
+    	Integer id = null;
+    	
+    	try {
+    		
+			id = (Integer) getSqlMapExecutor().insert("Comision.insertComision",domain);
+    		
 		} catch (DataAccessException e) {
-				
-	            throw new DAOException(e.getMessage(),e);
-	    		
-		} catch (Exception e) {
-				
+			throw new DAOException(e.getMessage(),e);
+	    } catch (Exception e) {
 		    throw new UnexpectedException(e.getMessage(), e);
-            
         }	
-		
+		return id;
     }
 
     public void updateComision(Comision domain) throws DAOException {

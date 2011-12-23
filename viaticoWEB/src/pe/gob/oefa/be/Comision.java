@@ -78,9 +78,17 @@ public class Comision implements Serializable {
     private String ccCodigo;
     private String estadoId;
     private String tipoActividadId;
+    private String usuarioId;
     private DeclaracionJurada declaracionJurada;
     private List<ItemRendicion> items;
     
+    public String getUsuarioId() {
+ 		return usuarioId;
+ 	}
+
+ 	public void setUsuarioId(String usuarioId) {
+ 		this.usuarioId = usuarioId;
+ 	}
     public DeclaracionJurada getDeclaracionJurada() {
 		return declaracionJurada;
 	}
