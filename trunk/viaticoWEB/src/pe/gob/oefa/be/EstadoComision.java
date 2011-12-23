@@ -24,7 +24,7 @@ public class EstadoComision  implements Serializable {
 	private Date fechaEstado;
 	private String comentario;
 	private Integer comisionId;
-	private String estradoId;
+	private String estadoId;
 	
 	public String getViaticoId() {
 		return viaticoId;
@@ -57,10 +57,10 @@ public class EstadoComision  implements Serializable {
 		this.comisionId = comisionId;
 	}
 	public String getEstradoId() {
-		return estradoId;
+		return estadoId;
 	}
-	public void setEstradoId(String estradoId) {
-		this.estradoId = estradoId;
+	public void setEstadoId(String estadoId) {
+		this.estadoId = estadoId;
 	}	
 	
 	@Override
@@ -71,7 +71,7 @@ public class EstadoComision  implements Serializable {
                         "fechaEstado = " + fechaEstado +"\n" +
                         "comentario = " + comentario +"\n" +
                         "comisionId = " + comisionId +"\n" +
-                        "estradoId = " + estradoId +"\n" +
+                        "estadoId = " + estadoId +"\n" +
                          "---------------------------------------------";
         
         return cadena;

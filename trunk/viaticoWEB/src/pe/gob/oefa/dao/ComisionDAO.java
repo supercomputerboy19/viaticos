@@ -15,7 +15,8 @@ import pe.gob.oefa.exception.DAOException;
  */
 public interface ComisionDAO extends Dao {
     
-    public abstract void insertComision(Comision domain) throws DAOException;
+	public abstract Comision findByID(Comision domain) throws DAOException;
+    public abstract Integer insertComision(Comision domain) throws DAOException;
     public abstract void updateComision(Comision domain) throws DAOException;
     public abstract List<Comision> getComision(Comision domain) throws DAOException;
     
