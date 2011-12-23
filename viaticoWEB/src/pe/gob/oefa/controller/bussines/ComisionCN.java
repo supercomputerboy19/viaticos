@@ -12,7 +12,6 @@ import pe.gob.oefa.dao.DeclaracionJuradaDAO;
 import pe.gob.oefa.dao.EstadoComisionDAO;
 import pe.gob.oefa.dao.ItemRendicionDAO;
 import pe.gob.oefa.dao.ParametroDAO;
-import pe.gob.oefa.exception.DAOException;
 
 public class ComisionCN {
 
