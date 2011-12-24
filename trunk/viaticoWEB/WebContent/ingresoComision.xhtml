@@ -8,7 +8,7 @@
 		<!-- <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" /> -->
 		<title>Registro de sesión</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<link type="text/css" rel="stylesheet" href="css/default.css" />
+		<link type="text/css" rel="stylesheet" href="css/estilo.css" />
 		<link type="text/css" rel="stylesheet" href="css/syntaxhighlighter.css" />
 	</h:head>
 	<h:body>
@@ -21,9 +21,9 @@
               <td height="20">&nbsp;</td>
             </tr>
             <tr>
-              <td align="center" ><strong>CALCULADORA DE VIATICOS - OEFA</strong></td></tr>
+              <td align="center" style="h1" ><strong>CALCULADORA DE VIATICOS - OEFA</strong></td></tr>
             <tr>
-              <td height="25" align="left">Organismo de Evaluación y Fiscalización Ambiente - OEFA</td>
+              <td height="25" align="left" style="h2" >Organismo de Evaluación y Fiscalización Ambiente - OEFA</td>
             </tr>
             <tr>
               <td align="center">
@@ -36,7 +36,7 @@
 	                <legend>DATOS DEL COMISIONADO</legend>
 	                  <table>
 	                    <tr>
-	                      <td>NOMBRES</td>
+	                      <td style="width:70px" >NOMBRES</td>
 	                      <td>&nbsp;<p:inputText id="nombres" value="#{comisionado.nombres}" /></td>
 	                    </tr>
 	                    <tr>
@@ -118,10 +118,18 @@
 			        	<legend>PASAJES</legend>
 			            	<table>
 			                	<tr>
-			                		<td>VIA AREA</td><td><h:selectBooleanCheckbox /></td><td>TUUA</td><td></td>
+			                		<td>VIA AREA</td>
+			                		<td><h:selectBooleanCheckbox /></td>
+			                		<td>&nbsp;</td>
+			                		<td>TUUA</td>
+			                		<td><h:selectBooleanCheckbox /></td>
 			                    </tr>
 			                    <tr>
-			                		<td>VIA TERRESTRE</td><td></td><td>PASAJE TERRESTRE</td><td></td>
+			                		<td>VIA TERRESTRE</td>
+			                		<td><h:selectBooleanCheckbox /></td>
+			                		<td>&nbsp;</td>
+			                		<td>PASAJE TERRESTRE</td>
+			                		<td><h:selectBooleanCheckbox /></td>
 			                    </tr>
 			                </table>
 			        </fieldset>
