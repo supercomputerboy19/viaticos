@@ -21,12 +21,12 @@
               <td height="20">&nbsp;</td>
             </tr>
             <tr>
-              <td align="center" style="h1" ><strong>CALCULADORA DE VIATICOS - OEFA</strong></td></tr>
-            <tr>
+              <td align="center" style="h4" ><strong>CALCULADORA DE VIATICOS - OEFA</strong></td></tr>
+            <!-- <tr>
               <td height="25" align="left" style="h2" >Organismo de Evaluación y Fiscalización Ambiente - OEFA</td>
-            </tr>
+            </tr>-->
             <tr>
-              <td align="center">
+              <td align="justify">
               	Coloque en los recuadros la fecha de salida y la fecha de retorno, incluyendo las horas, para que se pueda calcular su asignación por comisión de servicios.
               </td>
             </tr>
@@ -34,20 +34,18 @@
               <td align="left">
 	              <fieldset>
 	                <legend>DATOS DEL COMISIONADO</legend>
-	                  <table>
+	                  <table width="100%" >
 	                    <tr>
 	                      <td style="width:70px" >NOMBRES</td>
 	                      <td>&nbsp;<p:inputText id="nombres" value="#{comisionado.nombres}" /></td>
+	                      <td>&nbsp;</td>
+	                      <td>DNI</td>
+	                      <td>&nbsp;<p:inputText id="dni" value="#{comisionado.dni}"  size='40' /></td>
 	                    </tr>
 	                    <tr>
 	                      <td>APELLIDOS</td>
 	                      <td>&nbsp;<p:inputText id="apellidos" value="#{comisionado.text}" /></td>
-	                    </tr>
-	                    <tr>
-	                      <td>DNI</td>
-	                      <td>&nbsp;<p:inputText id="dni" value="#{comisionado.dni}" /></td>
-	                    </tr>
-	                    <tr>
+	                      <td>&nbsp;</td>
 	                      <td>SEXO</td>
 	                      <td>&nbsp;<p:inputText id="sexo" value="#{comisionado.sexo}" /></td>
 	                    </tr>
