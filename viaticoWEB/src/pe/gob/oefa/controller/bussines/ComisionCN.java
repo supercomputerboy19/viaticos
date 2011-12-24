@@ -1,5 +1,6 @@
 package pe.gob.oefa.controller.bussines;
 
+import java.util.Date;
 import java.util.List;
 
 import com.ibatis.dao.client.DaoException;
@@ -20,8 +21,18 @@ public class ComisionCN {
 	EstadoComisionDAO estadoComisionDAO = null;
 	ItemRendicionDAO itemRendicionDAO = null;
 	ParametroDAO  parametroDAO = null;
+	private static ComisionCN comisionCN = null;
 	
-	Comision registrarComision(Comision domain) throws Exception {
+	public static synchronized ComisionCN getComisionCN() {
+		
+		if(comisionCN == null) {
+			comisionCN = new ComisionCN();
+		}
+		
+		return comisionCN;
+	}
+	
+	public Comision registrarComision(Comision domain) throws Exception {
 		
 		try {
 			
@@ -33,9 +44,8 @@ public class ComisionCN {
 				estadoComision.setComentario(domain.getComentarioEstado());
 				estadoComision.setComisionId(id);
 				estadoComision.setEstadoId(domain.getEstadoId());
-				estadoComision.setFechaEstado(domain.getFechaGestion());
+				estadoComision.setFechaEstado(new Date());
 				estadoComision.setUsuarioId(domain.getUsuarioId());
-				estadoComision.setViaticoId(null);
 				
 				estadoComisionDAO.insertEstadoComision(estadoComision);
 				
