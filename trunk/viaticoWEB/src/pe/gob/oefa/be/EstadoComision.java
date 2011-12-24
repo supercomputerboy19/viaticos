@@ -19,19 +19,12 @@ public class EstadoComision  implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private String viaticoId;
 	private String usuarioId;
 	private Date fechaEstado;
 	private String comentario;
 	private Integer comisionId;
 	private String estadoId;
 	
-	public String getViaticoId() {
-		return viaticoId;
-	}
-	public void setViaticoId(String viaticoId) {
-		this.viaticoId = viaticoId;
-	}
 	public String getUsuarioId() {
 		return usuarioId;
 	}
@@ -66,8 +59,7 @@ public class EstadoComision  implements Serializable {
 	@Override
     public String toString() {
 	    
-        String cadena = "viaticoId = " + viaticoId +"\n" +
-                        "usuarioId = " + usuarioId +"\n" +
+        String cadena = "usuarioId = " + usuarioId +"\n" +
                         "fechaEstado = " + fechaEstado +"\n" +
                         "comentario = " + comentario +"\n" +
                         "comisionId = " + comisionId +"\n" +
