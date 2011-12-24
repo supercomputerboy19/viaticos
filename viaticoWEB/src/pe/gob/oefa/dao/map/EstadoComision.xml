@@ -9,15 +9,13 @@
  
 	<insert id="insertEstadoComision" parameterClass="estadoComision">
        INSERT INTO ESTADOCOMISION(
-			VIATICOID,			
 			USUARIOID,			
 			FECHAESTADO.			
 			COMENTARIO,		
 			COMISIONID,			
 			ESTADOID	
             ) VALUES (
-            #viaticoId#,
-	        #usuarioId#,
+            #usuarioId#,
 			#fechaEstado#,
 			#comentario#,
 			#comisionId#,
