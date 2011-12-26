@@ -2,7 +2,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CarBean  implements Serializable {
+public class CarBean implements Serializable {
 	private List<Car> cars;
 	public CarBean() {
 	cars = new ArrayList<Car>();
