@@ -37,17 +37,17 @@
 	                  <table width="100%" >
 	                    <tr>
 	                      <td style="width:70px" >NOMBRES</td>
-	                      <td>&nbsp;<p:inputText id="nombres" value="#{comisionado.nombres}" /></td>
+	                      <td>&nbsp;<p:inputText id="nombres" value="#{comisionado.nombres}" size="40" readonly="TRUE" /></td>
 	                      <td>&nbsp;</td>
 	                      <td>DNI</td>
-	                      <td>&nbsp;<p:inputText id="dni" value="#{comisionado.dni}"  size='40' /></td>
+	                      <td>&nbsp;<p:inputText id="dni" value="#{comisionado.dni}" size="8" readonly="TRUE" /></td>
 	                    </tr>
 	                    <tr>
 	                      <td>APELLIDOS</td>
-	                      <td>&nbsp;<p:inputText id="apellidos" value="#{comisionado.text}" /></td>
+	                      <td>&nbsp;<p:inputText id="apellidos" value="#{comisionado.text}" size="40" readonly="TRUE" /></td>
 	                      <td>&nbsp;</td>
 	                      <td>SEXO</td>
-	                      <td>&nbsp;<p:inputText id="sexo" value="#{comisionado.sexo}" /></td>
+	                      <td>&nbsp;<p:inputText id="sexo" value="#{comisionado.sexo}" size="6" readonly="TRUE" /></td>
 	                    </tr>
 	                  </table>
 	              </fieldset>
@@ -60,50 +60,56 @@
 	                  	<tr>
 	                  		<td>Fecha de Salida:</td>
 	                  		<td>
-	                  			<p:calendar id="fechaSalida" value="#{comisionado.fechaSalida}" pattern="dd/MM/yyyy" mode="popup" showOn="button" locale="es" />
+	                  			<p:calendar id="fechaSalida" value="#{comisionado.fechaSalida}" pattern="dd/MM/yyyy" mode="popup" showOn="button" locale="es" readOnlyInputText="TRUE" size="10" />
 	                  		</td>
 	                  		<td>&nbsp;</td>
 	                  		<td>Asignación Diaria: S/.</td>
-	                  		<td><p:inputText id="asignacionDiaria" value="#{comisionado.asignacionDiaria}" /></td>
+	                  		<td>
+	                  			<h:selectOneMenu id="asignacionDiaria">
+									<f:selectItem itemLabel="180" itemValue="180"></f:selectItem>
+									<f:selectItem itemLabel="210" itemValue="210"></f:selectItem>
+									<f:selectItem itemLabel="250" itemValue="250"></f:selectItem>
+								</h:selectOneMenu>
+	                  		</td>
 	                  	</tr>
 	                  	<tr>
 	                  		<td>Fecha de Retorno:</td>
 	                  		<td>
-	                  			<p:calendar id="fechaRetorno" value="#{comisionado.fechaRetorno}" pattern="dd/MM/yyyy" mode="popup" showOn="button" locale="es" />
+	                  			<p:calendar id="fechaRetorno" value="#{comisionado.fechaRetorno}" pattern="dd/MM/yyyy" mode="popup" showOn="button" locale="es" readOnlyInputText="TRUE" size="10" />
 	                  		</td>
 	                  		<td>&nbsp;</td>
 	                  		<td>Destino:</td>
 	                  		<td>
-	                  			<p:inputText id="destino" value="#{comisionado.destino}" />
+	                  			<p:inputText id="destino" value="#{comisionado.destino}" size="60" maxlength="60" />
 	                  		</td>
 	                  	</tr>
 	                  	<tr>
 	                  		<td>Dependencia:</td>
 	                  		<td colspan="4" >
-	                  			<p:inputText id="dependencia" value="#{comisionado.dependencia}" />
+	                  			<p:inputText id="dependencia" value="#{comisionado.dependencia}" size="80" readonly="TRUE" />
 	                  		</td>
 	                  	</tr>
 	                  	<tr>
 	                  		<td>Objetivo:</td>
 	                  		<td colspan="4" >
-	                  			<p:inputText id="objetivo" value="#{comisionado.objetivo}"  requiredMessage="El campo objetivo es obligatorio" />
+	                  			<p:inputText id="objetivo" value="#{comisionado.objetivo}" size="80" maxlength="80" requiredMessage="El campo objetivo es obligatorio" />
 	                  		</td>
 	                  	</tr>
 	                  	<tr>
 	                  		<td>Condición Laboral:</td>
 	                  		<td>
-	                  			<p:inputText id="condicionLaboral" value="#{comisionado.condicionLaboral}" />
+	                  			<p:inputText id="condicionLaboral" value="#{comisionado.condicionLaboral}" maxlength="60" readonly="TRUE" />
 	                  		</td>
 	                  		<td>&nbsp;</td>
 	                  		<td>Cargo:</td>
 	                  		<td>
-	                  			<p:inputText id="cargo" value="#{comisionado.cargo}" />
+	                  			<p:inputText id="cargo" value="#{comisionado.cargo}"  maxlength="60" readonly="TRUE"  />
 	                  		</td>
 	                  	</tr>
 	                  	<tr>
 	                  		<td>Fecha de Gestión:</td>
 	                  		<td colspan="4" >
-	                  			<p:calendar id="fechaGestion" value="#{comisionado.fechaGestion}" pattern="dd/MM/yyyy" mode="popup" showOn="button" locale="es" requiredMessage="El campo gestión es obligatorio" />
+	                  			<p:calendar id="fechaGestion" value="#{comisionado.fechaGestion}" pattern="dd/MM/yyyy" mode="popup" showOn="button" locale="es" requiredMessage="El campo gestión es obligatorio" readOnlyInputText="TRUE" size="10" />
 	                  		</td>
 	                  	</tr>
 	                  </table>
@@ -114,16 +120,15 @@
 	            <td align="left">
 		            <fieldset>
 			        	<legend>PASAJES</legend>
-			            	<table>
+			            	<table width="100%" >
 			                	<tr>
 			                		<td>VIA AREA</td>
 			                		<td><h:selectBooleanCheckbox /></td>
 			                		<td>&nbsp;</td>
 			                		<td>TUUA</td>
 			                		<td><h:selectBooleanCheckbox /></td>
-			                    </tr>
-			                    <tr>
-			                		<td>VIA TERRESTRE</td>
+			                		<td>&nbsp;</td>
+			                    	<td>VIA TERRESTRE</td>
 			                		<td><h:selectBooleanCheckbox /></td>
 			                		<td>&nbsp;</td>
 			                		<td>PASAJE TERRESTRE</td>
