@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pageflow:Pageflow xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf13236532206870" configfile="/viaticoWEB/WebContent/WEB-INF/faces-config.xml"/>
+<pageflow:Pageflow xmlns:pageflow="http://www.sybase.com/suade/pageflow" name="unnamed" comment="" id="pf13236532206870" configfile="/viaticoWEB/WebContent/WEB-INF/faces-config.xml"/>
