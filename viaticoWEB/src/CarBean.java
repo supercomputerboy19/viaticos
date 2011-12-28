@@ -13,6 +13,20 @@ public class CarBean implements Serializable {
 	cars.add(new Car("myModel",2005,"ManufacturerX","blue"));
 	cars.add(new Car("myModel",2005,"ManufacturerX","blue"));
 	cars.add(new Car("myModel",2005,"ManufacturerX","blue"));
+	cars.add(new Car("myModel",2005,"ManufacturerX","blue"));
+	cars.add(new Car("myModel",2005,"ManufacturerX","blue"));
+	cars.add(new Car("myModel",2005,"ManufacturerX","blue"));
+	cars.add(new Car("myModel",2005,"ManufacturerX","blue"));
+	cars.add(new Car("myModel",2005,"ManufacturerX","blue"));
+	cars.add(new Car("myModel",2005,"ManufacturerX","blue"));
+	cars.add(new Car("myModel",2005,"ManufacturerX","blue"));
+	cars.add(new Car("myModel",2005,"ManufacturerX","blue"));
+	cars.add(new Car("myModel",2005,"ManufacturerX","blue"));
+	cars.add(new Car("myModel",2005,"ManufacturerX","blue"));
+	cars.add(new Car("myModel",2005,"ManufacturerX","blue"));
+	cars.add(new Car("myModel",2005,"ManufacturerX","blue"));
+	cars.add(new Car("myModel",2005,"ManufacturerX","blue"));
+	cars.add(new Car("myModel",2005,"ManufacturerX","blue"));
 	//add more cars
 	}
 	public List<Car> getCars() {
