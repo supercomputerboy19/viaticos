@@ -20,7 +20,7 @@ public class Login implements Serializable {
     
 	public String validaSesion(){
 		
-		return "test";
+		return "success";
 	}
 
 	public String getUsr() {
