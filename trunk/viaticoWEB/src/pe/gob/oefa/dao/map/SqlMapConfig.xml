@@ -5,14 +5,16 @@
     <settings useStatementNamespaces="true" />
     <transactionManager type="JDBC" >
         <dataSource type="SIMPLE">
+        	<!-- jdbc:mysql://localhost/prueba -->
             <property name="JDBC.Driver" value="oracle.jdbc.driver.OracleDriver"/>
-            <property name="JDBC.ConnectionURL" value="jdbc:oracle:thin:192.168.1.33@:1521:XE"/>
+            <property name="JDBC.ConnectionURL" value="jdbc:oracle:thin:@localhost:1521:XE"/>
             <property name="JDBC.Username" value="oefa"/>
             <property name="JDBC.Password" value="oefa"/>
         </dataSource>
     </transactionManager>
+    <sqlMap resource="pe/gob/oefa/dao/map/Parametro.xml"/> 
+     <sqlMap resource="pe/gob/oefa/dao/map/Comisionado.xml"/> 
     <sqlMap resource="pe/gob/oefa/dao/map/Comision.xml"/> 
     <sqlMap resource="pe/gob/oefa/dao/map/DeclaracionJurada.xml"/> 
-    <sqlMap resource="pe/gob/oefa/dao/map/ItemRendicion.xml"/> 
-    <sqlMap resource="pe/gob/oefa/dao/map/Pärametro.xml"/> 
+    <sqlMap resource="pe/gob/oefa/dao/map/ItemRendicion.xml"/>     
 </sqlMapConfig>

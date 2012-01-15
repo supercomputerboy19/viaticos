@@ -4,7 +4,8 @@
  */
 package pe.gob.oefa.dao;
  
-import com.ibatis.dao.client.Dao;
+import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 import pe.gob.oefa.be.Parametro;
 import pe.gob.oefa.exception.DAOException;
@@ -13,8 +14,9 @@ import pe.gob.oefa.exception.DAOException;
  *
  * @author root
  */
-public interface ParametroDAO extends Dao {
+public interface ParametroDAO {
     
     public abstract List<Parametro> getParametrosByTabla(Parametro domain) throws DAOException;
     
+    public Parametro getParametroById(String id) throws IOException, SQLException; 
 }

@@ -2,7 +2,7 @@ import java.io.Serializable;
 
 public class Car  implements Serializable {
 	
-	public Car(String model, int year, String manufacturer, String color) {
+	public Car(String model, String year, String manufacturer, String color) {
 		this.model	= model;
 		this.year	= year;
 		this.manufacturer = manufacturer;
@@ -10,7 +10,7 @@ public class Car  implements Serializable {
 	}
 	
 	private String model;
-	private int year;
+	private String year;
 	private String manufacturer;
 	private String color;
 	
@@ -20,10 +20,10 @@ public class Car  implements Serializable {
 	public void setModel(String model) {
 		this.model = model;
 	}
-	public int getYear() {
+	public String getYear() {
 		return year;
 	}
-	public void setYear(int year) {
+	public void setYear(String year) {
 		this.year = year;
 	}
 	public String getManufacturer() {

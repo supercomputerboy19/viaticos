@@ -1,0 +1,45 @@
+<html xmlns="http://www.w3c.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:p="http://primefaces.prime.com.tr/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link type="text/css" rel="stylesheet" href="css/estilo.css" />
+	<link type="text/css" rel="stylesheet" href="css/syntaxhighlighter.css" />
+</h:head>
+<h:body>
+	<table width="971" align="center">
+	<tr>
+		<td colspan="2"><img src="img/cabecera.jpg" alt="" width="971" height="62" /></td>
+	</tr>
+	<tr>
+    	<td colspan="2" align="center" >
+    	<div style="width: 971px" >
+    		<h:form id="buscar" >
+				<p:growl id="messages"/>
+				<p:menubar autoSubmenuDisplay="true">
+			        <p:submenu label="Administrar Comisiones" icon="ui-icon ui-icon-document">
+						<p:menuitem value="Buscar Comisión" action="#{MenuPrincipal.mostrarBuscarComision}" helpText="CTRL+N" />
+			            <p:menuitem value="Registrar Comisión" action="#{MenuPrincipal.mostrarIngresarComision}" helpText="CTRL+O"/>
+					</p:submenu>
+					<p:submenu label="Reporte estadisticos" icon="ui-icon ui-icon-document">
+						<p:menuitem value="Listado de viaticos" url="#" helpText="CTRL+N" />
+			            <p:menuitem value="Resumen estadistico" url="#" helpText="CTRL+O"/>
+					</p:submenu>
+					<p:menuitem value="Salir" url="#" />
+				</p:menubar>
+			</h:form>
+		</div>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" valign="middle" height="400" >
+			<div>
+				<IMG alt="" src="img/oefa_que_es.jpg" />
+			</div>
+		</td>
+	</tr>
+	<tr><td colspan="2"><img src="img/pie.jpg" alt="" width="971" height="40" /></td></tr>
+        </table>
+</h:body>
+</html>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap>
+    <select id="getComisionadoByCodigo" resultClass="pe.gob.oefa.be.Comisionado">
+   		select 
+		  c_c_grupo, 
+		  c_c_codigo, 
+		  c_t_nombre, 
+		  c_t_apellido_paterno, 
+		  c_t_apellido_materno, 
+		  c_t_nombre_completo, 
+		  c_c_situacion_trab, 
+		  c_t_email_inst, 
+		  d_nacimiento, 
+		  c_c_area, 
+		  c_c_puesto, 
+		  c_t_area, 
+		  c_t_puesto, 
+		  c_dni 
+		from
+		  comisionado
+		where
+		  c_c_codigo = #c_c_codigo#
+	</select>
+</sqlMap>
+	

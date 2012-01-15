@@ -71,6 +71,7 @@
 									<f:selectItem itemLabel="250" itemValue="250"></f:selectItem>
 								</h:selectOneMenu>
 	                  		</td>
+	                  		<td></td><td></td><td></td>
 	                  	</tr>
 	                  	<tr>
 	                  		<td>Fecha de Retorno:</td>
@@ -79,19 +80,19 @@
 	                  		</td>
 	                  		<td>&nbsp;</td>
 	                  		<td>Destino:</td>
-	                  		<td>
+	                  		<td colspan="4">
 	                  			<p:inputText id="destino" value="#{comisionado.destino}" size="60" maxlength="60" />
 	                  		</td>
 	                  	</tr>
 	                  	<tr>
 	                  		<td>Dependencia:</td>
-	                  		<td colspan="4" >
+	                  		<td colspan="7" >
 	                  			<p:inputText id="dependencia" value="#{comisionado.dependencia}" size="80" readonly="TRUE" />
 	                  		</td>
 	                  	</tr>
 	                  	<tr>
 	                  		<td>Objetivo:</td>
-	                  		<td colspan="4" >
+	                  		<td colspan="7" >
 	                  			<p:inputText id="objetivo" value="#{comisionado.objetivo}" size="80" maxlength="80" requiredMessage="El campo objetivo es obligatorio" />
 	                  		</td>
 	                  	</tr>
@@ -101,16 +102,12 @@
 	                  			<p:inputText id="condicionLaboral" value="#{comisionado.condicionLaboral}" maxlength="60" readonly="TRUE" />
 	                  		</td>
 	                  		<td>&nbsp;</td>
-	                  		<td>Cargo:</td>
-	                  		<td>
-	                  			<p:inputText id="cargo" value="#{comisionado.cargo}"  maxlength="60" readonly="TRUE"  />
+	                  		<td colspan="2" >Cargo: &nbsp;&nbsp;
+	                  			<p:inputText id="cargo" value="#{comisionado.cargo}" size="44" maxlength="60" readonly="TRUE"  />
 	                  		</td>
-	                  	</tr>
-	                  	<tr>
+	                  		<td>&nbsp;</td>
 	                  		<td>Fecha de Gestión:</td>
-	                  		<td colspan="4" >
-	                  			<p:calendar id="fechaGestion" value="#{comisionado.fechaGestion}" pattern="dd/MM/yyyy" mode="popup" showOn="button" locale="es" requiredMessage="El campo gestión es obligatorio" readOnlyInputText="TRUE" size="10" />
-	                  		</td>
+	                  		<td><p:calendar id="fechaGestion" value="#{comisionado.fechaGestion}" pattern="dd/MM/yyyy" mode="popup" showOn="button" locale="es" requiredMessage="El campo gestión es obligatorio" readOnlyInputText="TRUE" size="10" /></td>
 	                  	</tr>
 	                  </table>
 	                </fieldset>
@@ -138,6 +135,19 @@
 			        </fieldset>
 		        </td>
 	        </tr>
+	        <tr>
+            	<td>
+            	<fieldset>
+			        <legend>DATOS CALCULADOS</legend>
+						<table width="100%" >
+			            	<tr>
+			                	<td class="h1" >2 Días 0 horas</td>
+			                	<td class="h1" >S/. 540.00</td>
+			                </tr>
+						</table>
+				</fieldset>
+            	</td>
+            </tr>
             <tr>
             	<td><img src="img/pie.jpg" alt="" width="971" height="40" /></td>
             </tr>
