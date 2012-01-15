@@ -13,6 +13,9 @@ import pe.gob.oefa.dao.DeclaracionJuradaDAO;
 import pe.gob.oefa.dao.EstadoComisionDAO;
 import pe.gob.oefa.dao.ItemRendicionDAO;
 import pe.gob.oefa.dao.ParametroDAO;
+import pe.gob.oefa.dao.impl.ParametroImplDAO;
+import pe.gob.oefa.exception.DAOException;
+import oracle.jdbc.driver.OracleDriver;
 
 public class ComisionCN {
 
@@ -59,6 +62,18 @@ public class ComisionCN {
 	}
 	
 	public List<Parametro> getParametrosByTabla(Parametro domain) throws Exception {
+		parametroDAO = new ParametroImplDAO();
 		return parametroDAO.getParametrosByTabla(domain);
+	}
+	
+	public Parametro getParametroById(String id){
+		try{
+			parametroDAO = new ParametroImplDAO();
+			Parametro parametro =  parametroDAO.getParametroById(id);
+			return parametro;
+		}catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 }

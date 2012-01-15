@@ -3,49 +3,96 @@ xmlns:h="http://java.sun.com/jsf/html"
 xmlns:f="http://java.sun.com/jsf/core"
 xmlns:p="http://primefaces.prime.com.tr/ui">
 <h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link type="text/css" rel="stylesheet" href="css/estilo.css" />
+	<link type="text/css" rel="stylesheet" href="css/syntaxhighlighter.css" />
 </h:head>
 <h:body>
 	<table width="791" align="center">
-            <tr>
-              <td colspan="2"><img src="img/cabecera.jpg" alt="" width="971" height="62" /></td>
-            </tr>
-    </table>
-    <div style="width: 791px;" align="center" >
-		<h:form>
-			<p:dataTable var="car" value="#{carBean.cars}" paginator="true" rows="10" >
-				<p:column selectionMode="single" /> 
-				<p:column>
-					<f:facet name="header">
-						<h:outputText value="Model" />
-					</f:facet>			
-					<h:outputText value="#{car.model}" />
-				</p:column>
-				
-				<p:column>
-					<f:facet name="header">
-						<h:outputText value="Year" />
-					</f:facet>
-					<h:outputText value="#{car.year}" />
-				</p:column>
-				
-				<p:column>
-					<f:facet name="header">
-						<h:outputText value="Manufacturer" />
-					</f:facet>
-					<h:outputText value="#{car.manufacturer}" />
-				</p:column>
-				
-				<p:column>
-					<f:facet name="header">
-						<h:outputText value="Color" />
-					</f:facet>
-					<h:outputText value="#{car.color}" />
-				</p:column>
-				
-			</p:dataTable>
-		</h:form>
-	</div>
-	 <table width="791" align="center">
+	<tr>
+		<td colspan="2"><img src="img/cabecera.jpg" alt="" width="971" height="62" /></td>
+	</tr>
+	<tr>
+    	<td colspan="2" align="center" >
+    	<div>
+    		<h:form id="buscar" >
+    		<TABLE>
+	    		<tr>
+	    			<td>Apellido Paterno</td>
+	    			<td><p:inputText id="apePaterno" size="30" /></td>
+	    			<td></td>
+	    			<td>Apellido Materno</td>
+	    			<td><p:inputText id="apeMaterno" size="30" /></td>
+	    			<td></td>
+	    			<td>
+	    				<h:commandButton value="Buscar" action="#{Login.validaSesion}" />
+					</td>
+	    		</tr>
+	    		<tr>
+	    			<td>Inicio Fecha de comision</td>
+	    			<td>
+	    				<p:calendar id="fInicioComision" pattern="dd/MM/yyyy" mode="popup" showOn="button" locale="es" readOnlyInputText="TRUE" size="10" />
+	    			</td>
+	    			<td></td>
+	    			<td>Fin Fecha de comision</td>
+	    			<td>
+	    				<p:calendar id="fFinComision" pattern="dd/MM/yyyy" mode="popup" showOn="button" locale="es" readOnlyInputText="TRUE" size="10" />
+	    			</td>
+	    			<td></td>
+	    			<td>
+	    				<h:commandButton value="Regresar" action="#{Login.validaSesion}" />
+	    			</td>
+	    		</tr>
+    		</TABLE>
+    		</h:form>
+    	</div>
+    	</td>
+    </tr>
+    <tr>
+    	<td colspan="2" align="center" >
+	    <div align="center" style="width: 971px;" >
+			<h:form>
+				<p:dataTable var="car" value="#{carBean.cars}" paginator="true" rows="8" >
+					<p:column selectionMode="single" /> 
+					<p:column>
+						<f:facet name="header">
+							<h:outputText value="N° Comision" />
+						</f:facet>
+						<h:outputText value="#{car.color}" />
+					</p:column>
+
+					<p:column>
+						<f:facet name="header">
+							<h:outputText value="Apellido Paterno" />
+						</f:facet>			
+						<h:outputText value="#{car.model}" />
+					</p:column>
+					
+					<p:column>
+						<f:facet name="header">
+							<h:outputText value="Apellido Materno" />
+						</f:facet>
+						<h:outputText value="#{car.year}" />
+					</p:column>
+					
+					<p:column>
+						<f:facet name="header">
+							<h:outputText value="Nombres" />
+						</f:facet>
+						<h:outputText value="#{car.manufacturer}" />
+					</p:column>
+					
+					<p:column>
+						<f:facet name="header"  >
+							<h:outputText value="Rendición de Cuentas" />
+						</f:facet>
+						<h:commandButton value="Registrar" action="#{Login.validaSesion}" />
+					</p:column>
+				</p:dataTable>
+			</h:form>
+		</div>
+		</td>
+	</tr>
 	<tr><td colspan="2"><img src="img/pie.jpg" alt="" width="971" height="40" /></td></tr>
         </table>
 </h:body>

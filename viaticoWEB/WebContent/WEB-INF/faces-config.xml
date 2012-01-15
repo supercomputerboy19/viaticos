@@ -17,17 +17,43 @@
 		<managed-bean-class>pe.gob.oefa.controller.faces.Login</managed-bean-class>
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
+	<managed-bean>
+		<description>Bean que maneja la navegacion</description>
+		<managed-bean-name>MenuPrincipal</managed-bean-name>
+		<managed-bean-class>pe.gob.oefa.controller.faces.MenuPrincipal</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
 	<navigation-rule>
 		<from-view-id>/index.xhtml</from-view-id>
 		<navigation-case>
 		   <from-action>#{Login.validaSesion}</from-action>
 		   <from-outcome>success</from-outcome>
-		   <to-view-id>/buscarComision.xhtml</to-view-id>
+		   <to-view-id>/principal.xhtml</to-view-id>
+		   <redirect />
 		</navigation-case>
 		<navigation-case>
-		<from-action>#{SimpleLogin.validaSesion}</from-action>
-		<from-outcome>fail</from-outcome>
+			<from-action>#{Login.validaSesion}</from-action>
+			<from-outcome>fail</from-outcome>
 			<to-view-id>/index.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/principal.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{MenuPrincipal.mostrarIngresarComision}</from-action>
+			<from-outcome>mostrar</from-outcome>
+			<to-view-id>/ingresoComision.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>principal.xhtml</display-name>
+		<from-view-id>/principal.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{MenuPrincipal.mostrarBuscarComision}</from-action>
+			<from-outcome>mostrar</from-outcome>
+			<to-view-id>/buscarComision.xhtml</to-view-id>
+			<redirect />
 		</navigation-case>
 	</navigation-rule>
 </faces-config>
