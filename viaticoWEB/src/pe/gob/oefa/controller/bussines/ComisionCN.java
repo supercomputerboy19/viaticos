@@ -6,24 +6,27 @@ import java.util.List;
 import com.ibatis.dao.client.DaoException;
 
 import pe.gob.oefa.be.Comision;
+import pe.gob.oefa.be.Comisionado;
 import pe.gob.oefa.be.EstadoComision;
 import pe.gob.oefa.be.Parametro;
 import pe.gob.oefa.dao.ComisionDAO;
+import pe.gob.oefa.dao.ComisionadoDAO;
 import pe.gob.oefa.dao.DeclaracionJuradaDAO;
 import pe.gob.oefa.dao.EstadoComisionDAO;
 import pe.gob.oefa.dao.ItemRendicionDAO;
 import pe.gob.oefa.dao.ParametroDAO;
+import pe.gob.oefa.dao.impl.ComisionadoImplDAO;
 import pe.gob.oefa.dao.impl.ParametroImplDAO;
 import pe.gob.oefa.exception.DAOException;
-import oracle.jdbc.driver.OracleDriver;
 
 public class ComisionCN {
 
-	ComisionDAO comisionDAO = null;
+	ComisionDAO	comisionDAO = null;
 	DeclaracionJuradaDAO declaracionJuradaDAO = null;
 	EstadoComisionDAO estadoComisionDAO = null;
 	ItemRendicionDAO itemRendicionDAO = null;
 	ParametroDAO  parametroDAO = null;
+	ComisionadoDAO comisionadoDAO = null;
 	private static ComisionCN comisionCN = null;
 	
 	public static synchronized ComisionCN getComisionCN() {
@@ -76,4 +79,17 @@ public class ComisionCN {
 			return null;
 		}
 	}
+	
+	public Comisionado getComisionadoByCodigo(String codigo){
+		comisionadoDAO = new ComisionadoImplDAO();
+		Comisionado comisionado;
+		try {
+			comisionado = comisionadoDAO.findByCodigo(codigo);
+		} catch (DAOException e) {
+			comisionado = null;
+			e.printStackTrace();
+		}
+		return comisionado;
+	}
+	
 }

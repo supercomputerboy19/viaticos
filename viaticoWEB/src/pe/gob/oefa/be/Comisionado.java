@@ -20,7 +20,14 @@ public class Comisionado implements Serializable{
 	private String c_t_area; 
 	private String c_t_puesto; 
 	private String c_dni; 
+	private String c_sexo;
 	
+	public String getC_sexo() {
+		return c_sexo;
+	}
+	public void setC_sexo(String c_sexo) {
+		this.c_sexo = c_sexo;
+	}
 	public String getC_c_grupo() {
 		return c_c_grupo;
 	}

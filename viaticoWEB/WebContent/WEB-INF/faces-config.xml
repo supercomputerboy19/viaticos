@@ -23,6 +23,26 @@
 		<managed-bean-class>pe.gob.oefa.controller.faces.MenuPrincipal</managed-bean-class>
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>IngresoComision</managed-bean-name>
+		<managed-bean-class>pe.gob.oefa.controller.faces.IngresoComision</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>BuscarComision</managed-bean-name>
+		<managed-bean-class>pe.gob.oefa.controller.faces.BuscarComision</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>Comision</managed-bean-name>
+		<managed-bean-class>pe.gob.oefa.be.Comision</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>Comisionado</managed-bean-name>
+		<managed-bean-class>pe.gob.oefa.be.Comisionado</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
 	<navigation-rule>
 		<from-view-id>/index.xhtml</from-view-id>
 		<navigation-case>
@@ -40,20 +60,37 @@
 	<navigation-rule>
 		<from-view-id>/principal.xhtml</from-view-id>
 		<navigation-case>
-			<from-action>#{MenuPrincipal.mostrarIngresarComision}</from-action>
-			<from-outcome>mostrar</from-outcome>
+			<from-action>#{IngresoComision.mostrar}</from-action>
+			<from-outcome>success</from-outcome>
 			<to-view-id>/ingresoComision.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
-		<display-name>principal.xhtml</display-name>
 		<from-view-id>/principal.xhtml</from-view-id>
 		<navigation-case>
-			<from-action>#{MenuPrincipal.mostrarBuscarComision}</from-action>
-			<from-outcome>mostrar</from-outcome>
+			<from-action>#{BuscarComision.mostrar}</from-action>
+			<from-outcome>success</from-outcome>
 			<to-view-id>/buscarComision.xhtml</to-view-id>
 			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>ingresoComision.xhtml</display-name>
+		<from-view-id>/ingresoComision.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{IngresoComision.registrar}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/ingresoComision.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>ingresoComision.xhtml</display-name>
+		<from-view-id>/ingresoComision.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{MenuPrincipal.mostrar}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/principal.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 </faces-config>

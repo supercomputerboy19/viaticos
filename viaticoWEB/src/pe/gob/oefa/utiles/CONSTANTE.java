@@ -14,4 +14,6 @@ public class CONSTANTE {
 	public static final String MENSAJE_LOGIN = "El usuario no existe";
 	public static final String MENSAJE_LOGIN_NO_USUARIO = "Debe ingresar un nombred usuario";
 	public static final String MENSAJE_LOGIN_ERROR = "Error al iniciar sesión";
+	public static final String COMISIONADO = "comisionado";
+	public static final String SUCCESS = "success";
 }
