@@ -19,7 +19,8 @@
 		  c_c_puesto, 
 		  c_t_area, 
 		  c_t_puesto, 
-		  c_dni 
+		  c_dni,
+		  c_sexo
 		from
 		  comisionado
 		where

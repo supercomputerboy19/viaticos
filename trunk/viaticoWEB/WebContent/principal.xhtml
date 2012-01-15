@@ -19,8 +19,8 @@ xmlns:p="http://primefaces.prime.com.tr/ui">
 				<p:growl id="messages"/>
 				<p:menubar autoSubmenuDisplay="true">
 			        <p:submenu label="Administrar Comisiones" icon="ui-icon ui-icon-document">
-						<p:menuitem value="Buscar Comisión" action="#{MenuPrincipal.mostrarBuscarComision}" helpText="CTRL+N" />
-			            <p:menuitem value="Registrar Comisión" action="#{MenuPrincipal.mostrarIngresarComision}" helpText="CTRL+O"/>
+						<p:menuitem value="Buscar Comisión" action="#{BuscarComision.mostrar}" helpText="CTRL+N" />
+			            <p:menuitem value="Registrar Comisión" action="#{IngresoComision.mostrar}" helpText="CTRL+O"/>
 					</p:submenu>
 					<p:submenu label="Reporte estadisticos" icon="ui-icon ui-icon-document">
 						<p:menuitem value="Listado de viaticos" url="#" helpText="CTRL+N" />

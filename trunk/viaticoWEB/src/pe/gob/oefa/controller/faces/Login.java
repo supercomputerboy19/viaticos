@@ -1,9 +1,9 @@
 package pe.gob.oefa.controller.faces;
 
-
 import java.io.Serializable;
 import java.util.Map;
 
+import pe.gob.oefa.be.Comisionado;
 import pe.gob.oefa.be.Parametro;
 import pe.gob.oefa.controller.bussines.ComisionCN;
 import pe.gob.oefa.utiles.CONSTANTE;
@@ -54,9 +54,15 @@ public class Login implements Serializable {
 					return "fail";
 				}
 			}
+			
+			Comisionado comisionado = oComisionCN.getComisionadoByCodigo(login.getUsr());
+			
 			Map<String,Object> mapSession = Utiles.getSession();
 			mapSession.put("user", login.getUsr());
 			mapSession.put("perfilId", parametro.getParametroId());
+			mapSession.put(CONSTANTE.COMISIONADO, comisionado);
+			
+			
 			return "success";
 		}catch (Exception e) {
 			e.printStackTrace();

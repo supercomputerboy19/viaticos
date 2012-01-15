@@ -11,9 +11,10 @@
 		<link type="text/css" rel="stylesheet" href="css/estilo.css" />
 		<link type="text/css" rel="stylesheet" href="css/syntaxhighlighter.css" />
 	</h:head>
+	<f:view>
 	<h:body>
-        <h:form id="acceso" >
-        <table width="791" align="center">
+        <h:form id="ingresoComision" >
+        <table width="971" align="center">
             <tr>
               <td><img src="img/cabecera.jpg" alt="" width="971" height="62" /></td>
             </tr>
@@ -32,25 +33,33 @@
             </tr>
             <tr>
               <td align="left">
-	              <fieldset>
-	                <legend>DATOS DEL COMISIONADO</legend>
-	                  <table width="100%" >
-	                    <tr>
-	                      <td style="width:70px" >NOMBRES</td>
-	                      <td>&nbsp;<p:inputText id="nombres" value="#{comisionado.nombres}" size="40" readonly="TRUE" /></td>
-	                      <td>&nbsp;</td>
-	                      <td>DNI</td>
-	                      <td>&nbsp;<p:inputText id="dni" value="#{comisionado.dni}" size="8" readonly="TRUE" /></td>
-	                    </tr>
-	                    <tr>
-	                      <td>APELLIDOS</td>
-	                      <td>&nbsp;<p:inputText id="apellidos" value="#{comisionado.text}" size="40" readonly="TRUE" /></td>
-	                      <td>&nbsp;</td>
-	                      <td>SEXO</td>
-	                      <td>&nbsp;<p:inputText id="sexo" value="#{comisionado.sexo}" size="6" readonly="TRUE" /></td>
-	                    </tr>
-	                  </table>
-	              </fieldset>
+              	<table><tr>
+              	  <td width="800">
+		            <fieldset>
+		                <legend>DATOS DEL COMISIONADO</legend>
+		                  <table width="100%" >
+		                    <tr>
+		                      <td style="width:70px" >NOMBRES</td>
+		                      <td>&nbsp;<p:inputText id="nombres" value="#{IngresoComision.nombres}" size="40" readonly="TRUE" /></td>
+		                      <td>&nbsp;</td>
+		                      <td>DNI</td>
+		                      <td>&nbsp;<p:inputText id="dni" value="#{IngresoComision.dni}" size="8" readonly="TRUE" /></td>
+		                    </tr>
+		                    <tr>
+		                      <td>APELLIDOS</td>
+		                      <td>&nbsp;<p:inputText id="apellidos" value="#{IngresoComision.apellidos}" size="40" readonly="TRUE" /></td>
+		                      <td>&nbsp;</td>
+		                      <td>SEXO</td>
+		                      <td>&nbsp;<p:inputText id="sexo" value="#{IngresoComision.sexo}" size="6" readonly="TRUE" /></td>
+		                    </tr>
+		                  </table>
+		              </fieldset>
+	              </td><td align="center" >
+	              	<h:commandButton value="Registrar" action="#{IngresoComision.registrar}" />
+	              	<br/>
+	              	<h:commandButton value="Regresar" action="#{MenuPrincipal.mostrar}" />
+	              </td>
+	            </tr></table>
               </td>
             </tr>
             <tr>
@@ -60,7 +69,7 @@
 	                  	<tr>
 	                  		<td>Fecha de Salida:</td>
 	                  		<td>
-	                  			<p:calendar id="fechaSalida" value="#{comisionado.fechaSalida}" pattern="dd/MM/yyyy" mode="popup" showOn="button" locale="es" readOnlyInputText="TRUE" size="10" />
+	                  			<p:calendar id="fechaSalida"  pattern="dd/MM/yyyy" mode="popup" showOn="button" locale="es" readOnlyInputText="TRUE" size="10" />
 	                  		</td>
 	                  		<td>&nbsp;</td>
 	                  		<td>Asignación Diaria: S/.</td>
@@ -76,38 +85,38 @@
 	                  	<tr>
 	                  		<td>Fecha de Retorno:</td>
 	                  		<td>
-	                  			<p:calendar id="fechaRetorno" value="#{comisionado.fechaRetorno}" pattern="dd/MM/yyyy" mode="popup" showOn="button" locale="es" readOnlyInputText="TRUE" size="10" />
+	                  			<p:calendar id="fechaRetorno" pattern="dd/MM/yyyy" mode="popup" showOn="button" locale="es" readOnlyInputText="TRUE" size="10" />
 	                  		</td>
 	                  		<td>&nbsp;</td>
 	                  		<td>Destino:</td>
 	                  		<td colspan="4">
-	                  			<p:inputText id="destino" value="#{comisionado.destino}" size="60" maxlength="60" />
+	                  			<p:inputText id="destino" size="60" maxlength="60" />
 	                  		</td>
 	                  	</tr>
 	                  	<tr>
 	                  		<td>Dependencia:</td>
 	                  		<td colspan="7" >
-	                  			<p:inputText id="dependencia" value="#{comisionado.dependencia}" size="80" readonly="TRUE" />
+	                  			<p:inputText id="dependencia" value="#{IngresoComision.dependencia}" size="80" readonly="TRUE" />
 	                  		</td>
 	                  	</tr>
 	                  	<tr>
 	                  		<td>Objetivo:</td>
 	                  		<td colspan="7" >
-	                  			<p:inputText id="objetivo" value="#{comisionado.objetivo}" size="80" maxlength="80" requiredMessage="El campo objetivo es obligatorio" />
+	                  			<p:inputText id="objetivo" size="80" maxlength="80" requiredMessage="El campo objetivo es obligatorio" />
 	                  		</td>
 	                  	</tr>
 	                  	<tr>
 	                  		<td>Condición Laboral:</td>
 	                  		<td>
-	                  			<p:inputText id="condicionLaboral" value="#{comisionado.condicionLaboral}" maxlength="60" readonly="TRUE" />
+	                  			<p:inputText id="condicionLaboral" value="#{IngresoComision.condicionLaboral}" maxlength="60" readonly="TRUE" />
 	                  		</td>
 	                  		<td>&nbsp;</td>
 	                  		<td colspan="2" >Cargo: &nbsp;&nbsp;
-	                  			<p:inputText id="cargo" value="#{comisionado.cargo}" size="44" maxlength="60" readonly="TRUE"  />
+	                  			<p:inputText id="cargo" value="#{IngresoComision.cargo}" size="44" maxlength="60" readonly="TRUE"  />
 	                  		</td>
 	                  		<td>&nbsp;</td>
 	                  		<td>Fecha de Gestión:</td>
-	                  		<td><p:calendar id="fechaGestion" value="#{comisionado.fechaGestion}" pattern="dd/MM/yyyy" mode="popup" showOn="button" locale="es" requiredMessage="El campo gestión es obligatorio" readOnlyInputText="TRUE" size="10" /></td>
+	                  		<td><p:calendar id="fechaGestion" pattern="dd/MM/yyyy" mode="popup" showOn="button" locale="es" requiredMessage="El campo gestión es obligatorio" readOnlyInputText="TRUE" size="10" /></td>
 	                  	</tr>
 	                  </table>
 	                </fieldset>
@@ -154,4 +163,5 @@
         </table>
 		</h:form>
 	</h:body>
+	</f:view>
 </html>
