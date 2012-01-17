@@ -1,14 +1,19 @@
 package pe.gob.oefa.controller.faces;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Map;
 
 import pe.gob.oefa.be.Comision;
 import pe.gob.oefa.be.Comisionado;
+import pe.gob.oefa.controller.bussines.ComisionCN;
 import pe.gob.oefa.utiles.CONSTANTE;
 import pe.gob.oefa.utiles.Utiles;
 
 public class IngresoComision implements Serializable {
+	private Comision comision;
+	
+	private static final long serialVersionUID = -3662028712521578121L;
 	
 	private String nombres;
 	private String apellidos;
@@ -17,15 +22,53 @@ public class IngresoComision implements Serializable {
 	private String cargo;
 	private String dependencia;
 	private String condicionLaboral;
-	private Comision comision;
+	private Date fechaSalida;
+	private Date fechaRetorno;
+	private String destino;
+	private String objetivo;
+	private Date fechaGestion;
+	private String asignacionDiaria;
 	
-	private static final long serialVersionUID = -3662028712521578121L;
-	
-	
-	public IngresoComision(){
-		
+	public Date getFechaSalida() {
+		return fechaSalida;
 	}
 
+	public void setFechaSalida(Date fechaSalida) {
+		this.fechaSalida = fechaSalida;
+	}
+
+	public Date getFechaRetorno() {
+		return fechaRetorno;
+	}
+
+	public void setFechaRetorno(Date fechaRetorno) {
+		this.fechaRetorno = fechaRetorno;
+	}
+
+	public String getDestino() {
+		return destino;
+	}
+
+	public void setDestino(String destino) {
+		this.destino = destino;
+	}
+
+	public String getObjetivo() {
+		return objetivo;
+	}
+
+	public void setObjetivo(String objetivo) {
+		this.objetivo = objetivo;
+	}
+
+	public Date getFechaGestion() {
+		return fechaGestion;
+	}
+
+	public void setFechaGestion(Date fechaGestion) {
+		this.fechaGestion = fechaGestion;
+	}
+	
 	public String getDependencia() {
 		return dependencia;
 	}
@@ -41,8 +84,6 @@ public class IngresoComision implements Serializable {
 	public void setCondicionLaboral(String condicionLaboral) {
 		this.condicionLaboral = condicionLaboral;
 	}
-
-	
 
 	public String getNombres() {
 		return nombres;
@@ -91,6 +132,10 @@ public class IngresoComision implements Serializable {
 	public void setComision(Comision comision) {
 		this.comision = comision;
 	}
+
+	public IngresoComision(){
+		
+	}
 	
 	public String mostrar(){
 		try{
@@ -111,14 +156,38 @@ public class IngresoComision implements Serializable {
 			
 			System.out.println("Fin Ingresar Comision");
 			return CONSTANTE.SUCCESS;
-		}catch (Exception e) {
+		}catch(Exception e){
 			e.printStackTrace();
 			return null;
 		}
 	}
+	
 	public String registrar(){
-		
+		try{
+			Map<String, Object> mapSession = Utiles.getSession();
+			Comisionado comisionado = (Comisionado) mapSession.get(CONSTANTE.COMISIONADO);
+			
+			comision.setCcCodigo(comisionado.getC_c_codigo());
+			
+			comision.setDestino(destino);
+			comision.setFechaSalida(fechaSalida);
+			comision.setFechaRetorno(fechaRetorno);
+			comision.setFechaGestion(fechaGestion);
+			comision.setObjetivo(objetivo);
+			comision.setAsignacionDiaria(asignacionDiaria);
+			comision.setFechaSalida(fechaSalida);
+			
+			comision.setViaAerea(comision.getViaAerea());
+			comision.setViaTerrestre(comision.getViaTerrestre());
+			comision.setTuua(comision.getTuua());
+			comision.setPasajeTerrestre(comision.getPasajeTerrestre());
+			
+			ComisionCN comisionCN = new ComisionCN();
+			comisionCN.registrarComision(comision);
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 		return CONSTANTE.SUCCESS;
 	}
-
 }
