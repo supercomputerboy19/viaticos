@@ -58,10 +58,10 @@ public class Comision implements Serializable {
     private String objetivo;
     private Date fechaGestion;
     private String destino;
-    private String viaAerea;
-    private String viaTerrestre;
-    private String tuua;
-    private String pasajeTerrestre;
+    private Boolean viaAerea;
+    private Boolean viaTerrestre;
+    private Boolean tuua;
+    private Boolean pasajeTerrestre;
     private String asignacionDiaria;
     private Integer comisionId;
     private String asigancionDiariaId;
@@ -285,11 +285,11 @@ public class Comision implements Serializable {
         this.objetivo = objetivo;
     }
 
-    public String getPasajeTerrestre() {
+    public Boolean getPasajeTerrestre() {
         return pasajeTerrestre;
     }
 
-    public void setPasajeTerrestre(String pasajeTerrestre) {
+    public void setPasajeTerrestre(Boolean pasajeTerrestre) {
         this.pasajeTerrestre = pasajeTerrestre;
     }
 
@@ -301,27 +301,27 @@ public class Comision implements Serializable {
         this.tipoActividadId = tipoActividadId;
     }
 
-    public String getTuua() {
+    public Boolean getTuua() {
         return tuua;
     }
 
-    public void setTuua(String tuua) {
+    public void setTuua(Boolean tuua) {
         this.tuua = tuua;
     }
 
-    public String getViaAerea() {
+    public Boolean getViaAerea() {
         return viaAerea;
     }
 
-    public void setViaAerea(String viaAerea) {
+    public void setViaAerea(Boolean viaAerea) {
         this.viaAerea = viaAerea;
     }
 
-    public String getViaTerrestre() {
+    public Boolean getViaTerrestre() {
         return viaTerrestre;
     }
 
-    public void setViaTerrestre(String viaTerrestre) {
+    public void setViaTerrestre(Boolean viaTerrestre) {
         this.viaTerrestre = viaTerrestre;
     }
     

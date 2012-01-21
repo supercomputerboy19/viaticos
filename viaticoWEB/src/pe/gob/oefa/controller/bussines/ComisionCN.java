@@ -15,7 +15,11 @@ import pe.gob.oefa.dao.DeclaracionJuradaDAO;
 import pe.gob.oefa.dao.EstadoComisionDAO;
 import pe.gob.oefa.dao.ItemRendicionDAO;
 import pe.gob.oefa.dao.ParametroDAO;
+import pe.gob.oefa.dao.impl.ComisionImplDAO;
 import pe.gob.oefa.dao.impl.ComisionadoImplDAO;
+import pe.gob.oefa.dao.impl.DeclaracionJuradaImplDAO;
+import pe.gob.oefa.dao.impl.EstadoComisionImplDAO;
+import pe.gob.oefa.dao.impl.ItemRendicionImplDAO;
 import pe.gob.oefa.dao.impl.ParametroImplDAO;
 import pe.gob.oefa.exception.DAOException;
 
@@ -28,6 +32,15 @@ public class ComisionCN {
 	ParametroDAO  parametroDAO = null;
 	ComisionadoDAO comisionadoDAO = null;
 	private static ComisionCN comisionCN = null;
+	
+	private ComisionCN(){
+		comisionDAO = new ComisionImplDAO();
+		declaracionJuradaDAO = new DeclaracionJuradaImplDAO(null);
+		estadoComisionDAO = new EstadoComisionImplDAO();
+		itemRendicionDAO = new ItemRendicionImplDAO(null);
+		parametroDAO = new ParametroImplDAO();
+		comisionadoDAO = new ComisionadoImplDAO();
+	}
 	
 	public static synchronized ComisionCN getComisionCN() {
 		

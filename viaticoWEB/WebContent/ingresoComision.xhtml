@@ -1,11 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	  xmlns:h="http://java.sun.com/jsf/html"
 	  xmlns:f="http://java.sun.com/jsf/core"
 	  xmlns:p="http://primefaces.org/ui" >
 	<h:head>
-		<!-- <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" /> -->
 		<title>Registro de sesión</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<link type="text/css" rel="stylesheet" href="css/estilo.css" />
@@ -19,7 +16,24 @@
               <td><img src="img/cabecera.jpg" alt="" width="971" height="62" /></td>
             </tr>
             <tr>
-              <td height="20">&nbsp;</td>
+              <td height="20">
+				<h:form id="buscar" >
+				<p:menubar autoSubmenuDisplay="true" style="width: 965px;" >
+			        <p:submenu label="Comision de Servicios" icon="ui-icon ui-icon-document" >
+						<p:menuitem value="Requerimiento de comision" action="#{BuscarComision.mostrar}" style="align:left" />
+			            <p:menuitem value="Registrar Comisión" action="#{IngresoComision.mostrar}" helpText="CTRL+O"/>
+					</p:submenu>
+					<p:submenu label="Generacion de Planilla de viaticos" icon="ui-icon ui-icon-document">
+						<p:menuitem value="Calculo de viaticos" url="#" helpText="CTRL+N" />
+					</p:submenu>
+					<p:submenu label="Rendición de gastos" icon="ui-icon ui-icon-document">
+						<p:menuitem value="Declaracion Jurada" url="#" helpText="CTRL+N" />
+						<p:menuitem value="Rendición de comisión" url="#" helpText="CTRL+N" />
+					</p:submenu>
+					<p:menuitem value="Salir" url="#" />
+				</p:menubar>
+				</h:form>
+			  </td>
             </tr>
             <tr>
               <td align="center" style="h4" ><strong>CALCULADORA DE VIATICOS - OEFA</strong></td></tr>
@@ -40,24 +54,29 @@
 		                  <table width="100%" >
 		                    <tr>
 		                      <td style="width:70px" >NOMBRES</td>
-		                      <td>&nbsp;<p:inputText id="nombres" value="#{IngresoComision.nombres}" size="40" readonly="TRUE" /></td>
-		                      <td>&nbsp;</td>
+		                      <td> <p:inputText id="nombres" value="#{IngresoComision.nombres}" size="40" readonly="TRUE" /></td>
+		                      <td> </td>
 		                      <td>DNI</td>
-		                      <td>&nbsp;<p:inputText id="dni" value="#{IngresoComision.dni}" size="8" readonly="TRUE" /></td>
+		                      <td> <p:inputText id="dni" value="#{IngresoComision.dni}" size="8" readonly="TRUE" /></td>
 		                    </tr>
 		                    <tr>
 		                      <td>APELLIDOS</td>
-		                      <td>&nbsp;<p:inputText id="apellidos" value="#{IngresoComision.apellidos}" size="40" readonly="TRUE" /></td>
-		                      <td>&nbsp;</td>
+		                      <td> <p:inputText id="apellidos" value="#{IngresoComision.apellidos}" size="40" readonly="TRUE" /></td>
+		                      <td> </td>
 		                      <td>SEXO</td>
-		                      <td>&nbsp;<p:inputText id="sexo" value="#{IngresoComision.sexo}" size="6" readonly="TRUE" /></td>
+		                      <td> <p:inputText id="sexo" value="#{IngresoComision.sexo}" size="6" readonly="TRUE" /></td>
 		                    </tr>
 		                  </table>
 		              </fieldset>
 	              </td><td align="center" >
-	              	<p:commandButton value="Registrar" action="#{IngresoComision.registrar}" ajax="false" />
-	              	<br/><br/>
-	              	<p:commandButton value="Regresar" action="#{MenuPrincipal.mostrar}" ajax="false" immediate="true" />
+	              	<table>
+	              		<tr>
+	              			<td><p:commandButton value="Registrar" action="#{IngresoComision.registrar}" ajax="false" /></td>
+	              		</tr>
+	              		<tr>
+	              			<td><p:commandButton value="Regresar" action="#{MenuPrincipal.mostrar}" ajax="false" immediate="true" /></td>
+	              		</tr>
+	              	</table>
 	              </td>
 	            </tr></table>
               </td>
@@ -74,7 +93,7 @@
 	                  			</p:calendar>
 	                  			<p:message for="fechaSalida" />
 	                  		</td>
-	                  		<td>&nbsp;</td>
+	                  		<td> </td>
 	                  		<td>Asignación Diaria: S/.</td>
 	                  		<td>
 	                  			<p:selectOneMenu id="asignacionDiaria" value="#{IngresoComision.comision.asignacionDiaria}" style="width:120px" > 
@@ -93,7 +112,7 @@
 	                  			</p:calendar>
 	                  			<p:message for="fechaRetorno" />
 	                  		</td>
-	                  		<td>&nbsp;</td>
+	                  		<td> </td>
 	                  		<td>Destino:</td>
 	                  		<td colspan="4">
 	                  			<p:inputText id="destino" size="60" value="#{IngresoComision.destino}" maxlength="60" required="true">
@@ -122,11 +141,11 @@
 	                  		<td>
 	                  			<p:inputText id="condicionLaboral" value="#{IngresoComision.condicionLaboral}" maxlength="60" readonly="TRUE" />
 	                  		</td>
-	                  		<td>&nbsp;</td>
-	                  		<td colspan="2" >Cargo: &nbsp;&nbsp;
+	                  		<td> </td>
+	                  		<td colspan="2" >Cargo:   
 	                  			<p:inputText id="cargo" value="#{IngresoComision.cargo}" size="44" maxlength="60" readonly="TRUE" />
 	                  		</td>
-	                  		<td>&nbsp;</td>
+	                  		<td> </td>
 	                  		<td>Fecha de Gestión:</td>
 	                  		<td>
 	                  			<p:calendar id="fechaGestion" value="#{IngresoComision.fechaGestion}" pattern="dd/MM/yyyy" mode="popup" showOn="button" locale="es" required="true" readOnlyInputText="TRUE" size="10" >
@@ -149,20 +168,20 @@
 			                		<td>
 			                			<p:selectBooleanCheckbox id="viaAerea" value="#{IngresoComision.comision.viaAerea}" /> 
 			                		</td>
-			                		<td>&nbsp;</td>
+			                		<td> </td>
 			                		<td>TUUA</td>
 			                		<td>
 			                			<p:selectBooleanCheckbox id="tuua" value="#{IngresoComision.comision.tuua}" /> 
 			                		</td>
-			                		<td>&nbsp;</td>
+			                		<td> </td>
 			                    	<td>VIA TERRESTRE</td>
 			                		<td>
 			                			<p:selectBooleanCheckbox id="viaTerrestre" value="#{IngresoComision.comision.viaTerrestre}" /> 
 			                		</td>
-			                		<td>&nbsp;</td>
+			                		<td> </td>
 			                		<td>PASAJE TERRESTRE</td>
 			                		<td>
-			                			<p:inputText id="pasajeTerrestre" value="#{IngresoComision.comision.pasajeTerrestre}" /> 
+			                			<p:selectBooleanCheckbox id="pasajeTerrestre" value="#{IngresoComision.comision.pasajeTerrestre}" /> 
 			                		</td>
 			                    </tr>
 			                </table>

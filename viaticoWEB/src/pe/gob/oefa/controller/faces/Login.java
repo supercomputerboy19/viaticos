@@ -20,7 +20,7 @@ public class Login implements Serializable {
     private ComisionCN oComisionCN;
     
     public Login(){
-    	oComisionCN = new ComisionCN();
+    	oComisionCN = ComisionCN.getComisionCN();
     }
     
 	public String validaSesion(){

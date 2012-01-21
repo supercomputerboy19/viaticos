@@ -4,7 +4,6 @@
  */
 package pe.gob.oefa.dao;
  
-import com.ibatis.dao.client.Dao;
 import java.util.List;
 import pe.gob.oefa.be.Comision;
 import pe.gob.oefa.exception.DAOException;
@@ -13,7 +12,7 @@ import pe.gob.oefa.exception.DAOException;
  *
  * @author root
  */
-public interface ComisionDAO extends Dao {
+public interface ComisionDAO {
     
 	public abstract Comision findByID(Comision domain) throws DAOException;
     public abstract Integer insertComision(Comision domain) throws DAOException;

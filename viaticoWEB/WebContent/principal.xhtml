@@ -14,17 +14,18 @@ xmlns:p="http://primefaces.org/ui">
 	</tr>
 	<tr>
     	<td colspan="2" align="center" >
-    	
     		<h:form id="buscar" >
-				<p:growl id="messages"/>
-				<p:menubar autoSubmenuDisplay="true">
-			        <p:submenu label="Administrar Comisiones" icon="ui-icon ui-icon-document">
-						<p:menuitem value="Buscar Comisión" action="#{BuscarComision.mostrar}" helpText="CTRL+N" />
+				<p:menubar autoSubmenuDisplay="true" style="width: 965px;" >
+			        <p:submenu label="Comision de Servicios" icon="ui-icon ui-icon-document" >
+						<p:menuitem value="Requerimiento de comision" action="#{BuscarComision.mostrar}" style="align:left" />
 			            <p:menuitem value="Registrar Comisión" action="#{IngresoComision.mostrar}" helpText="CTRL+O"/>
 					</p:submenu>
-					<p:submenu label="Reporte estadisticos" icon="ui-icon ui-icon-document">
-						<p:menuitem value="Listado de viaticos" url="#" helpText="CTRL+N" />
-			            <p:menuitem value="Resumen estadistico" url="#" helpText="CTRL+O"/>
+					<p:submenu label="Generacion de Planilla de viaticos" icon="ui-icon ui-icon-document">
+						<p:menuitem value="Calculo de viaticos" url="#" helpText="CTRL+N" />
+					</p:submenu>
+					<p:submenu label="Rendición de gastos" icon="ui-icon ui-icon-document">
+						<p:menuitem value="Declaracion Jurada" url="#" helpText="CTRL+N" />
+						<p:menuitem value="Rendición de comisión" url="#" helpText="CTRL+N" />
 					</p:submenu>
 					<p:menuitem value="Salir" url="#" />
 				</p:menubar>

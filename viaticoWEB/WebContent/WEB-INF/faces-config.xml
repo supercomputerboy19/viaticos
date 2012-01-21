@@ -60,15 +60,6 @@
 	<navigation-rule>
 		<from-view-id>/principal.xhtml</from-view-id>
 		<navigation-case>
-			<from-action>#{IngresoComision.mostrar}</from-action>
-			<from-outcome>success</from-outcome>
-			<to-view-id>/ingresoComision.xhtml</to-view-id>
-			<redirect />
-		</navigation-case>
-	</navigation-rule>
-	<navigation-rule>
-		<from-view-id>/principal.xhtml</from-view-id>
-		<navigation-case>
 			<from-action>#{BuscarComision.mostrar}</from-action>
 			<from-outcome>success</from-outcome>
 			<to-view-id>/buscarComision.xhtml</to-view-id>
@@ -91,6 +82,24 @@
 			<from-action>#{MenuPrincipal.mostrar}</from-action>
 			<from-outcome>success</from-outcome>
 			<to-view-id>/principal.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>buscarComision.xhtml</display-name>
+		<from-view-id>/buscarComision.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{IngresoComision.mostrar}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/ingresoComision.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>ingresoComision.xhtml</display-name>
+		<from-view-id>/ingresoComision.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/buscarComision.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 </faces-config>
