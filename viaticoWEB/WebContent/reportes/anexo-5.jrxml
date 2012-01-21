@@ -1,0 +1,943 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="anexo-5" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.6105100000000565"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="432"/>
+	<queryString>
+		<![CDATA[SELECT
+     ITEMRENDICION."DESCRIPCIONITEM" AS ITEMRENDICION_DESCRIPCIONITEM,
+     ITEMRENDICION."VIATICOID" AS ITEMRENDICION_VIATICOID,
+     ITEMRENDICION."FECHA" AS ITEMRENDICION_FECHA,
+     ITEMRENDICION."NUMDOCUMENTO" AS ITEMRENDICION_NUMDOCUMENTO,
+     ITEMRENDICION."PROOVEDOR" AS ITEMRENDICION_PROOVEDOR,
+     ITEMRENDICION."CONCEPTO" AS ITEMRENDICION_CONCEPTO,
+     ITEMRENDICION."MONTO" AS ITEMRENDICION_MONTO,
+     ITEMRENDICION."ITEMID" AS ITEMRENDICION_ITEMID,
+     ITEMRENDICION."COMISIONID" AS ITEMRENDICION_COMISIONID,
+     ITEMRENDICION."TIPODOCID" AS ITEMRENDICION_TIPODOCID,
+     COMISIONADO."C_C_GRUPO" AS COMISIONADO_C_C_GRUPO,
+     COMISIONADO."C_C_CODIGO" AS COMISIONADO_C_C_CODIGO,
+     COMISIONADO."C_T_NOMBRE" AS COMISIONADO_C_T_NOMBRE,
+     COMISIONADO."C_T_APELLIDO_PATERNO" AS COMISIONADO_C_T_APELLIDO_PATER,
+     COMISIONADO."C_T_APELLIDO_MATERNO" AS COMISIONADO_C_T_APELLIDO_MATER,
+     COMISIONADO."C_T_NOMBRE_COMPLETO" AS COMISIONADO_C_T_NOMBRE_COMPLET,
+     COMISIONADO.C_T_NOMBRE||' '||COMISIONADO.C_T_APELLIDO_PATERNO||' '||COMISIONADO.C_T_APELLIDO_MATERNO AS NOMBRE_COMPLETO,
+     COMISIONADO."C_C_SITUACION_TRAB" AS COMISIONADO_C_C_SITUACION_TRAB,
+     COMISIONADO."C_T_EMAIL_INST" AS COMISIONADO_C_T_EMAIL_INST,
+     COMISIONADO."D_NACIMIENTO" AS COMISIONADO_D_NACIMIENTO,
+     COMISIONADO."C_C_AREA" AS COMISIONADO_C_C_AREA,
+     COMISIONADO."C_C_PUESTO" AS COMISIONADO_C_C_PUESTO,
+     COMISIONADO."C_T_AREA" AS COMISIONADO_C_T_AREA,
+     COMISIONADO."C_T_PUESTO" AS COMISIONADO_C_T_PUESTO,
+     COMISIONADO."C_DNI" AS COMISIONADO_C_DNI,
+     COMISIONADO."C_USUARIO" AS COMISIONADO_C_USUARIO,
+     COMISIONADO."C_CONTRASENA" AS COMISIONADO_C_CONTRASENA,
+     COMISIONADO."C_SEXO" AS COMISIONADO_C_SEXO,
+     COMISIONADO."C_REMUNERACION" AS COMISIONADO_C_REMUNERACION,
+     COMISION."FECHASALIDA" AS COMISION_FECHASALIDA,
+     to_char(COMISION.FECHASALIDA,'YYYY/mm/dd') as fecha_salida,
+     COMISION."FECHARETORNO" AS COMISION_FECHARETORNO,
+     to_char(COMISION.FECHARETORNO,'YYYY/mm/dd') as fecha_retorno,
+     COMISION."OBJETIVO" AS COMISION_OBJETIVO,
+     COMISION."FECHAGESTION" AS COMISION_FECHAGESTION,
+     COMISION."DESTINO" AS COMISION_DESTINO,
+     COMISION."VIAAEREA" AS COMISION_VIAAEREA,
+     COMISION."VIATERRESTRE" AS COMISION_VIATERRESTRE,
+     COMISION."TUUA" AS COMISION_TUUA,
+     COMISION."PASAJETERRESTRE" AS COMISION_PASAJETERRESTRE,
+     COMISION."ASIGNACIONDIARIA" AS COMISION_ASIGNACIONDIARIA,
+     COMISION."COMISIONID" AS COMISION_COMISIONID,
+     COMISION."ASIGNACIONDIARIAID" AS COMISION_ASIGNACIONDIARIAID,
+     COMISION."FECHAAUTORIZACION" AS COMISION_FECHAAUTORIZACION,
+     COMISION."COMENTARIOESTADO" AS COMISION_COMENTARIOESTADO,
+     COMISION."NUMCERTPRESUPU" AS COMISION_NUMCERTPRESUPU,
+     COMISION."NUMSIAF" AS COMISION_NUMSIAF,
+     COMISION."MONTOTUUA" AS COMISION_MONTOTUUA,
+     COMISION."MONTOVIATERRESTRE" AS COMISION_MONTOVIATERRESTRE,
+     COMISION."MONTOVIAAEREA" AS COMISION_MONTOVIAAEREA,
+     COMISION."MONTOHOSPEDAJE" AS COMISION_MONTOHOSPEDAJE,
+     COMISION."NUMCOMPROBANTEPAGO" AS COMISION_NUMCOMPROBANTEPAGO,
+     COMISION."NUMRECIBOING" AS COMISION_NUMRECIBOING,
+     COMISION."C_C_CODIGO" AS COMISION_C_C_CODIGO,
+     COMISION."ESTADOID" AS COMISION_ESTADOID,
+     COMISION."TIPOACTIVIDADID" AS COMISION_TIPOACTIVIDADID,
+     COMISION."VIAOTROS" AS COMISION_VIAOTROS,
+     COMISION."VIAJEPROGRAMADO" AS COMISION_VIAJEPROGRAMADO
+FROM
+     "OEFA"."COMISIONADO" COMISIONADO INNER JOIN "OEFA"."COMISION" COMISION ON COMISIONADO."C_C_CODIGO" = COMISION."C_C_CODIGO"
+     INNER JOIN "OEFA"."ITEMRENDICION" ITEMRENDICION ON COMISION."COMISIONID" = ITEMRENDICION."COMISIONID"
+WHERE
+     COMISION."COMISIONID" = 1]]>
+	</queryString>
+	<field name="ITEMRENDICION_DESCRIPCIONITEM" class="java.lang.String"/>
+	<field name="ITEMRENDICION_VIATICOID" class="java.lang.String"/>
+	<field name="ITEMRENDICION_FECHA" class="java.sql.Timestamp"/>
+	<field name="ITEMRENDICION_NUMDOCUMENTO" class="java.lang.String"/>
+	<field name="ITEMRENDICION_PROOVEDOR" class="java.lang.String"/>
+	<field name="ITEMRENDICION_CONCEPTO" class="java.lang.String"/>
+	<field name="ITEMRENDICION_MONTO" class="java.math.BigDecimal"/>
+	<field name="ITEMRENDICION_ITEMID" class="java.math.BigDecimal"/>
+	<field name="ITEMRENDICION_COMISIONID" class="java.math.BigDecimal"/>
+	<field name="ITEMRENDICION_TIPODOCID" class="java.lang.String"/>
+	<field name="COMISIONADO_C_C_GRUPO" class="java.lang.String"/>
+	<field name="COMISIONADO_C_C_CODIGO" class="java.lang.String"/>
+	<field name="COMISIONADO_C_T_NOMBRE" class="java.lang.String"/>
+	<field name="COMISIONADO_C_T_APELLIDO_PATER" class="java.lang.String"/>
+	<field name="COMISIONADO_C_T_APELLIDO_MATER" class="java.lang.String"/>
+	<field name="COMISIONADO_C_T_NOMBRE_COMPLET" class="java.lang.String"/>
+	<field name="NOMBRE_COMPLETO" class="java.lang.String"/>
+	<field name="COMISIONADO_C_C_SITUACION_TRAB" class="java.lang.String"/>
+	<field name="COMISIONADO_C_T_EMAIL_INST" class="java.lang.String"/>
+	<field name="COMISIONADO_D_NACIMIENTO" class="java.sql.Timestamp"/>
+	<field name="COMISIONADO_C_C_AREA" class="java.lang.String"/>
+	<field name="COMISIONADO_C_C_PUESTO" class="java.lang.String"/>
+	<field name="COMISIONADO_C_T_AREA" class="java.lang.String"/>
+	<field name="COMISIONADO_C_T_PUESTO" class="java.lang.String"/>
+	<field name="COMISIONADO_C_DNI" class="java.lang.String"/>
+	<field name="COMISIONADO_C_USUARIO" class="java.lang.String"/>
+	<field name="COMISIONADO_C_CONTRASENA" class="java.lang.String"/>
+	<field name="COMISIONADO_C_SEXO" class="java.lang.String"/>
+	<field name="COMISIONADO_C_REMUNERACION" class="java.math.BigDecimal"/>
+	<field name="COMISION_FECHASALIDA" class="java.sql.Timestamp"/>
+	<field name="FECHA_SALIDA" class="java.lang.String"/>
+	<field name="COMISION_FECHARETORNO" class="java.sql.Timestamp"/>
+	<field name="FECHA_RETORNO" class="java.lang.String"/>
+	<field name="COMISION_OBJETIVO" class="java.lang.String"/>
+	<field name="COMISION_FECHAGESTION" class="java.sql.Timestamp"/>
+	<field name="COMISION_DESTINO" class="java.lang.String"/>
+	<field name="COMISION_VIAAEREA" class="java.lang.String"/>
+	<field name="COMISION_VIATERRESTRE" class="java.lang.String"/>
+	<field name="COMISION_TUUA" class="java.lang.String"/>
+	<field name="COMISION_PASAJETERRESTRE" class="java.lang.String"/>
+	<field name="COMISION_ASIGNACIONDIARIA" class="java.lang.String"/>
+	<field name="COMISION_COMISIONID" class="java.math.BigDecimal"/>
+	<field name="COMISION_ASIGNACIONDIARIAID" class="java.lang.String"/>
+	<field name="COMISION_FECHAAUTORIZACION" class="java.sql.Timestamp"/>
+	<field name="COMISION_COMENTARIOESTADO" class="java.lang.String"/>
+	<field name="COMISION_NUMCERTPRESUPU" class="java.lang.String"/>
+	<field name="COMISION_NUMSIAF" class="java.lang.String"/>
+	<field name="COMISION_MONTOTUUA" class="java.math.BigDecimal"/>
+	<field name="COMISION_MONTOVIATERRESTRE" class="java.math.BigDecimal"/>
+	<field name="COMISION_MONTOVIAAEREA" class="java.math.BigDecimal"/>
+	<field name="COMISION_MONTOHOSPEDAJE" class="java.math.BigDecimal"/>
+	<field name="COMISION_NUMCOMPROBANTEPAGO" class="java.lang.String"/>
+	<field name="COMISION_NUMRECIBOING" class="java.lang.String"/>
+	<field name="COMISION_C_C_CODIGO" class="java.lang.String"/>
+	<field name="COMISION_ESTADOID" class="java.lang.String"/>
+	<field name="COMISION_TIPOACTIVIDADID" class="java.lang.String"/>
+	<field name="COMISION_VIAOTROS" class="java.lang.String"/>
+	<field name="COMISION_VIAJEPROGRAMADO" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="1" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="24" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="2" width="555" height="22"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="16" isBold="true" isUnderline="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[ANEXO N°5]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="18" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="10" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[RENDICIÓN DE CUENTAS DE COMISIÓN DE SERVICIOS]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="664" splitType="Stretch">
+			<rectangle>
+				<reportElement x="13" y="620" width="531" height="14"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="13" y="165" width="168" height="22"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[1.- RENDICIÓN DOCUMENTARIA
+1.1 PASAJES
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="0" width="195" height="159"/>
+				<textElement verticalAlignment="Top">
+					<font size="9" isBold="false"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[U.E.				:
+OFICINA				:
+NOMBRE DEL COMISIONADO	:
+CARGO				:
+CONDICIÓN			:
+DNI N°				:
+LUGAR DE VIAJE			:
+FECHA/SALIDA			:
+FECHA DE RETORNO		:
+PLANILLA DE VIÁTICO N°		:]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="13" y="188" width="531" height="61"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</rectangle>
+			<line>
+				<reportElement x="50" y="205" width="168" height="1"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="49" y="188" width="1" height="33"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="97" y="206" width="1" height="15"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="149" y="206" width="1" height="15"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="218" y="188" width="1" height="33"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="400" y="188" width="1" height="33"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="479" y="188" width="1" height="33"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<rectangle>
+				<reportElement x="13" y="235" width="467" height="14"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</rectangle>
+			<line>
+				<reportElement x="13" y="220" width="531" height="1"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="49" y="220" width="1" height="15"/>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="97" y="221" width="1" height="14"/>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="149" y="220" width="1" height="14"/>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="218" y="221" width="1" height="14"/>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="400" y="220" width="1" height="14"/>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="479" y="220" width="1" height="14"/>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="481" y="235" width="63" height="1"/>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</line>
+			<rectangle>
+				<reportElement x="13" y="252" width="531" height="14"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</rectangle>
+			<line>
+				<reportElement x="479" y="252" width="1" height="14"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<rectangle>
+				<reportElement x="13" y="269" width="531" height="14"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</rectangle>
+			<line>
+				<reportElement x="479" y="269" width="1" height="15"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="13" y="291" width="168" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[1.2 VIATICOS]]></text>
+			</staticText>
+			<line>
+				<reportElement x="168" y="323" width="1" height="15"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<rectangle>
+				<reportElement x="13" y="305" width="531" height="244"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</rectangle>
+			<line>
+				<reportElement x="50" y="322" width="168" height="1"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="13" y="337" width="531" height="1"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="49" y="305" width="1" height="33"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="479" y="305" width="1" height="33"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="400" y="305" width="1" height="33"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="97" y="323" width="1" height="15"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="218" y="305" width="1" height="33"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="149" y="323" width="1" height="15"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="13" y="351" width="530" height="1"/>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="13" y="535" width="467" height="1"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="13" y="494" width="530" height="1"/>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="13" y="508" width="530" height="1"/>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="13" y="521" width="530" height="1"/>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="13" y="417" width="530" height="1"/>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="13" y="429" width="530" height="1"/>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="13" y="442" width="530" height="1"/>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="13" y="455" width="530" height="1"/>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="13" y="468" width="530" height="1"/>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="13" y="482" width="530" height="1"/>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="13" y="404" width="530" height="1"/>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="13" y="390" width="530" height="1"/>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="13" y="378" width="530" height="1"/>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="13" y="365" width="530" height="1"/>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="97" y="338" width="1" height="198"/>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="49" y="338" width="1" height="198"/>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="149" y="338" width="1" height="198"/>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="218" y="338" width="1" height="198"/>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="400" y="338" width="1" height="198"/>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="479" y="338" width="1" height="198"/>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="479" y="535" width="65" height="1"/>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="479" y="536" width="1" height="13"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<rectangle>
+				<reportElement x="13" y="552" width="531" height="14"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</rectangle>
+			<line>
+				<reportElement x="480" y="552" width="1" height="14"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<rectangle>
+				<reportElement x="13" y="569" width="531" height="14"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</rectangle>
+			<line>
+				<reportElement x="480" y="569" width="1" height="14"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<rectangle>
+				<reportElement x="13" y="586" width="531" height="14"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</rectangle>
+			<line>
+				<reportElement x="480" y="586" width="1" height="14"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<rectangle>
+				<reportElement x="13" y="603" width="531" height="14"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</rectangle>
+			<line>
+				<reportElement x="480" y="603" width="1" height="14"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="12" y="188" width="37" height="33"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[N° de
+Orden]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="188" width="168" height="17"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Documentos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="51" y="206" width="46" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="97" y="206" width="52" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Clase]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="150" y="205" width="69" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[N°]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="219" y="188" width="181" height="32"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Proveedor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="401" y="189" width="78" height="32"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Concepto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="480" y="189" width="63" height="32"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Importe S/.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="305" width="37" height="33"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[N° de
+Orden]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="52" y="323" width="46" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="98" y="323" width="52" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Clase]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="150" y="323" width="69" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[N°]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="220" y="306" width="181" height="32"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Proveedor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="306" width="78" height="32"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Concepto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="479" y="306" width="63" height="32"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Importe S/.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="221" width="37" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="338" width="36" height="13"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="8"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="351" width="36" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="8"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="365" width="36" height="13"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="8"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[3]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="379" width="36" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="8"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[4]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="391" width="36" height="13"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="8"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[5]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="405" width="36" height="13"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="8"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[6]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="443" width="36" height="22"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="8"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[9]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="418" width="36" height="11"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="8"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[7]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="430" width="36" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="8"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[8]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="465" width="36" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="8"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[10]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="479" width="36" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[11]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="494" width="36" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[12]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="507" width="36" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[13]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="522" width="36" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[14]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="536" width="36" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[15]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="379" y="236" width="94" height="13"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[TOTAL PASAJES (a)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="379" y="253" width="94" height="13"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[MONTO ASIGNADO (b)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="288" y="269" width="185" height="13"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[SALDO A DEVOLVER O REINTEGRAR S/. (b-a)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="379" y="536" width="94" height="13"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[TOTAL VIATICOS (a)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="288" y="552" width="185" height="13"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Declaración Jurada (máximo 10% de UIT) (b)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="288" y="569" width="185" height="13"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[TOTAL RENDICION (a+b)]]></text>
+			</staticText>
+			<line>
+				<reportElement x="480" y="620" width="1" height="14"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="288" y="587" width="185" height="13"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[TOTAL ASIGNADO (c)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="272" y="603" width="201" height="13"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[SALDO A DEVOLVER O REINTEGRAR S/. (c-(a+b))]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="272" y="621" width="201" height="13"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[TOTAL SALDO A DEVOLVER O REINTEGRAR S/.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="205" y="0" width="100" height="11"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[OEFA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="366" y="151" width="135" height="14"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[SIAF N°                           C.P. N°]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="205" y="47" width="224" height="14"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{COMISIONADO_C_T_PUESTO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="205" y="79" width="204" height="14"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{COMISIONADO_C_DNI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="205" y="110" width="224" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FECHA_SALIDA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="205" y="126" width="223" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FECHA_RETORNO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="205" y="92" width="223" height="17"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{COMISION_DESTINO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="204" y="32" width="224" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NOMBRE_COMPLETO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="15" y="637" width="205" height="27"/>
+				<textElement>
+					<font size="8"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[En fe de lo cual firmo la presente Rendición
+San Isidro,]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="92" splitType="Stretch">
+			<line>
+				<reportElement x="429" y="43" width="100" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="429" y="44" width="100" height="31"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[(FIRMA)
+JEFE DE LA OFICINA DE
+ADMINISTRACION]]></text>
+			</staticText>
+			<line>
+				<reportElement x="226" y="43" width="100" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="226" y="44" width="100" height="31"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[(FIRMA)
+DIRECTOR/JEFE DE LA
+UNIDAD ORGANICA]]></text>
+			</staticText>
+			<line>
+				<reportElement x="16" y="42" width="100" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="16" y="43" width="100" height="32"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[(FIRMA)
+COMISIONADO]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+</jasperReport>

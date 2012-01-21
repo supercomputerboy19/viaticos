@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ANEXO6" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="0.620921323059156"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     COMISIONADO."C_C_GRUPO" AS COMISIONADO_C_C_GRUPO,
+     COMISIONADO."C_C_CODIGO" AS COMISIONADO_C_C_CODIGO,
+     COMISIONADO."C_T_NOMBRE" AS COMISIONADO_C_T_NOMBRE,
+     COMISIONADO."C_T_APELLIDO_PATERNO" AS COMISIONADO_C_T_APELLIDO_PATER,
+     COMISIONADO."C_T_APELLIDO_MATERNO" AS COMISIONADO_C_T_APELLIDO_MATER,
+     COMISIONADO."C_T_NOMBRE_COMPLETO" AS COMISIONADO_C_T_NOMBRE_COMPLET,
+     COMISIONADO.C_T_NOMBRE||' '||COMISIONADO.C_T_APELLIDO_PATERNO||' '||COMISIONADO.C_T_APELLIDO_MATERNO AS NOMBRE_COMPLETO,
+     COMISIONADO."C_C_SITUACION_TRAB" AS COMISIONADO_C_C_SITUACION_TRAB,
+     COMISIONADO."C_T_EMAIL_INST" AS COMISIONADO_C_T_EMAIL_INST,
+     COMISIONADO."D_NACIMIENTO" AS COMISIONADO_D_NACIMIENTO,
+     COMISIONADO."C_C_AREA" AS COMISIONADO_C_C_AREA,
+     COMISIONADO."C_C_PUESTO" AS COMISIONADO_C_C_PUESTO,
+     COMISIONADO."C_T_AREA" AS COMISIONADO_C_T_AREA,
+     COMISIONADO."C_T_PUESTO" AS COMISIONADO_C_T_PUESTO,
+     COMISIONADO."C_DNI" AS COMISIONADO_C_DNI,
+     COMISIONADO."C_USUARIO" AS COMISIONADO_C_USUARIO,
+     COMISIONADO."C_CONTRASENA" AS COMISIONADO_C_CONTRASENA,
+     COMISIONADO."C_SEXO" AS COMISIONADO_C_SEXO,
+     COMISIONADO."C_REMUNERACION" AS COMISIONADO_C_REMUNERACION,
+     DECLARACIONJURADA."ITEMID" AS DECLARACIONJURADA_ITEMID,
+     DECLARACIONJURADA."FECHA" AS DECLARACIONJURADA_FECHA,
+     DECLARACIONJURADA."DESCRIPCIONGASTO" AS DECLARACIONJURADA_DESCRIPCIONG,
+     DECLARACIONJURADA."MONTO" AS DECLARACIONJURADA_MONTO,
+     DECLARACIONJURADA."COMISIONID" AS DECLARACIONJURADA_COMISIONID,
+     COMISION."FECHASALIDA" AS COMISION_FECHASALIDA,
+     COMISION."FECHARETORNO" AS COMISION_FECHARETORNO,
+     COMISION."OBJETIVO" AS COMISION_OBJETIVO,
+     COMISION."FECHAGESTION" AS COMISION_FECHAGESTION,
+     COMISION."DESTINO" AS COMISION_DESTINO,
+     COMISION."VIAAEREA" AS COMISION_VIAAEREA,
+     COMISION."VIATERRESTRE" AS COMISION_VIATERRESTRE,
+     COMISION."TUUA" AS COMISION_TUUA,
+     COMISION."PASAJETERRESTRE" AS COMISION_PASAJETERRESTRE,
+     COMISION."ASIGNACIONDIARIA" AS COMISION_ASIGNACIONDIARIA,
+     COMISION."COMISIONID" AS COMISION_COMISIONID,
+     COMISION."ASIGNACIONDIARIAID" AS COMISION_ASIGNACIONDIARIAID,
+     COMISION."FECHAAUTORIZACION" AS COMISION_FECHAAUTORIZACION,
+     COMISION."COMENTARIOESTADO" AS COMISION_COMENTARIOESTADO,
+     COMISION."NUMCERTPRESUPU" AS COMISION_NUMCERTPRESUPU,
+     COMISION."NUMSIAF" AS COMISION_NUMSIAF,
+     COMISION."MONTOTUUA" AS COMISION_MONTOTUUA,
+     COMISION."MONTOVIATERRESTRE" AS COMISION_MONTOVIATERRESTRE,
+     COMISION."MONTOVIAAEREA" AS COMISION_MONTOVIAAEREA,
+     COMISION."MONTOHOSPEDAJE" AS COMISION_MONTOHOSPEDAJE,
+     COMISION."NUMCOMPROBANTEPAGO" AS COMISION_NUMCOMPROBANTEPAGO,
+     COMISION."NUMRECIBOING" AS COMISION_NUMRECIBOING,
+     COMISION."C_C_CODIGO" AS COMISION_C_C_CODIGO,
+     COMISION."ESTADOID" AS COMISION_ESTADOID,
+     COMISION."TIPOACTIVIDADID" AS COMISION_TIPOACTIVIDADID,
+     COMISION."VIAOTROS" AS COMISION_VIAOTROS,
+     COMISION."VIAJEPROGRAMADO" AS COMISION_VIAJEPROGRAMADO
+FROM
+     "OEFA"."COMISIONADO" COMISIONADO INNER JOIN "OEFA"."COMISION" COMISION ON COMISIONADO."C_C_CODIGO" = COMISION."C_C_CODIGO"
+     INNER JOIN "OEFA"."DECLARACIONJURADA" DECLARACIONJURADA ON COMISION."COMISIONID" = DECLARACIONJURADA."COMISIONID"
+WHERE
+     COMISION."COMISIONID"=1]]>
+	</queryString>
+	<field name="COMISIONADO_C_C_GRUPO" class="java.lang.String"/>
+	<field name="COMISIONADO_C_C_CODIGO" class="java.lang.String"/>
+	<field name="COMISIONADO_C_T_NOMBRE" class="java.lang.String"/>
+	<field name="COMISIONADO_C_T_APELLIDO_PATER" class="java.lang.String"/>
+	<field name="COMISIONADO_C_T_APELLIDO_MATER" class="java.lang.String"/>
+	<field name="COMISIONADO_C_T_NOMBRE_COMPLET" class="java.lang.String"/>
+	<field name="NOMBRE_COMPLETO" class="java.lang.String"/>
+	<field name="COMISIONADO_C_C_SITUACION_TRAB" class="java.lang.String"/>
+	<field name="COMISIONADO_C_T_EMAIL_INST" class="java.lang.String"/>
+	<field name="COMISIONADO_D_NACIMIENTO" class="java.sql.Timestamp"/>
+	<field name="COMISIONADO_C_C_AREA" class="java.lang.String"/>
+	<field name="COMISIONADO_C_C_PUESTO" class="java.lang.String"/>
+	<field name="COMISIONADO_C_T_AREA" class="java.lang.String"/>
+	<field name="COMISIONADO_C_T_PUESTO" class="java.lang.String"/>
+	<field name="COMISIONADO_C_DNI" class="java.lang.String"/>
+	<field name="COMISIONADO_C_USUARIO" class="java.lang.String"/>
+	<field name="COMISIONADO_C_CONTRASENA" class="java.lang.String"/>
+	<field name="COMISIONADO_C_SEXO" class="java.lang.String"/>
+	<field name="COMISIONADO_C_REMUNERACION" class="java.math.BigDecimal"/>
+	<field name="DECLARACIONJURADA_ITEMID" class="java.math.BigDecimal"/>
+	<field name="DECLARACIONJURADA_FECHA" class="java.sql.Timestamp"/>
+	<field name="DECLARACIONJURADA_DESCRIPCIONG" class="java.lang.String"/>
+	<field name="DECLARACIONJURADA_MONTO" class="java.math.BigDecimal"/>
+	<field name="DECLARACIONJURADA_COMISIONID" class="java.math.BigDecimal"/>
+	<field name="COMISION_FECHASALIDA" class="java.sql.Timestamp"/>
+	<field name="COMISION_FECHARETORNO" class="java.sql.Timestamp"/>
+	<field name="COMISION_OBJETIVO" class="java.lang.String"/>
+	<field name="COMISION_FECHAGESTION" class="java.sql.Timestamp"/>
+	<field name="COMISION_DESTINO" class="java.lang.String"/>
+	<field name="COMISION_VIAAEREA" class="java.lang.String"/>
+	<field name="COMISION_VIATERRESTRE" class="java.lang.String"/>
+	<field name="COMISION_TUUA" class="java.lang.String"/>
+	<field name="COMISION_PASAJETERRESTRE" class="java.lang.String"/>
+	<field name="COMISION_ASIGNACIONDIARIA" class="java.lang.String"/>
+	<field name="COMISION_COMISIONID" class="java.math.BigDecimal"/>
+	<field name="COMISION_ASIGNACIONDIARIAID" class="java.lang.String"/>
+	<field name="COMISION_FECHAAUTORIZACION" class="java.sql.Timestamp"/>
+	<field name="COMISION_COMENTARIOESTADO" class="java.lang.String"/>
+	<field name="COMISION_NUMCERTPRESUPU" class="java.lang.String"/>
+	<field name="COMISION_NUMSIAF" class="java.lang.String"/>
+	<field name="COMISION_MONTOTUUA" class="java.math.BigDecimal"/>
+	<field name="COMISION_MONTOVIATERRESTRE" class="java.math.BigDecimal"/>
+	<field name="COMISION_MONTOVIAAEREA" class="java.math.BigDecimal"/>
+	<field name="COMISION_MONTOHOSPEDAJE" class="java.math.BigDecimal"/>
+	<field name="COMISION_NUMCOMPROBANTEPAGO" class="java.lang.String"/>
+	<field name="COMISION_NUMRECIBOING" class="java.lang.String"/>
+	<field name="COMISION_C_C_CODIGO" class="java.lang.String"/>
+	<field name="COMISION_ESTADOID" class="java.lang.String"/>
+	<field name="COMISION_TIPOACTIVIDADID" class="java.lang.String"/>
+	<field name="COMISION_VIAOTROS" class="java.lang.String"/>
+	<field name="COMISION_VIAJEPROGRAMADO" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="56" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="33" width="555" height="23"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" isBold="true" isUnderline="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[ANEXO N°6]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="40" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="22" width="555" height="18"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="11" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[DECLARACIÓN JURADA]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="147" splitType="Stretch">
+			<textField>
+				<reportElement x="247" y="113" width="308" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{COMISIONADO_C_T_AREA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="247" y="128" width="308" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{COMISION_DESTINO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="247" y="96" width="308" height="17"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{COMISIONADO_C_C_SITUACION_TRAB}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="247" y="81" width="308" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{COMISIONADO_C_T_PUESTO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="247" y="66" width="189" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{COMISIONADO_C_DNI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="247" y="50" width="308" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{NOMBRE_COMPLETO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="50" width="247" height="97"/>
+				<textElement verticalAlignment="Top">
+					<font size="9" isBold="false"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[NOMBRE DEL COMISIONADO		:
+DNI N°					:
+CARGO					:
+CONDICIÓN				:
+UNIDAD ORGÁNICA			:
+LUGAR DE COMISIÓN			:]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="163" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="58" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="16" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="18" splitType="Stretch"/>
+	</summary>
+</jasperReport>

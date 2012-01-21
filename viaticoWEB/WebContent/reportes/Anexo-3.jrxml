@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Anexo-4" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0245201830476123"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     COMISION."FECHASALIDA" AS COMISION_FECHASALIDA,
+     COMISION."FECHARETORNO" AS COMISION_FECHARETORNO,
+     to_char(COMISION.FECHARETORNO,'YYYY/mm/dd') as fecha_retorno,
+     to_char(COMISION.FECHARETORNO,'HH24:mi:SS') as hora_retorno,
+     COMISION."OBJETIVO" AS COMISION_OBJETIVO,
+     COMISION."FECHAGESTION" AS COMISION_FECHAGESTION,
+     COMISION."DESTINO" AS COMISION_DESTINO,
+     COMISION."VIAAEREA" AS COMISION_VIAAEREA,
+     COMISION."VIATERRESTRE" AS COMISION_VIATERRESTRE,
+     COMISION."TUUA" AS COMISION_TUUA,
+     COMISION."PASAJETERRESTRE" AS COMISION_PASAJETERRESTRE,
+     COMISION."ASIGNACIONDIARIA" AS COMISION_ASIGNACIONDIARIA,
+     COMISION."COMISIONID" AS COMISION_COMISIONID,
+     COMISION."ASIGNACIONDIARIAID" AS COMISION_ASIGNACIONDIARIAID,
+     COMISION."FECHAAUTORIZACION" AS COMISION_FECHAAUTORIZACION,
+     to_char(COMISION.FECHASALIDA,'YYYY/mm/dd') as fecha_salida,
+     to_char(COMISION.FECHASALIDA,'HH24:mi:SS') as hora_salida,
+     COMISION."COMENTARIOESTADO" AS COMISION_COMENTARIOESTADO,
+     COMISION."NUMCERTPRESUPU" AS COMISION_NUMCERTPRESUPU,
+     COMISION."NUMSIAF" AS COMISION_NUMSIAF,
+     COMISION."MONTOTUUA" AS COMISION_MONTOTUUA,
+     COMISION."MONTOVIATERRESTRE" AS COMISION_MONTOVIATERRESTRE,
+     COMISION."MONTOVIAAEREA" AS COMISION_MONTOVIAAEREA,
+     COMISION."MONTOHOSPEDAJE" AS COMISION_MONTOHOSPEDAJE,
+     COMISION."NUMCOMPROBANTEPAGO" AS COMISION_NUMCOMPROBANTEPAGO,
+     COMISION."NUMRECIBOING" AS COMISION_NUMRECIBOING,
+     COMISION."C_C_CODIGO" AS COMISION_C_C_CODIGO,
+     COMISION."ESTADOID" AS COMISION_ESTADOID,
+     COMISION."TIPOACTIVIDADID" AS COMISION_TIPOACTIVIDADID,
+     COMISION."VIAOTROS" AS COMISION_VIAOTROS,
+     COMISION."VIAJEPROGRAMADO" AS COMISION_VIAJEPROGRAMADO,
+     COMISIONADO."C_C_GRUPO" AS COMISIONADO_C_C_GRUPO,
+     COMISIONADO."C_C_CODIGO" AS COMISIONADO_C_C_CODIGO,
+     COMISIONADO."C_T_NOMBRE" AS COMISIONADO_C_T_NOMBRE,
+     COMISIONADO."C_T_APELLIDO_PATERNO" AS COMISIONADO_C_T_APELLIDO_PATER,
+     COMISIONADO."C_T_APELLIDO_MATERNO" AS COMISIONADO_C_T_APELLIDO_MATER,
+     COMISIONADO."C_T_NOMBRE_COMPLETO" AS COMISIONADO_C_T_NOMBRE_COMPLET,
+     COMISIONADO.C_T_NOMBRE||' '||COMISIONADO.C_T_APELLIDO_PATERNO||' '||COMISIONADO.C_T_APELLIDO_MATERNO AS NOMBRE_COMPLETO,
+     COMISIONADO."C_C_SITUACION_TRAB" AS COMISIONADO_C_C_SITUACION_TRAB,
+     COMISIONADO."C_T_EMAIL_INST" AS COMISIONADO_C_T_EMAIL_INST,
+     COMISIONADO."D_NACIMIENTO" AS COMISIONADO_D_NACIMIENTO,
+     COMISIONADO."C_C_AREA" AS COMISIONADO_C_C_AREA,
+     COMISIONADO."C_C_PUESTO" AS COMISIONADO_C_C_PUESTO,
+     COMISIONADO."C_T_AREA" AS COMISIONADO_C_T_AREA,
+     COMISIONADO."C_T_PUESTO" AS COMISIONADO_C_T_PUESTO,
+     COMISIONADO."C_DNI" AS COMISIONADO_C_DNI,
+     COMISIONADO."C_USUARIO" AS COMISIONADO_C_USUARIO,
+     COMISIONADO."C_CONTRASENA" AS COMISIONADO_C_CONTRASENA,
+     COMISIONADO."C_SEXO" AS COMISIONADO_C_SEXO,
+     COMISIONADO."C_REMUNERACION" AS COMISIONADO_C_REMUNERACION,
+     NVL2(COMISION."VIAAEREA",'X',' ') AS COMISION_AEREA,
+     NVL2(COMISION."VIATERRESTRE",'X',' ') AS COMISION_TERRESTRE
+FROM
+     "OEFA"."COMISIONADO" COMISIONADO INNER JOIN "OEFA"."COMISION" COMISION ON COMISIONADO."C_C_CODIGO" = COMISION."C_C_CODIGO"
+where
+    COMISION.COMISIONID=1]]>
+	</queryString>
+	<field name="COMISION_FECHASALIDA" class="java.sql.Timestamp"/>
+	<field name="COMISION_FECHARETORNO" class="java.sql.Timestamp"/>
+	<field name="FECHA_RETORNO" class="java.lang.String"/>
+	<field name="HORA_RETORNO" class="java.lang.String"/>
+	<field name="COMISION_OBJETIVO" class="java.lang.String"/>
+	<field name="COMISION_FECHAGESTION" class="java.sql.Timestamp"/>
+	<field name="COMISION_DESTINO" class="java.lang.String"/>
+	<field name="COMISION_VIAAEREA" class="java.lang.String"/>
+	<field name="COMISION_VIATERRESTRE" class="java.lang.String"/>
+	<field name="COMISION_TUUA" class="java.lang.String"/>
+	<field name="COMISION_PASAJETERRESTRE" class="java.lang.String"/>
+	<field name="COMISION_ASIGNACIONDIARIA" class="java.lang.String"/>
+	<field name="COMISION_COMISIONID" class="java.math.BigDecimal"/>
+	<field name="COMISION_ASIGNACIONDIARIAID" class="java.lang.String"/>
+	<field name="COMISION_FECHAAUTORIZACION" class="java.sql.Timestamp"/>
+	<field name="FECHA_SALIDA" class="java.lang.String"/>
+	<field name="HORA_SALIDA" class="java.lang.String"/>
+	<field name="COMISION_COMENTARIOESTADO" class="java.lang.String"/>
+	<field name="COMISION_NUMCERTPRESUPU" class="java.lang.String"/>
+	<field name="COMISION_NUMSIAF" class="java.lang.String"/>
+	<field name="COMISION_MONTOTUUA" class="java.math.BigDecimal"/>
+	<field name="COMISION_MONTOVIATERRESTRE" class="java.math.BigDecimal"/>
+	<field name="COMISION_MONTOVIAAEREA" class="java.math.BigDecimal"/>
+	<field name="COMISION_MONTOHOSPEDAJE" class="java.math.BigDecimal"/>
+	<field name="COMISION_NUMCOMPROBANTEPAGO" class="java.lang.String"/>
+	<field name="COMISION_NUMRECIBOING" class="java.lang.String"/>
+	<field name="COMISION_C_C_CODIGO" class="java.lang.String"/>
+	<field name="COMISION_ESTADOID" class="java.lang.String"/>
+	<field name="COMISION_TIPOACTIVIDADID" class="java.lang.String"/>
+	<field name="COMISION_VIAOTROS" class="java.lang.String"/>
+	<field name="COMISION_VIAJEPROGRAMADO" class="java.lang.String"/>
+	<field name="COMISIONADO_C_C_GRUPO" class="java.lang.String"/>
+	<field name="COMISIONADO_C_C_CODIGO" class="java.lang.String"/>
+	<field name="COMISIONADO_C_T_NOMBRE" class="java.lang.String"/>
+	<field name="COMISIONADO_C_T_APELLIDO_PATER" class="java.lang.String"/>
+	<field name="COMISIONADO_C_T_APELLIDO_MATER" class="java.lang.String"/>
+	<field name="COMISIONADO_C_T_NOMBRE_COMPLET" class="java.lang.String"/>
+	<field name="NOMBRE_COMPLETO" class="java.lang.String"/>
+	<field name="COMISIONADO_C_C_SITUACION_TRAB" class="java.lang.String"/>
+	<field name="COMISIONADO_C_T_EMAIL_INST" class="java.lang.String"/>
+	<field name="COMISIONADO_D_NACIMIENTO" class="java.sql.Timestamp"/>
+	<field name="COMISIONADO_C_C_AREA" class="java.lang.String"/>
+	<field name="COMISIONADO_C_C_PUESTO" class="java.lang.String"/>
+	<field name="COMISIONADO_C_T_AREA" class="java.lang.String"/>
+	<field name="COMISIONADO_C_T_PUESTO" class="java.lang.String"/>
+	<field name="COMISIONADO_C_DNI" class="java.lang.String"/>
+	<field name="COMISIONADO_C_USUARIO" class="java.lang.String"/>
+	<field name="COMISIONADO_C_CONTRASENA" class="java.lang.String"/>
+	<field name="COMISIONADO_C_SEXO" class="java.lang.String"/>
+	<field name="COMISIONADO_C_REMUNERACION" class="java.math.BigDecimal"/>
+	<field name="COMISION_AEREA" class="java.lang.String"/>
+	<field name="COMISION_TERRESTRE" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="59" splitType="Stretch">
+			<image>
+				<reportElement x="35" y="24" width="262" height="35"/>
+				<imageExpression><![CDATA["C:\\Users\\NetPeru\\Downloads\\cabecera.jpg"]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="36" y="19" width="488" height="1"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="36" y="19" width="1" height="40"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="523" y="19" width="1" height="40"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="26" splitType="Stretch">
+			<staticText>
+				<reportElement x="54" y="0" width="462" height="22"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" isBold="true" isUnderline="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[ANEXO N° 03]]></text>
+			</staticText>
+			<line>
+				<reportElement x="36" y="0" width="1" height="26"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="523" y="0" width="1" height="26"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="47" y="3" width="465" height="17"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="12" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[PLANILLA DE VIATICOS POR COMISION DE SERVICIOS N°             -           -OEFA]]></text>
+			</staticText>
+			<line>
+				<reportElement x="36" y="0" width="1" height="23"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="523" y="0" width="1" height="23"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="592" splitType="Stretch">
+			<staticText>
+				<reportElement x="51" y="12" width="221" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[1. Nombre y Apellidos del Comisionado :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="51" y="38" width="163" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[2. Dependencia :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="51" y="64" width="163" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[3. Cargo :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="51" y="90" width="163" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[4. Condición Laboral :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="51" y="118" width="173" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[5. Destino y lugares de trabajo:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="51" y="209" width="163" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[7. Fecha de salida :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="51" y="163" width="163" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[6. Objetivo de la comisión :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="51" y="266" width="218" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[9. Itinerario y medios de transporte :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="51" y="238" width="163" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[8. Fecha de retorno :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="51" y="295" width="127" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[10. Movilidad Aérea :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="402" width="163" height="37"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[c) Hospedaje, alimentación y
+    movilidad local]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="382" width="323" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[b) Pasajes por otro medio de transporte ( terrestre y fluvial )]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="354" width="144" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[a) Pasajes aéreos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="51" y="325" width="163" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[11. Estimado de gastos :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="439" width="163" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[d) Impuesto TUUA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="308" y="470" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="504" width="152" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Lugar y Fecha: San Isidro,]]></text>
+			</staticText>
+			<line>
+				<reportElement x="50" y="569" width="174" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="50" y="569" width="174" height="20"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Trabajador Comisionado]]></text>
+			</staticText>
+			<line>
+				<reportElement x="338" y="569" width="174" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="338" y="569" width="174" height="20"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jefe de Oficina Administración]]></text>
+			</staticText>
+			<line>
+				<reportElement x="417" y="469" width="100" height="1"/>
+			</line>
+			<line>
+				<reportElement x="417" y="491" width="100" height="1"/>
+				<graphicElement>
+					<pen lineWidth="3.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="198" y="295" width="51" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(         ) ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="372" y="295" width="51" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(         ) ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="284" y="295" width="88" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Terrestre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="390" y="439" width="27" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[S/.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="390" y="411" width="27" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[S/.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="390" y="382" width="27" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[S/.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="390" y="354" width="27" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[S/.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="272" y="12" width="244" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{NOMBRE_COMPLETO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="272" y="118" width="245" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{COMISION_DESTINO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="272" y="152" width="245" height="46"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{COMISION_OBJETIVO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="363" y="209" width="46" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Hora :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="363" y="238" width="46" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Hora :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="234" y="209" width="114" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{FECHA_SALIDA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="409" y="209" width="107" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{HORA_SALIDA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="234" y="238" width="114" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{FECHA_RETORNO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="409" y="238" width="107" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{HORA_RETORNO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="247" y="411" width="88" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[días         Hrs.   S/.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="209" y="295" width="25" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{COMISION_AEREA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="382" y="295" width="27" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{COMISION_TERRESTRE}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="36" y="0" width="1" height="592"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="523" y="0" width="1" height="592"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="272" y="38" width="240" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{COMISIONADO_C_T_AREA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="272" y="64" width="240" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{COMISIONADO_C_T_PUESTO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="272" y="90" width="240" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{COMISIONADO_C_C_SITUACION_TRAB}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="64" splitType="Stretch">
+			<staticText>
+				<reportElement x="47" y="0" width="52" height="17"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOTA:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="47" y="17" width="469" height="37"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[Autorizo a la Oficina de Administración a efectuar el descuento en  la planilla de pago de retribución por Contrato Administrativo de Servicios -
+CAS, en caso de no rendir cuenta dentro del plazo de ocho (08) días calendarios, según lo establecido en el numeral 68.3 del articulo 68° de la
+Directiva de Tesorería N° 001-2007-EF/77.15]]></text>
+			</staticText>
+			<line>
+				<reportElement x="36" y="-22" width="1" height="84"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="523" y="-22" width="1" height="84"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="37" y="61" width="486" height="1"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="37" splitType="Stretch">
+			<image>
+				<reportElement x="292" y="0" width="169" height="36"/>
+				<imageExpression><![CDATA["C:\\Users\\NetPeru\\Downloads\\firma1.jpg"]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="470" y="5" width="1" height="25" forecolor="#FF0000"/>
+			</line>
+			<image>
+				<reportElement x="439" y="0" width="85" height="36"/>
+				<imageExpression><![CDATA["C:\\Users\\NetPeru\\Downloads\\firma2.jpg"]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="440" y="5" width="1" height="25" forecolor="#FF0000"/>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="1" splitType="Stretch"/>
+	</summary>
+</jasperReport>
