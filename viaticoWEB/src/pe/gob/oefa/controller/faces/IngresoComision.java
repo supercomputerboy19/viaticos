@@ -153,8 +153,6 @@ public class IngresoComision implements Serializable {
 			if(comision==null){
 				comision = new Comision();
 			}
-			
-			System.out.println("Fin Ingresar Comision");
 			return CONSTANTE.SUCCESS;
 		}catch(Exception e){
 			e.printStackTrace();

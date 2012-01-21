@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" name="#{MenuPrincipal.mostrarIngresarComision}" comment="" id="pf13236532206870" configfile="/viaticoWEB/WebContent/WEB-INF/faces-config.xml">
   <nodes xsi:type="pageflow:PFPage" name="index.xhtml" x="122" y="178" id="pf13262615839060" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" outlinks="pf13262615839062 pf13265736503120" inlinks="pf13262615839062" path="/index.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="principal.xhtml" x="312" y="178" id="pf13265736503121" referenceLink="//@navigationRule.4/@navigationCase.0/@toViewId|" outlinks="pf13265867291094" inlinks="pf13265736503120 pf13266553200001" path="/principal.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="ingresoComision.xhtml" x="552" y="115" id="pf13265856395462" referenceLink="//@navigationRule.4/@fromViewId|" outlinks="pf13266552476250 pf13266553200001 pf13269569535001" inlinks="pf13266552476250 pf13269563951870" path="/ingresoComision.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="buscarComision.xhtml" x="552" y="241" id="pf13265867291096" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" outlinks="pf13269563951870" inlinks="pf13265867291094 pf13269569535001" path="/buscarComision.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="principal.xhtml" x="312" y="178" id="pf13265736503121" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" outlinks="pf13265867291094" inlinks="pf13265736503120 pf13266553200001" path="/principal.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="ingresoComision.xhtml" x="552" y="115" id="pf13265856395462" referenceLink="//@navigationRule.5/@fromViewId|" outlinks="pf13266552476250 pf13266553200001 pf13269569535001" inlinks="pf13266552476250 pf13269563951870" path="/ingresoComision.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="buscarComision.xhtml" x="552" y="241" id="pf13265867291096" referenceLink="//@navigationRule.5/@navigationCase.0/@toViewId|" outlinks="pf13269563951870" inlinks="pf13265867291094 pf13269569535001" path="/buscarComision.xhtml"/>
   <links id="pf13265736503120" target="pf13265736503121" source="pf13262615839060" outcome="success" redirect="true" fromaction="#{Login.validaSesion}"/>
   <links id="pf13262615839062" target="pf13262615839060" source="pf13262615839060" outcome="fail" fromaction="#{Login.validaSesion}">
     <bendPoints d1Height="-36" d2Height="-36"/>
