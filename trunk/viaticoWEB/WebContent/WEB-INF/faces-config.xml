@@ -43,6 +43,11 @@
 		<managed-bean-class>pe.gob.oefa.be.Comisionado</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>MenuBean</managed-bean-name>
+		<managed-bean-class>pe.gob.oefa.controller.menu.MenuBean</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
 	<navigation-rule>
 		<from-view-id>/index.xhtml</from-view-id>
 		<navigation-case>

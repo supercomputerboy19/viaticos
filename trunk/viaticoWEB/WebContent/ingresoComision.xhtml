@@ -17,21 +17,8 @@
             </tr>
             <tr>
               <td height="20">
-				<h:form id="buscar" >
-				<p:menubar autoSubmenuDisplay="true" style="width: 965px;" >
-			        <p:submenu label="Comision de Servicios" icon="ui-icon ui-icon-document" >
-						<p:menuitem value="Requerimiento de comision" action="#{BuscarComision.mostrar}" style="align:left" />
-			            <p:menuitem value="Registrar Comisión" action="#{IngresoComision.mostrar}" helpText="CTRL+O"/>
-					</p:submenu>
-					<p:submenu label="Generacion de Planilla de viaticos" icon="ui-icon ui-icon-document">
-						<p:menuitem value="Calculo de viaticos" url="#" helpText="CTRL+N" />
-					</p:submenu>
-					<p:submenu label="Rendición de gastos" icon="ui-icon ui-icon-document">
-						<p:menuitem value="Declaracion Jurada" url="#" helpText="CTRL+N" />
-						<p:menuitem value="Rendición de comisión" url="#" helpText="CTRL+N" />
-					</p:submenu>
-					<p:menuitem value="Salir" url="#" />
-				</p:menubar>
+				<h:form id="menu" >
+					<p:menubar model="#{MenuBean.model}" autoSubmenuDisplay="true" style="width: 965px;" />
 				</h:form>
 			  </td>
             </tr>
