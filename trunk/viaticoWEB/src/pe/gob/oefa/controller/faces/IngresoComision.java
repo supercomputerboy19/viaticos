@@ -141,15 +141,15 @@ public class IngresoComision implements Serializable {
 		try{
 			Map<String, Object> mapSession = Utiles.getSession();
 			Comisionado comisionado = (Comisionado) mapSession.get(CONSTANTE.COMISIONADO);
-			
-			nombres = comisionado.getC_t_nombre();
-			apellidos = comisionado.getC_t_apellido_paterno() + " " + comisionado.getC_t_apellido_materno();
-			dni = comisionado.getC_dni();
-			sexo = comisionado.getC_sexo();
-			cargo = comisionado.getC_c_puesto();
-			condicionLaboral = comisionado.getC_c_situacion_trab();
-			dependencia = comisionado.getC_c_area();
-			
+			if(comisionado!=null){
+				nombres = comisionado.getC_t_nombre();
+				apellidos = comisionado.getC_t_apellido_paterno() + " " + comisionado.getC_t_apellido_materno();
+				dni = comisionado.getC_dni();
+				sexo = comisionado.getC_sexo();
+				cargo = comisionado.getC_c_puesto();
+				condicionLaboral = comisionado.getC_c_situacion_trab();
+				dependencia = comisionado.getC_c_area();
+			}
 			if(comision==null){
 				comision = new Comision();
 			}
@@ -182,8 +182,7 @@ public class IngresoComision implements Serializable {
 			comision.setTuua(comision.getTuua());
 			comision.setPasajeTerrestre(comision.getPasajeTerrestre());
 			
-			ComisionCN comisionCN = new ComisionCN();
-			comisionCN.registrarComision(comision);
+			ComisionCN.getComisionCN().registrarComision(comision);
 			
 		}catch(Exception e){
 			e.printStackTrace();

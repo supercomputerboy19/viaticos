@@ -1,14 +1,15 @@
 <html xmlns="http://www.w3c.org/1999/xhtml"
 xmlns:h="http://java.sun.com/jsf/html"
 xmlns:f="http://java.sun.com/jsf/core"
-xmlns:p="http://primefaces.org/ui">
+xmlns:ui="http://java.sun.com/jsf/facelets"
+xmlns:p="http://primefaces.org/ui" >
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link type="text/css" rel="stylesheet" href="css/estilo.css" />
 	<link type="text/css" rel="stylesheet" href="css/syntaxhighlighter.css" />
 </h:head>
 <h:body>
-	<table width="791" align="center">
+	<table width="971" align="center">
 	<tr>
 		<td colspan="2"><img src="img/cabecera.jpg" alt="" width="971" height="62" /></td>
 	</tr>
@@ -18,6 +19,9 @@ xmlns:p="http://primefaces.org/ui">
     		<h:form id="buscar" >
     		<TABLE>
 	    		<tr>
+	    			<td rowspan="2" align="center" valign="middle" >
+	    				<p:commandButton value="Regresar" action="#{Principal.mostrar}" ajax="false"  />
+	    			</td>
 	    			<td>Apellido Paterno</td>
 	    			<td><p:inputText id="apePaterno" size="30" /></td>
 	    			<td></td>
@@ -25,7 +29,7 @@ xmlns:p="http://primefaces.org/ui">
 	    			<td><p:inputText id="apeMaterno" size="30" /></td>
 	    			<td></td>
 	    			<td>
-	    				<h:commandButton value="Buscar" action="#{Login.validaSesion}" />
+	    				<p:commandButton value="Buscar" action="#{BuscarComision.buscar}" ajax="false"  />
 					</td>
 	    		</tr>
 	    		<tr>
@@ -40,7 +44,7 @@ xmlns:p="http://primefaces.org/ui">
 	    			</td>
 	    			<td></td>
 	    			<td>
-	    				<h:commandButton value="Regresar" action="#{Login.validaSesion}" />
+	    				<p:commandButton value="Registrar" action="#{IngresoComision.mostrar}" ajax="false"  />
 	    			</td>
 	    		</tr>
     		</TABLE>
@@ -52,8 +56,7 @@ xmlns:p="http://primefaces.org/ui">
     	<td colspan="2" align="center" >
 	    <div align="center" style="width: 971px;" >
 			<h:form>
-				<p:dataTable var="car" value="#{carBean.cars}" paginator="true" rows="8" >
-					<p:column selectionMode="single" /> 
+				<p:dataTable var="car" value="#{carBean.cars}" paginator="true" rows="8" paginatorPosition="bottom" >
 					<p:column>
 						<f:facet name="header">
 							<h:outputText value="N° Comision" />

@@ -4,25 +4,16 @@
  */
 package pe.gob.oefa.dao.impl;
 
-
 import java.io.IOException;
-import java.io.Reader;
 import java.sql.SQLException;
 import java.util.List;
-
-import org.springframework.dao.DataAccessException;
 
 import pe.gob.oefa.be.Parametro;
 import pe.gob.oefa.dao.ParametroDAO;
 import pe.gob.oefa.exception.DAOException;
-import pe.gob.oefa.exception.UnexpectedException;
 import pe.gob.oefa.utiles.Utiles;
 
-import com.ibatis.common.resources.Resources;
-import com.ibatis.dao.client.DaoManager;
-import com.ibatis.dao.client.template.SqlMapDaoTemplate;
 import com.ibatis.sqlmap.client.SqlMapClient;
-import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 
 /**
  *
@@ -34,8 +25,6 @@ public class ParametroImplDAO implements ParametroDAO {
         super(daoManager);
     }*/
 
-	@SuppressWarnings("unchecked")
-	@Override
 	public List<Parametro> getParametrosByTabla(Parametro domain) throws DAOException {
         
         List<Parametro> listParametro = null;

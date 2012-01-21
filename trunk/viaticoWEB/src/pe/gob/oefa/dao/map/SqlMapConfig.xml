@@ -12,9 +12,10 @@
             <property name="JDBC.Password" value="oefa"/>
         </dataSource>
     </transactionManager>
-    <sqlMap resource="pe/gob/oefa/dao/map/Parametro.xml"/> 
-     <sqlMap resource="pe/gob/oefa/dao/map/Comisionado.xml"/> 
     <sqlMap resource="pe/gob/oefa/dao/map/Comision.xml"/> 
-    <sqlMap resource="pe/gob/oefa/dao/map/DeclaracionJurada.xml"/> 
-    <sqlMap resource="pe/gob/oefa/dao/map/ItemRendicion.xml"/>     
+    <sqlMap resource="pe/gob/oefa/dao/map/Comisionado.xml"/> 
+    <sqlMap resource="pe/gob/oefa/dao/map/DeclaracionJurada.xml"/>
+    <sqlMap resource="pe/gob/oefa/dao/map/EstadoComision.xml"/> 
+    <sqlMap resource="pe/gob/oefa/dao/map/ItemRendicion.xml"/>
+    <sqlMap resource="pe/gob/oefa/dao/map/Parametro.xml"/>
 </sqlMapConfig>

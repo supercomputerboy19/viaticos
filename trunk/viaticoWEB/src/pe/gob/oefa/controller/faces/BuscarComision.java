@@ -2,6 +2,8 @@ package pe.gob.oefa.controller.faces;
 
 import java.io.Serializable;
 
+import pe.gob.oefa.utiles.CONSTANTE;
+
 public class BuscarComision  implements Serializable {
 
 	/**
@@ -11,6 +13,12 @@ public class BuscarComision  implements Serializable {
 
 	public String mostrar(){
 		System.out.println("Buscar Comision");
-		return "mostrar";
+		return CONSTANTE.SUCCESS;
 	}
+	
+	public String buscar(){
+		
+		return CONSTANTE.SUCCESS;
+	}
+	
 }

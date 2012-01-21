@@ -15,10 +15,8 @@ ESTADOID	VARCHAR2(8)	Y
 
 public class EstadoComision  implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
+	
 	private String usuarioId;
 	private Date fechaEstado;
 	private String comentario;
@@ -49,7 +47,7 @@ public class EstadoComision  implements Serializable {
 	public void setComisionId(Integer comisionId) {
 		this.comisionId = comisionId;
 	}
-	public String getEstradoId() {
+	public String getEstadoId() {
 		return estadoId;
 	}
 	public void setEstadoId(String estadoId) {
