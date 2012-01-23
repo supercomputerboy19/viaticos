@@ -1,0 +1,47 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:p="http://primefaces.org/ui" >
+	<h:head>
+		<title>Registro de sesión</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<link type="text/css" rel="stylesheet" href="css/estilo.css" />
+		<link type="text/css" rel="stylesheet" href="css/syntaxhighlighter.css" />
+	</h:head>
+	<f:view>
+	<h:body>
+        <h:form id="ingresoComision" >
+        <table width="971" align="center">
+            <tr>
+              <td><img src="img/cabecera.jpg" alt="" width="971" height="62" /></td>
+            </tr>
+            <tr>
+              <td height="20">
+				<h:form id="menu" >
+					<p:menubar autoSubmenuDisplay="true" style="width: 965px;" >
+				        <p:submenu label="Comision de Servicios" icon="ui-icon ui-icon-document" >
+							<p:menuitem value="Requerimiento de comision" action="#{RequerimientoComision.buscar}" ajax="false" />
+						</p:submenu>
+						<p:submenu label="Generacion de Planilla de viaticos" icon="ui-icon ui-icon-document">
+							<p:menuitem value="Calculo de viaticos" action="#{CalculoViatico.buscar}" ajax="false" />
+						</p:submenu>
+						<p:submenu label="Rendición de gastos" icon="ui-icon ui-icon-document">
+							<p:menuitem value="Rendición de comisión" action="#{RendicionComision.buscar}" ajax="false" />
+							<p:menuitem value="Declaracion Jurada" url="#" />
+						</p:submenu>
+						<p:menuitem value="Salir" url="#" />
+					</p:menubar>
+				</h:form>
+			  </td>
+            </tr>
+            <tr>
+            	<td>rendicion comision</td>
+            </tr>
+           <tr>
+            	<td><img src="img/pie.jpg" alt="" width="971" height="40" /></td>
+            </tr>
+        </table>
+		</h:form>
+	</h:body>
+	</f:view>
+</html>
