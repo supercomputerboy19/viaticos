@@ -29,11 +29,6 @@ h3 {
 	margin-top:20px;
 }
 
-h4 {
-	font-size: 17px;
-	margin-top:5px;
-}
-
 ul {
 }
 
@@ -220,6 +215,11 @@ img.right {
 	margin-left: -1px;
 }
 
+#sidebar1 td li {
+    font-family: Arial,sans-serif;
+    font-size:11px !important;
+}
+
 #sidebar2 {
 	float: right;
 }
@@ -270,6 +270,10 @@ img.right {
 
 .sidebar a:hover {
 	text-decoration: underline;
+}
+
+.sidebar a.ui-menuitem-link:hover {
+	text-decoration: none;
 }
 
 /* Search */
@@ -387,7 +391,9 @@ img.right {
 }
 
 .new {
-    background: url(../images/new-ico.gif) no-repeat 1%;
+    color: #FF9900 !important;
+    font-weight: bold;
+    display:block;
 }
 
 .ui-widget {
@@ -395,7 +401,7 @@ img.right {
 }
 
 .ui-growl {
-    top:115px;
+    top:115px !important;
 }
 
 .themeMenu {
@@ -405,5 +411,13 @@ img.right {
 }
 
 .sidebar .wijmo-wijmenu a {
+    text-decoration: none !important;
+}
+
+.dp-xml {
+    width:1000px;
+}
+
+.ui-themeswitcher a.ui-selectonemenu-label-container {
     text-decoration: none !important;
 }

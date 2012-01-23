@@ -1,0 +1,45 @@
+<html xmlns="http://www.w3c.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta content="EmulateIE8" http-equiv="X-UA-Compatible" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link type="text/css" rel="stylesheet" href="css/default.css" />
+	<link type="text/css" rel="stylesheet" href="css/syntaxhighlighter.css" />
+</h:head>
+<style type="text/css">
+	.dp-xml .cdata { color: #ff1493; }.dp-xml .tag, .dp-xml .tag-name { color: #069; font-weight: bold; }.dp-xml .attribute { color: red; }.dp-xml .attribute-value { color: blue; }
+</style>
+<style type="text/css">
+	.dp-xml .cdata { color: #ff1493; }.dp-xml .tag, .dp-xml .tag-name { color: #069; font-weight: bold; }.dp-xml .attribute { color: red; }.dp-xml .attribute-value { color: blue; }
+</style>
+<h:body>
+	<h:form>  
+    <p:menubar style="height:30px" >  
+        <p:submenu label="File" icon="ui-icon-document">  
+            <p:submenu label="New" icon="ui-icon-contact">  
+                <p:menuitem value="Project" url="#" helpText="CTRL+N" />  
+                <p:menuitem value="Other" url="#" helpText="CTRL+O"/>  
+            </p:submenu>  
+            <p:menuitem value="Open" url="#" />  
+            <p:separator />  
+            <p:menuitem value="Quit" url="#" />  
+        </p:submenu>
+         <p:submenu label="Help" icon="ui-icon-help">  
+            <p:menuitem value="Contents" url="#" />  
+            <p:submenu label="Search" icon="ui-icon-search">  
+                <p:submenu label="Text">  
+                    <p:menuitem value="Workspace" url="#" />  
+                </p:submenu>  
+                <p:menuitem value="File" url="#" />  
+            </p:submenu>  
+        </p:submenu> 
+		<p:menuitem value="Quit" url="http://www.primefaces.org" icon="ui-icon-close" />
+	</p:menubar>
+	</h:form>
+	<h:form id="menu" >
+		<p:menubar model="#{MenuBean.model}"/>
+	</h:form>
+</h:body>
+</html>
