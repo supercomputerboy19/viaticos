@@ -24,11 +24,6 @@
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
 	<managed-bean>
-		<managed-bean-name>IngresoComision</managed-bean-name>
-		<managed-bean-class>pe.gob.oefa.controller.faces.IngresoComision</managed-bean-class>
-		<managed-bean-scope>session</managed-bean-scope>
-	</managed-bean>
-	<managed-bean>
 		<managed-bean-name>BuscarComision</managed-bean-name>
 		<managed-bean-class>pe.gob.oefa.controller.faces.BuscarComision</managed-bean-class>
 		<managed-bean-scope>request</managed-bean-scope>
@@ -48,6 +43,21 @@
 		<managed-bean-class>pe.gob.oefa.controller.menu.MenuBean</managed-bean-class>
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>CalculoViatico</managed-bean-name>
+		<managed-bean-class>pe.gob.oefa.controller.faces.CalculoViatico</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>RendicionComision</managed-bean-name>
+		<managed-bean-class>pe.gob.oefa.controller.faces.RendicionComision</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>RequerimientoComision</managed-bean-name>
+		<managed-bean-class>pe.gob.oefa.controller.faces.RequerimientoComision</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
 	<navigation-rule>
 		<from-view-id>/index.xhtml</from-view-id>
 		<navigation-case>
@@ -63,30 +73,12 @@
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
-		<from-view-id>/principal.xhtml</from-view-id>
-		<navigation-case>
-			<from-action>#{BuscarComision.mostrar}</from-action>
-			<from-outcome>success</from-outcome>
-			<to-view-id>/buscarComision.xhtml</to-view-id>
-			<redirect />
-		</navigation-case>
-	</navigation-rule>
-	<navigation-rule>
 		<display-name>ingresoComision.xhtml</display-name>
 		<from-view-id>/ingresoComision.xhtml</from-view-id>
 		<navigation-case>
 			<from-action>#{IngresoComision.registrar}</from-action>
 			<from-outcome>success</from-outcome>
 			<to-view-id>/ingresoComision.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
-	<navigation-rule>
-		<display-name>ingresoComision.xhtml</display-name>
-		<from-view-id>/ingresoComision.xhtml</from-view-id>
-		<navigation-case>
-			<from-action>#{MenuPrincipal.mostrar}</from-action>
-			<from-outcome>success</from-outcome>
-			<to-view-id>/principal.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
@@ -103,6 +95,70 @@
 		<display-name>ingresoComision.xhtml</display-name>
 		<from-view-id>/ingresoComision.xhtml</from-view-id>
 		<navigation-case>
+			<from-action>#{RequerimientoComision.buscar}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/buscarComision.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>buscarComision.xhtml</display-name>
+		<from-view-id>/buscarComision.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{CalculoViatico.mostrar}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/calculoViatico.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>buscarComision.xhtml</display-name>
+		<from-view-id>/buscarComision.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{RendicionComision.mostrar}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/rendicionComision.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>calculoViatico.xhtml</display-name>
+		<from-view-id>/calculoViatico.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{CalculoViatico.buscar}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/buscarComision.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>rendicionComision.xhtml</display-name>
+		<from-view-id>/rendicionComision.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{RendicionComision.buscar}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/buscarComision.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>principal.xhtml</display-name>
+		<from-view-id>/principal.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{RendicionComision.buscar}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/buscarComision.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>principal.xhtml</display-name>
+		<from-view-id>/principal.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{RequerimientoComision.buscar}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/buscarComision.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>principal.xhtml</display-name>
+		<from-view-id>/principal.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{CalculoViatico.buscar}</from-action>
 			<from-outcome>success</from-outcome>
 			<to-view-id>/buscarComision.xhtml</to-view-id>
 		</navigation-case>

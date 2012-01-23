@@ -10,7 +10,7 @@ import pe.gob.oefa.controller.bussines.ComisionCN;
 import pe.gob.oefa.utiles.CONSTANTE;
 import pe.gob.oefa.utiles.Utiles;
 
-public class IngresoComision implements Serializable {
+public class RequerimientoComision implements Serializable {
 	private Comision comision;
 	
 	private static final long serialVersionUID = -3662028712521578121L;
@@ -133,8 +133,16 @@ public class IngresoComision implements Serializable {
 		this.comision = comision;
 	}
 
-	public IngresoComision(){
+	public RequerimientoComision(){
 		
+	}
+	
+	
+	public String buscar(){
+		
+		
+		
+		return CONSTANTE.SUCCESS;
 	}
 	
 	public String mostrar(){
