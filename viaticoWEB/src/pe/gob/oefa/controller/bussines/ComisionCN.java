@@ -31,6 +31,7 @@ public class ComisionCN {
 	ItemRendicionDAO itemRendicionDAO = null;
 	ParametroDAO  parametroDAO = null;
 	ComisionadoDAO comisionadoDAO = null;
+	
 	private static ComisionCN comisionCN = null;
 	
 	private ComisionCN(){
@@ -103,6 +104,19 @@ public class ComisionCN {
 			e.printStackTrace();
 		}
 		return comisionado;
+	}
+
+	public List<Comision> getComisiones(String numComision,String apePaterno, String apeMaterno,
+			Date fInicio, Date fFin) {
+		List<Comision> listComision;
+		try {
+			listComision = comisionDAO.buscarComision(numComision, apePaterno, apeMaterno, fInicio, fFin);
+			
+		} catch (Exception e) {
+			listComision = null;
+			e.printStackTrace();
+		}
+		return listComision;
 	}
 	
 }

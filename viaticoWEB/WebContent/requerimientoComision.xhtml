@@ -21,6 +21,7 @@
 					<p:menubar autoSubmenuDisplay="true" style="width: 965px;" >
 				        <p:submenu label="Comision de Servicios" icon="ui-icon ui-icon-document" >
 							<p:menuitem value="Requerimiento de comision" action="#{RequerimientoComision.buscar}" ajax="false" />
+							<p:menuitem value="Buscar Requerimiento de comision" action="#{BuscarComision.requerimiento}" ajax="false" />
 						</p:submenu>
 						<p:submenu label="Generacion de Planilla de viaticos" icon="ui-icon ui-icon-document">
 							<p:menuitem value="Calculo de viaticos" action="#{CalculoViatico.buscar}" ajax="false" />
@@ -53,27 +54,27 @@
 		                  <table width="100%" >
 		                    <tr>
 		                      <td style="width:70px" >NOMBRES</td>
-		                      <td> <p:inputText id="nombres" value="#{IngresoComision.nombres}" size="40" readonly="TRUE" /></td>
+		                      <td> <p:inputText id="nombres" value="#{RequerimientoComision.comisionado.c_t_nombre}" size="40" readonly="TRUE" /></td>
 		                      <td> </td>
 		                      <td>DNI</td>
-		                      <td> <p:inputText id="dni" value="#{IngresoComision.dni}" size="8" readonly="TRUE" /></td>
+		                      <td> <p:inputText id="dni" value="#{RequerimientoComision.comisionado.c_dni}" size="8" readonly="TRUE" /></td>
 		                    </tr>
 		                    <tr>
 		                      <td>APELLIDOS</td>
-		                      <td> <p:inputText id="apellidos" value="#{IngresoComision.apellidos}" size="40" readonly="TRUE" /></td>
+		                      <td> <p:inputText id="apellidos" value="#{RequerimientoComision.comisionado.c_t_apellido_paterno} #{RequerimientoComision.comisionado.c_t_apellido_materno}" size="40" readonly="TRUE" /></td>
 		                      <td> </td>
 		                      <td>SEXO</td>
-		                      <td> <p:inputText id="sexo" value="#{IngresoComision.sexo}" size="6" readonly="TRUE" /></td>
+		                      <td> <p:inputText id="sexo" value="#{RequerimientoComision.comisionado.c_sexo}" size="4" readonly="TRUE" /></td>
 		                    </tr>
 		                  </table>
 		              </fieldset>
 	              </td><td align="center" >
 	              	<table>
 	              		<tr>
-	              			<td><p:commandButton value="Registrar" action="#{IngresoComision.registrar}" ajax="false" /></td>
+	              			<td><p:commandButton value="Registrar" action="#{RequerimientoComision.registrar}" ajax="false" /></td>
 	              		</tr>
 	              		<tr>
-	              			<td><p:commandButton value="Regresar" action="#{MenuPrincipal.mostrar}" ajax="false" immediate="true" /></td>
+	              			<td><p:commandButton value="Buscar Comisionado" action="#{BuscarComisionado.mostrar}" ajax="false" immediate="true" /></td>
 	              		</tr>
 	              	</table>
 	              </td>
@@ -87,7 +88,7 @@
 	                  	<tr>
 	                  		<td>Fecha de Salida:</td>
 	                  		<td>
-	                  			<p:calendar id="fechaSalida" value="#{IngresoComision.fechaSalida}" pattern="dd/MM/yyyy" mode="popup" showOn="button" locale="es" readOnlyInputText="TRUE" size="10" required="true" >
+	                  			<p:calendar id="fechaSalida" value="#{RequerimientoComision.comision.fechaSalida}" pattern="dd/MM/yyyy" mode="popup" showOn="button" locale="es" readOnlyInputText="TRUE" size="10" required="true" >
 	                  				<f:validateLength minimum="2" />
 	                  			</p:calendar>
 	                  			<p:message for="fechaSalida" />
@@ -95,7 +96,7 @@
 	                  		<td> </td>
 	                  		<td>Asignación Diaria: S/.</td>
 	                  		<td>
-	                  			<p:selectOneMenu id="asignacionDiaria" value="#{IngresoComision.comision.asignacionDiaria}" style="width:120px" > 
+	                  			<p:selectOneMenu id="asignacionDiaria" value="#{RequerimientoComision.comision.asignacionDiaria}" style="width:120px" > 
 									<f:selectItem itemLabel="180" itemValue="180" />
 									<f:selectItem itemLabel="210" itemValue="210" />
 									<f:selectItem itemLabel="250" itemValue="250" />
@@ -106,7 +107,7 @@
 	                  	<tr>
 	                  		<td>Fecha de Retorno:</td>
 	                  		<td>
-	                  			<p:calendar id="fechaRetorno" pattern="dd/MM/yyyy" value="#{IngresoComision.fechaRetorno}" mode="popup" showOn="button" locale="es" readOnlyInputText="TRUE" size="10" required="true" >
+	                  			<p:calendar id="fechaRetorno" pattern="dd/MM/yyyy" value="#{RequerimientoComision.comision.fechaRetorno}" mode="popup" showOn="button" locale="es" readOnlyInputText="TRUE" size="10" required="true" >
 	                  				<f:validateLength minimum="2" />
 	                  			</p:calendar>
 	                  			<p:message for="fechaRetorno" />
@@ -114,7 +115,7 @@
 	                  		<td> </td>
 	                  		<td>Destino:</td>
 	                  		<td colspan="4">
-	                  			<p:inputText id="destino" size="60" value="#{IngresoComision.destino}" maxlength="60" required="true">
+	                  			<p:inputText id="destino" size="60" value="#{RequerimientoComision.comision.destino}" maxlength="60" required="true">
 	                  				<f:validateLength minimum="10" />
 	                  			</p:inputText>
 	                  			<p:message for="destino" /> 
@@ -123,13 +124,13 @@
 	                  	<tr>
 	                  		<td>Dependencia:</td>
 	                  		<td colspan="7" >
-	                  			<p:inputText id="dependencia" value="#{IngresoComision.dependencia}" size="80" readonly="TRUE" />
+	                  			<p:inputText id="dependencia" value="#{RequerimientoComision.comisionado.c_t_area}" size="80" readonly="TRUE" />
 	                  		</td>
 	                  	</tr>
 	                  	<tr>
 	                  		<td>Objetivo:</td>
 	                  		<td colspan="7" >
-	                  			<p:inputText id="objetivo" value="#{IngresoComision.objetivo}" size="80" maxlength="80" required="true" >
+	                  			<p:inputText id="objetivo" value="#{RequerimientoComision.comision.objetivo}" size="80" maxlength="80" required="true" >
 	                  				<f:validateLength minimum="10" />
 	                  			</p:inputText>
 	                  			<p:message for="objetivo" />
@@ -138,16 +139,16 @@
 	                  	<tr>
 	                  		<td>Condición Laboral:</td>
 	                  		<td>
-	                  			<p:inputText id="condicionLaboral" value="#{IngresoComision.condicionLaboral}" maxlength="60" readonly="TRUE" />
+	                  			<p:inputText id="condicionLaboral" value="#{RequerimientoComision.comisionado.c_c_situacion_trab}" maxlength="60" readonly="TRUE" />
 	                  		</td>
 	                  		<td> </td>
-	                  		<td colspan="2" >Cargo:   
-	                  			<p:inputText id="cargo" value="#{IngresoComision.cargo}" size="44" maxlength="60" readonly="TRUE" />
+	                  		<td colspan="2" >Cargo:
+	                  			<p:inputText id="cargo" value="#{RequerimientoComision.comisionado.c_t_area}" size="44" maxlength="60" readonly="TRUE" />
 	                  		</td>
 	                  		<td> </td>
 	                  		<td>Fecha de Gestión:</td>
 	                  		<td>
-	                  			<p:calendar id="fechaGestion" value="#{IngresoComision.fechaGestion}" pattern="dd/MM/yyyy" mode="popup" showOn="button" locale="es" required="true" readOnlyInputText="TRUE" size="10" >
+	                  			<p:calendar id="fechaGestion" value="#{RequerimientoComision.comision.fechaGestion}" pattern="dd/MM/yyyy" mode="popup" showOn="button" locale="es" required="true" readOnlyInputText="TRUE" size="10" >
 	                  				<f:validateLength minimum="2" />
 	                  			</p:calendar>
 	                  			<p:message for="fechaGestion" />
@@ -165,22 +166,22 @@
 			                	<tr>
 			                		<td>VIA AREA</td>
 			                		<td>
-			                			<p:selectBooleanCheckbox id="viaAerea" value="#{IngresoComision.comision.viaAerea}" /> 
+			                			<p:selectBooleanCheckbox id="viaAerea" value="#{RequerimientoComision.comision.viaAerea}" />
 			                		</td>
 			                		<td> </td>
 			                		<td>TUUA</td>
 			                		<td>
-			                			<p:selectBooleanCheckbox id="tuua" value="#{IngresoComision.comision.tuua}" /> 
+			                			<p:selectBooleanCheckbox id="tuua" value="#{RequerimientoComision.comision.tuua}" />
 			                		</td>
 			                		<td> </td>
 			                    	<td>VIA TERRESTRE</td>
 			                		<td>
-			                			<p:selectBooleanCheckbox id="viaTerrestre" value="#{IngresoComision.comision.viaTerrestre}" /> 
+			                			<p:selectBooleanCheckbox id="viaTerrestre" value="#{RequerimientoComision.comision.viaTerrestre}" />
 			                		</td>
 			                		<td> </td>
 			                		<td>PASAJE TERRESTRE</td>
 			                		<td>
-			                			<p:selectBooleanCheckbox id="pasajeTerrestre" value="#{IngresoComision.comision.pasajeTerrestre}" /> 
+			                			<p:selectBooleanCheckbox id="pasajeTerrestre" value="#{RequerimientoComision.comision.pasajeTerrestre}" />
 			                		</td>
 			                    </tr>
 			                </table>

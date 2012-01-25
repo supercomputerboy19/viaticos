@@ -51,6 +51,9 @@ public class Comision implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private String nombre;
+	private String apellidoPaterno;
+	private String apellidoMaterno;
 	private Date fechaSalida;
     private String fechaSalidaRangoInicial;
     private String fechaSalidaRangoFinal;
@@ -82,7 +85,31 @@ public class Comision implements Serializable {
     private DeclaracionJurada declaracionJurada;
     private List<ItemRendicion> items;
     
-    public String getUsuarioId() {
+    public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getApellidoPaterno() {
+		return apellidoPaterno;
+	}
+
+	public void setApellidoPaterno(String apellidoPaterno) {
+		this.apellidoPaterno = apellidoPaterno;
+	}
+
+	public String getApellidoMaterno() {
+		return apellidoMaterno;
+	}
+
+	public void setApellidoMaterno(String apellidoMaterno) {
+		this.apellidoMaterno = apellidoMaterno;
+	}
+
+	public String getUsuarioId() {
  		return usuarioId;
  	}
 

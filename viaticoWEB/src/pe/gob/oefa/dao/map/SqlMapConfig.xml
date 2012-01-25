@@ -19,3 +19,13 @@
     <sqlMap resource="pe/gob/oefa/dao/map/ItemRendicion.xml"/>
     <sqlMap resource="pe/gob/oefa/dao/map/Parametro.xml"/>
 </sqlMapConfig>
+<!-- <transactionManager
+            type="JDBC" > <dataSource type="JNDI"> <property
+            name="DataSource" value="java:comp/env/jdbc/jpetstore"/>
+            </dataSource> </transactionManager> -->
+<!-- <transactionManager type="JTA" >
+            <property name="UserTransaction"
+            value="java:/ctx/con/UserTransaction"/> <dataSource
+            type="JNDI"> <property name="DataSource"
+            value="java:comp/env/jdbc/jpetstore"/> </dataSource>
+            </transactionManager> -->

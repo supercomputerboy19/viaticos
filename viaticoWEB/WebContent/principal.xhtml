@@ -17,13 +17,14 @@ xmlns:p="http://primefaces.org/ui">
     		<h:form id="menu" >
 				<p:menubar autoSubmenuDisplay="true" style="width: 965px;" >
 			        <p:submenu label="Comision de Servicios" icon="ui-icon ui-icon-document" >
-						<p:menuitem value="Requerimiento de comision" action="#{RequerimientoComision.buscar}" ajax="false" />
+						<p:menuitem value="Nuevo Requerimiento de comision" action="#{RequerimientoComision.mostrar}" ajax="false" />
+						<p:menuitem value="Buscar Requerimiento de comision" action="#{BuscarComision.requerimiento}" ajax="false" />
 					</p:submenu>
 					<p:submenu label="Generacion de Planilla de viaticos" icon="ui-icon ui-icon-document">
-						<p:menuitem value="Calculo de viaticos" action="#{CalculoViatico.buscar}" ajax="false" />
+						<p:menuitem value="Calculo de viaticos" action="#{BuscarComision.calculoViatico}" ajax="false" />
 					</p:submenu>
 					<p:submenu label="Rendición de gastos" icon="ui-icon ui-icon-document">
-						<p:menuitem value="Rendición de comisión" action="#{RendicionComision.buscar}" ajax="false" />
+						<p:menuitem value="Rendición de comisión" action="#{BuscarComision.rendicion}" ajax="false" />
 						<p:menuitem value="Declaracion Jurada" url="#" />
 					</p:submenu>
 					<p:menuitem value="Salir" url="#" />
