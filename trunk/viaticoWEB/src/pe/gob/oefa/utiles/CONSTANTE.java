@@ -16,4 +16,7 @@ public class CONSTANTE {
 	public static final String MENSAJE_LOGIN_ERROR = "Error al iniciar sesión";
 	public static final String COMISIONADO = "comisionado";
 	public static final String SUCCESS = "success";
+	public static final String TITULO_REQUERIMIENTO = "REQUERIMIENTO DE COMISIONES";
+	public static final String TITULO_RENDICION = "REGISTRO DE RENDICION";
+	public static final String TITULO_CALCULOVIATICO = "REGISTRO DE CALCULO DE VIATICO";
 }

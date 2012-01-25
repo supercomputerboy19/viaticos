@@ -189,8 +189,11 @@
    		</dynamic>
 	</select>
     
-    <select id="getComisiones" parameterClass="comision" resultMap="comisionmap">
-        SELECT  FECHASALIDA,        
+    <select id="buscarComision" parameterClass="pe.gob.oefa.be.ComisionQuery" resultClass="comision">
+      SELECT  
+       			C_T_NOMBRE as NOMBRE,
+                C_T_APELLIDO_PATERNO as APELLIDOPATERNO,
+                C_T_APELLIDO_MATERNO as APELLIDOMATERNO,
                 FECHARETORNO,        
                 OBJETIVO,
                 FECHAGESTION,       
@@ -212,24 +215,32 @@
                 MONTOHOSPEDAJE,
                 NUMCOMPROBANTEPAGO,
                 NUMRECIBOING,
-                C_C_CODIGO,
+                COMISION.C_C_CODIGO as C_C_CODIGO,
                 ESTADOID,
                 TIPOACTIVIDADID
       FROM COMISION
+      left join COMISIONADO on COMISION.C_C_CODIGO = COMISIONADO.C_C_CODIGO
       <dynamic prepend="WHERE">
-        <isNotEmpty prepend="AND" property="ccCodigo">
-          C_C_CODIGO = #ccCodigo#
+        <isNotEmpty prepend="AND" property="numComision">
+          COMISION.C_C_CODIGO=#numComision#
         </isNotEmpty>
-        <isNotEmpty prepend="AND" property="estadoId">
-          ESTADOID = #estadoId#
+        <isNotEmpty prepend="AND" property="apePaterno">
+          COMISIONADO.C_T_APELLIDO_PATERNO like #apePaterno#%
         </isNotEmpty>
-        <isNotEmpty prepend="AND" property="fechaSalidaRangoInicial">
-          FECHASALIDA <![CDATA[>=]]> #fechaSalidaRangoInicial#
+        <isNotEmpty prepend="AND" property="apeMaterno">
+          COMISIONADO.C_T_APELLIDO_MATERNO like #apeMaterno#%
         </isNotEmpty>
-        <isNotEmpty prepend="AND" property="fechaSalidaRangoFinal">
-          FECHASALIDA <![CDATA[<=]]>  #fechaSalidaRangoFinal#
+        <isNotEmpty prepend="AND" property="nombre">
+          COMISIONADO.C_T_NOMBRE like #nombre#%
+        </isNotEmpty>
+        <isNotEmpty prepend="AND" property="fInicio">
+          COMISION.FECHASALIDA <![CDATA[>=]]> #fInicio#
+        </isNotEmpty>
+        <isNotEmpty prepend="AND" property="fFin">
+          COMISION.FECHARETORNO <![CDATA[<=]]>  #fFin#
         </isNotEmpty>
       </dynamic>
+       order by COMISIONID desc
     </select>
  </sqlMap>
     

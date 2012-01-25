@@ -6,11 +6,13 @@ package pe.gob.oefa.dao.impl;
 
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.dao.DataAccessException;
 
 import pe.gob.oefa.be.Comision;
+import pe.gob.oefa.be.ComisionQuery;
 import pe.gob.oefa.dao.ComisionDAO;
 import pe.gob.oefa.exception.DAOException;
 import pe.gob.oefa.exception.UnexpectedException;
@@ -88,5 +90,18 @@ public class ComisionImplDAO implements ComisionDAO {
 		}
 		return comision;
 
+	}
+
+	public List<Comision> buscarComision(String numComision, String apePaterno,
+			String apeMaterno, Date fInicio, Date fFin) {
+		List<Comision>  listComision = null;
+		ComisionQuery comisionQuery = new ComisionQuery(numComision, apePaterno,
+				apeMaterno, fInicio, fFin);
+		try { 
+			listComision = sqlMap.queryForList("Comision.buscarComision", comisionQuery);
+		} catch (Exception e) {
+			throw new UnexpectedException(e.getMessage(), e);
+		}
+		return listComision;
 	}
 }
