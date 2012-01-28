@@ -9,9 +9,9 @@ public class Comisionado implements Serializable{
 	private String c_c_grupo;
 	private String c_c_codigo; 
 	private String c_t_nombre; 
-	private String c_t_apellido_paterno; 
-	private String c_t_apellido_materno; 
-	private String c_t_nombre_completo; 
+	private String c_t_apellido_paterno;
+	private String c_t_apellido_materno;
+	private String c_t_nombre_completo;
 	private String c_c_situacion_trab; 
 	private String c_t_email_inst; 
 	private String d_nacimiento; 

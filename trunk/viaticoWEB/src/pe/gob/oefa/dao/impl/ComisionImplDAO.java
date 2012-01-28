@@ -92,13 +92,14 @@ public class ComisionImplDAO implements ComisionDAO {
 
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Comision> buscarComision(String numComision, String apePaterno,
 			String apeMaterno, Date fInicio, Date fFin) {
 		List<Comision>  listComision = null;
 		ComisionQuery comisionQuery = new ComisionQuery(numComision, apePaterno,
 				apeMaterno, fInicio, fFin);
 		try { 
-			listComision = sqlMap.queryForList("Comision.buscarComision", comisionQuery);
+			listComision = (List<Comision>)sqlMap.queryForList("Comision.buscarComision", comisionQuery);
 		} catch (Exception e) {
 			throw new UnexpectedException(e.getMessage(), e);
 		}

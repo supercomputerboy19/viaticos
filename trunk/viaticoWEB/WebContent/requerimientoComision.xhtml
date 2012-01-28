@@ -2,6 +2,10 @@
 	  xmlns:h="http://java.sun.com/jsf/html"
 	  xmlns:f="http://java.sun.com/jsf/core"
 	  xmlns:p="http://primefaces.org/ui" >
+	<f:metadata>  
+    	<f:viewParam name="c_c_codigo" value="#{RequerimientoComision.comisionado.c_c_codigo}" />
+    	
+	</f:metadata>
 	<h:head>
 		<title>Registro de sesión</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -20,7 +24,7 @@
 				<h:form id="menu" >
 					<p:menubar autoSubmenuDisplay="true" style="width: 965px;" >
 				        <p:submenu label="Comision de Servicios" icon="ui-icon ui-icon-document" >
-							<p:menuitem value="Requerimiento de comision" action="#{RequerimientoComision.buscar}" ajax="false" />
+							<p:menuitem value="Nuevo Requerimiento de comision" action="#{RequerimientoComision.mostrar}" ajax="false" />
 							<p:menuitem value="Buscar Requerimiento de comision" action="#{BuscarComision.requerimiento}" ajax="false" />
 						</p:submenu>
 						<p:submenu label="Generacion de Planilla de viaticos" icon="ui-icon ui-icon-document">
@@ -35,46 +39,44 @@
 				</h:form>
 			  </td>
             </tr>
-            <tr>
-              <td align="center" style="h4" ><strong>CALCULADORA DE VIATICOS - OEFA</strong></td></tr>
+            <tr> <td align="left" style="font-size: 18px" ><strong>REGISTRO DE REQUERIMIENTO DE COMISION</strong></td></tr>
             <!-- <tr>
-              <td height="25" align="left" style="h2" >Organismo de Evaluación y Fiscalización Ambiente - OEFA</td>
-            </tr>-->
-            <tr>
               <td align="justify">
               	Coloque en los recuadros la fecha de salida y la fecha de retorno, incluyendo las horas, para que se pueda calcular su asignación por comisión de servicios.
               </td>
-            </tr>
+            </tr>-->
             <tr>
               <td align="left">
               	<table><tr>
               	  <td width="800">
 		            <fieldset>
-		                <legend>DATOS DEL COMISIONADO</legend>
+		                <legend>Datos del funcionario y/o trabajador comisionado</legend>
 		                  <table width="100%" >
 		                    <tr>
-		                      <td style="width:70px" >NOMBRES</td>
-		                      <td> <p:inputText id="nombres" value="#{RequerimientoComision.comisionado.c_t_nombre}" size="40" readonly="TRUE" /></td>
+		                      <td style="width:70px" >DNI</td>
+		                      <td>
+		                      <h:inputHidden id="c_c_codigo" value="#{RequerimientoComision.comisionado.c_c_codigo}" />
+		                      <p:inputText id="c_dni" value="#{RequerimientoComision.comisionado.c_dni}" size="8" readonly="TRUE" /></td>
 		                      <td> </td>
-		                      <td>DNI</td>
-		                      <td> <p:inputText id="dni" value="#{RequerimientoComision.comisionado.c_dni}" size="8" readonly="TRUE" /></td>
+		                      <td>Nombres y Apellidos de comisionado </td>
+		                      <td><p:inputText id="nombreCompleto" value="#{RequerimientoComision.comisionado.c_t_nombre} #{RequerimientoComision.comisionado.c_t_apellido_paterno}" size="80" readonly="TRUE" /></td>
 		                    </tr>
 		                    <tr>
-		                      <td>APELLIDOS</td>
-		                      <td> <p:inputText id="apellidos" value="#{RequerimientoComision.comisionado.c_t_apellido_paterno} #{RequerimientoComision.comisionado.c_t_apellido_materno}" size="40" readonly="TRUE" /></td>
+		                      <td>Cargo</td>
+		                      <td> <p:inputText id="c_t_puesto" value="#{RequerimientoComision.comisionado.c_t_puesto}" size="40" readonly="TRUE" /></td>
 		                      <td> </td>
-		                      <td>SEXO</td>
-		                      <td> <p:inputText id="sexo" value="#{RequerimientoComision.comisionado.c_sexo}" size="4" readonly="TRUE" /></td>
+		                      <td>Unidad organica</td>
+		                      <td> <p:inputText id="c_t_area" value="#{RequerimientoComision.comisionado.c_t_area}" size="4" readonly="TRUE" /></td>
 		                    </tr>
 		                  </table>
 		              </fieldset>
 	              </td><td align="center" >
 	              	<table>
 	              		<tr>
-	              			<td><p:commandButton value="Registrar" action="#{RequerimientoComision.registrar}" ajax="false" /></td>
+	              			<td><p:commandButton value="Registrar Comision" action="#{RequerimientoComision.registrar}" ajax="false" /></td>
 	              		</tr>
 	              		<tr>
-	              			<td><p:commandButton value="Buscar Comisionado" action="#{BuscarComisionado.mostrar}" ajax="false" immediate="true" /></td>
+	              			<td><p:commandButton value="Buscar empleado" action="#{BuscarComisionado.mostrar}" ajax="false" immediate="true" /></td>
 	              		</tr>
 	              	</table>
 	              </td>
@@ -84,6 +86,7 @@
             <tr>
             	<td align="left">
             		<fieldset>
+            		 <legend>Datos de la comisión</legend>
 	                  <table>
 	                  	<tr>
 	                  		<td>Fecha de Salida:</td>
@@ -142,9 +145,7 @@
 	                  			<p:inputText id="condicionLaboral" value="#{RequerimientoComision.comisionado.c_c_situacion_trab}" maxlength="60" readonly="TRUE" />
 	                  		</td>
 	                  		<td> </td>
-	                  		<td colspan="2" >Cargo:
-	                  			<p:inputText id="cargo" value="#{RequerimientoComision.comisionado.c_t_area}" size="44" maxlength="60" readonly="TRUE" />
-	                  		</td>
+	                  		<td colspan="2" >Cargo:</td>
 	                  		<td> </td>
 	                  		<td>Fecha de Gestión:</td>
 	                  		<td>

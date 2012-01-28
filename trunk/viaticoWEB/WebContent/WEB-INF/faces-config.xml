@@ -31,7 +31,7 @@
 	<managed-bean>
 		<managed-bean-name>Comision</managed-bean-name>
 		<managed-bean-class>pe.gob.oefa.be.Comision</managed-bean-class>
-		<managed-bean-scope>request</managed-bean-scope>
+		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
 	<managed-bean>
 		<managed-bean-name>Comisionado</managed-bean-name>
@@ -58,6 +58,11 @@
 		<managed-bean-class>pe.gob.oefa.controller.faces.RequerimientoComision</managed-bean-class>
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>BuscarComisionado</managed-bean-name>
+		<managed-bean-class>pe.gob.oefa.controller.faces.BuscarComisionado</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
 	<navigation-rule>
 		<from-view-id>/index.xhtml</from-view-id>
 		<navigation-case>
@@ -73,99 +78,118 @@
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
-		<display-name>requerimientoComision.xhtml</display-name>
 		<from-view-id>/requerimientoComision.xhtml</from-view-id>
 		<navigation-case>
 			<from-action>#{RequerimientoComision.registrar}</from-action>
 			<from-outcome>success</from-outcome>
 			<to-view-id>/requerimientoComision.xhtml</to-view-id>
+			<redirect />
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
-		<display-name>requerimientoComision.xhtml</display-name>
-		<from-view-id>/requerimientoComision.xhtml</from-view-id>
-		<navigation-case>
-			<from-action>#{BuscarComision.mostrar}</from-action>
-			<from-outcome>requerimiento</from-outcome>
-			<to-view-id>/buscarComision.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
-	<navigation-rule>
-		<display-name>buscarComision.xhtml</display-name>
 		<from-view-id>/buscarComision.xhtml</from-view-id>
 		<navigation-case>
 			<from-action>#{BuscarComision.mostrar}</from-action>
 			<from-outcome>calculoViatico</from-outcome>
 			<to-view-id>/calculoViatico.xhtml</to-view-id>
+			<redirect />
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
-		<display-name>buscarComision.xhtml</display-name>
 		<from-view-id>/buscarComision.xhtml</from-view-id>
 		<navigation-case>
 			<from-action>#{BuscarComision.mostrar}</from-action>
 			<from-outcome>rendicion</from-outcome>
 			<to-view-id>/rendicionComision.xhtml</to-view-id>
+			<redirect />
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
-		<display-name>calculoViatico.xhtml</display-name>
 		<from-view-id>/calculoViatico.xhtml</from-view-id>
 		<navigation-case>
 			<from-action>#{CalculoViatico.buscar}</from-action>
 			<from-outcome>success</from-outcome>
 			<to-view-id>/buscarComision.xhtml</to-view-id>
+			<redirect />
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
-		<display-name>rendicionComision.xhtml</display-name>
-		<from-view-id>/rendicionComision.xhtml</from-view-id>
-		<navigation-case>
-			<from-action>#{RendicionComision.buscar}</from-action>
-			<from-outcome>success</from-outcome>
-			<to-view-id>/buscarComision.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
-	<navigation-rule>
-		<display-name>principal.xhtml</display-name>
 		<from-view-id>/principal.xhtml</from-view-id>
 		<navigation-case>
 			<from-action>#{BuscarComision.rendicion}</from-action>
 			<from-outcome>success</from-outcome>
 			<to-view-id>/buscarComision.xhtml</to-view-id>
+			<redirect />
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
-		<display-name>principal.xhtml</display-name>
 		<from-view-id>/principal.xhtml</from-view-id>
 		<navigation-case>
 			<from-action>#{BuscarComision.requerimiento}</from-action>
 			<from-outcome>success</from-outcome>
 			<to-view-id>/buscarComision.xhtml</to-view-id>
+			<redirect />
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
-		<display-name>principal.xhtml</display-name>
 		<from-view-id>/principal.xhtml</from-view-id>
 		<navigation-case>
 			<from-action>#{BuscarComision.calculoViatico}</from-action>
 			<from-outcome>success</from-outcome>
 			<to-view-id>/buscarComision.xhtml</to-view-id>
+			<redirect />
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
-		<display-name>principal.xhtml</display-name>
 		<from-view-id>/principal.xhtml</from-view-id>
 		<navigation-case>
 			<from-action>#{RequerimientoComision.mostrar}</from-action>
 			<from-outcome>success</from-outcome>
 			<to-view-id>/requerimientoComision.xhtml</to-view-id>
+			<redirect />
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
-		<display-name>buscarComision.xhtml</display-name>
-		<from-view-id>/buscarComision.xhtml</from-view-id>
+		<from-view-id>/rendicionComision.xhtml</from-view-id>
 		<navigation-case>
+			<from-action>#{BuscarComision.rendicion}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/buscarComision.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/calculoViatico.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{BuscarComision.calculoViatico}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/buscarComision.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/requerimientoComision.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{BuscarComision.requerimiento}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/buscarComision.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/requerimientoComision.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{BuscarComisionado.mostrar}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/buscarComisionado.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/buscarComisionado.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{RequerimientoComision.mostrar}</from-action>
+			<from-outcome>success</from-outcome>
 			<to-view-id>/requerimientoComision.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>

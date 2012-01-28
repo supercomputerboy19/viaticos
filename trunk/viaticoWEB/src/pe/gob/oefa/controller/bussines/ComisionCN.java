@@ -118,5 +118,15 @@ public class ComisionCN {
 		}
 		return listComision;
 	}
+
+	public List<Comisionado> getComisionados(Comisionado comisionado) {
+		try{
+			List<Comisionado> listComisionado = comisionadoDAO.buscarComisionados(comisionado);
+			return listComisionado;
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 	
 }
