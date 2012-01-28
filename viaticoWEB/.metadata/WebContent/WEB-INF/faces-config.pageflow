@@ -1,30 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" name="#{MenuPrincipal.mostrarIngresarComision}" comment="" id="pf13236532206870" configfile="/viaticoWEB/WebContent/WEB-INF/faces-config.xml">
   <nodes xsi:type="pageflow:PFPage" name="index.xhtml" x="84" y="178" id="pf13262615839060" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" outlinks="pf13262615839062 pf13265736503120" inlinks="pf13262615839062" path="/index.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="principal.xhtml" x="216" y="178" id="pf13265736503121" referenceLink="//@navigationRule.11/@fromViewId|" outlinks="pf13272733773596 pf13272734977507 pf13272734977508 pf13274622519840" inlinks="pf13265736503120" path="/principal.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="requerimientoComision.xhtml" x="565" y="24" id="pf13265856395462" referenceLink="//@navigationRule.11/@navigationCase.0/@toViewId|" outlinks="pf13266552476250 pf13269569535001" inlinks="pf13266552476250 pf13274622519840 pf13269563951870" path="/requerimientoComision.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="buscarComision.xhtml" x="336" y="178" id="pf13265867291096" referenceLink="//@navigationRule.10/@navigationCase.0/@toViewId|" outlinks="pf13272694248592 pf13272694248593 pf13269563951870" inlinks="pf13269569535001 pf13272695313594 pf13272695313595 pf13272733773596 pf13272734977507 pf13272734977508" path="/buscarComision.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="calculoViatico.xhtml" x="583" y="132" id="pf13272693020780" referenceLink="//@navigationRule.6/@fromViewId|" outlinks="pf13272695313594" inlinks="pf13272694248592" path="/calculoViatico.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="rendicionComision.xhtml" x="561" y="252" id="pf13272693906251" referenceLink="//@navigationRule.7/@fromViewId|" outlinks="pf13272695313595" inlinks="pf13272694248593" path="/rendicionComision.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="principal.xhtml" x="216" y="178" id="pf13265736503121" referenceLink="//@navigationRule.8/@fromViewId|" outlinks="pf13272733773596 pf13272734977507 pf13272734977508 pf13274622519840" inlinks="pf13265736503120" path="/principal.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="requerimientoComision.xhtml" x="505" y="24" id="pf13265856395462" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" outlinks="pf13274701156713 pf13274748351254 pf13277025440780" inlinks="pf13274622519840 pf13274748351255 pf13277025440780" path="/requerimientoComision.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="buscarComision.xhtml" x="336" y="178" id="pf13265867291096" referenceLink="//@navigationRule.11/@navigationCase.0/@toViewId|" outlinks="pf13272694248592 pf13272694248593" inlinks="pf13272695313594 pf13272733773596 pf13272734977507 pf13272734977508 pf13274700904531 pf13274700904532 pf13274701156713" path="/buscarComision.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="calculoViatico.xhtml" x="600" y="180" id="pf13272693020780" referenceLink="//@navigationRule.10/@fromViewId|" outlinks="pf13272695313594 pf13274700904532" inlinks="pf13272694248592" path="/calculoViatico.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="rendicionComision.xhtml" x="528" y="276" id="pf13272693906251" referenceLink="//@navigationRule.9/@fromViewId|" outlinks="pf13274700904531" inlinks="pf13272694248593" path="/rendicionComision.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="buscarComisionado.xhtml" x="672" y="24" id="pf13274748351256" referenceLink="//@navigationRule.13/@fromViewId|" outlinks="pf13274748351255" inlinks="pf13274748351254" path="/buscarComisionado.xhtml"/>
   <links id="pf13265736503120" target="pf13265736503121" source="pf13262615839060" outcome="success" redirect="true" fromaction="#{Login.validaSesion}"/>
   <links id="pf13262615839062" target="pf13262615839060" source="pf13262615839060" outcome="fail" fromaction="#{Login.validaSesion}">
     <bendPoints d1Height="-36" d2Height="-36"/>
     <bendPoints d1Width="-64" d1Height="-36" d2Width="-64" d2Height="-36"/>
     <bendPoints d1Width="-64" d2Width="-64"/>
   </links>
-  <links id="pf13266552476250" target="pf13265856395462" source="pf13265856395462" outcome="success" fromaction="#{RequerimientoComision.registrar}">
-    <bendPoints d1Height="-36" d2Height="-36"/>
-    <bendPoints d1Width="-64" d1Height="-36" d2Width="-64" d2Height="-36"/>
-    <bendPoints d1Width="-64" d2Width="-64"/>
-  </links>
-  <links id="pf13269569535001" target="pf13265867291096" source="pf13265856395462" outcome="requerimiento" fromaction="#{BuscarComision.mostrar}"/>
-  <links id="pf13272694248592" target="pf13272693020780" source="pf13265867291096" outcome="calculoViatico" fromaction="#{BuscarComision.mostrar}"/>
-  <links id="pf13272694248593" target="pf13272693906251" source="pf13265867291096" outcome="rendicion" fromaction="#{BuscarComision.mostrar}"/>
-  <links id="pf13272695313594" target="pf13265867291096" source="pf13272693020780" outcome="success" fromaction="#{CalculoViatico.buscar}"/>
-  <links id="pf13272695313595" target="pf13265867291096" source="pf13272693906251" outcome="success" fromaction="#{RendicionComision.buscar}"/>
-  <links id="pf13272733773596" target="pf13265867291096" source="pf13265736503121" outcome="success" fromaction="#{BuscarComision.rendicion}"/>
-  <links id="pf13272734977507" target="pf13265867291096" source="pf13265736503121" outcome="success" fromaction="#{BuscarComision.requerimiento}"/>
-  <links id="pf13272734977508" target="pf13265867291096" source="pf13265736503121" outcome="success" fromaction="#{BuscarComision.calculoViatico}"/>
-  <links id="pf13274622519840" target="pf13265856395462" source="pf13265736503121" outcome="success" fromaction="#{RequerimientoComision.mostrar}"/>
-  <links id="pf13269563951870" target="pf13265856395462" source="pf13265867291096"/>
+  <links id="pf13272694248592" target="pf13272693020780" source="pf13265867291096" outcome="calculoViatico" redirect="true" fromaction="#{BuscarComision.mostrar}"/>
+  <links id="pf13272694248593" target="pf13272693906251" source="pf13265867291096" outcome="rendicion" redirect="true" fromaction="#{BuscarComision.mostrar}"/>
+  <links id="pf13272695313594" target="pf13265867291096" source="pf13272693020780" outcome="success" redirect="true" fromaction="#{CalculoViatico.buscar}"/>
+  <links id="pf13272733773596" target="pf13265867291096" source="pf13265736503121" outcome="success" redirect="true" fromaction="#{BuscarComision.rendicion}"/>
+  <links id="pf13272734977507" target="pf13265867291096" source="pf13265736503121" outcome="success" redirect="true" fromaction="#{BuscarComision.requerimiento}"/>
+  <links id="pf13272734977508" target="pf13265867291096" source="pf13265736503121" outcome="success" redirect="true" fromaction="#{BuscarComision.calculoViatico}"/>
+  <links id="pf13274622519840" target="pf13265856395462" source="pf13265736503121" outcome="success" redirect="true" fromaction="#{RequerimientoComision.mostrar}"/>
+  <links id="pf13274700904531" target="pf13265867291096" source="pf13272693906251" outcome="success" redirect="true" fromaction="#{BuscarComision.rendicion}"/>
+  <links id="pf13274700904532" target="pf13265867291096" source="pf13272693020780" outcome="success" redirect="true" fromaction="#{BuscarComision.calculoViatico}"/>
+  <links id="pf13274701156713" target="pf13265867291096" source="pf13265856395462" outcome="success" redirect="true" fromaction="#{BuscarComision.requerimiento}"/>
+  <links id="pf13274748351254" target="pf13274748351256" source="pf13265856395462" outcome="success" redirect="true" fromaction="#{BuscarComisionado.mostrar}"/>
+  <links id="pf13274748351255" target="pf13265856395462" source="pf13274748351256" outcome="success" fromaction="#{RequerimientoComision.mostrar}"/>
+  <links id="pf13277025440780" target="pf13265856395462" source="pf13265856395462" outcome="success" redirect="true" fromaction="#{RequerimientoComision.registrar}"/>
 </pageflow:Pageflow>

@@ -71,7 +71,7 @@ public class BuscarComision  implements Serializable {
 	public List<Comision> getComisiones() {
 		ComisionCN comisionCN = ComisionCN.getComisionCN();
 		List<Comision> comisiones = comisionCN.getComisiones(numComision,apePaterno,apeMaterno,fInicio,fFin);
-		System.out.println("Buscar Comision "+comisiones.size());
+		//System.out.println("Buscar Comision "+comisiones.size());
 		return comisiones;
 	}
 

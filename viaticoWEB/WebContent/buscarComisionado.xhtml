@@ -19,6 +19,7 @@ xmlns:p="http://primefaces.org/ui" >
 				<p:menubar autoSubmenuDisplay="true" style="width: 965px;" >
 			        <p:submenu label="Comision de Servicios" icon="ui-icon ui-icon-document" >
 						<p:menuitem value="Requerimiento de comision" action="#{RequerimientoComision.buscar}" ajax="false" />
+						<p:menuitem value="Buscar Requerimiento de comision" action="#{BuscarComision.requerimiento}" ajax="false" />
 					</p:submenu>
 					<p:submenu label="Generacion de Planilla de viaticos" icon="ui-icon ui-icon-document">
 						<p:menuitem value="Calculo de viaticos" action="#{CalculoViatico.buscar}" ajax="false" />
@@ -34,7 +35,7 @@ xmlns:p="http://primefaces.org/ui" >
 	</tr>
 	<tr>
     	<td colspan="2" align="left" style="font-size:20px" >
-    		<h:outputText value="#{BuscarComision.tituloVentana}" /> 
+    		
     	</td>
     </tr>
 	<tr>
@@ -43,32 +44,22 @@ xmlns:p="http://primefaces.org/ui" >
     		<h:form id="buscar" >
     		<TABLE>
 	    		<tr>
-		    		<td>Numero Comision</td>
-		    		<td><p:inputText id="numComision" size="10" value="#{BuscarComision.numComision}" /></td>
-	    			<td>Inicio Fecha de comision</td>
-	    			<td nowrap="nowrap" >
-	    				<p:calendar id="fInicio" value="#{BuscarComision.fInicio}" pattern="dd/MM/yyyy" mode="popup" showOn="button" locale="es" readOnlyInputText="TRUE" size="10" />
-	    			</td>
+		    		<td>D.N.I.</td>
+		    		<td><p:inputText id="c_dni" size="10" value="#{BuscarComisionado.comisionadob.c_dni}" /></td>
 	    			<td></td>
-	    			<td>Fin Fecha de comision</td>
-	    			<td nowrap="nowrap" >
-	    				<p:calendar id="fFin" value="#{BuscarComision.fFin}" pattern="dd/MM/yyyy" mode="popup" showOn="button" locale="es" readOnlyInputText="TRUE" size="10" />
-	    			</td>
+	    			<td>Nombres</td>
+	    			<td><p:inputText id="c_t_nombre" size="30" value="#{BuscarComisionado.comisionadob.c_t_nombre}" /></td>
 	    			<td></td>
-	    			<td>
-	    				<p:commandButton value="Nueva" action="#{BuscarComision.mostrar}" ajax="false"  />
-	    			</td>
+	    			<td></td>
 	    		</tr>
 	    		<tr>
 	    			<td>Apellido Paterno</td>
-	    			<td colspan="2" ><p:inputText id="apePaterno" size="30" value="#{BuscarComision.apePaterno}" /></td>
+	    			<td><p:inputText id="c_t_apellido_paterno" size="30" value="#{BuscarComisionado.comisionadob.c_t_apellido_paterno}" /></td>
 	    			<td></td>
 	    			<td>Apellido Materno</td>
-	    			<td colspan="2"><p:inputText id="apeMaterno" size="30" value="#{BuscarComision.apeMaterno}" /></td>
+	    			<td><p:inputText id="c_t_apellido_materno" size="30" value="#{BuscarComisionado.comisionadob.c_t_apellido_materno}" /></td>
 	    			<td></td>
-	    			<td>
-	    				<p:commandButton value="Buscar" action="#{BuscarComision.buscar}" ajax="false"  />
-					</td>
+	    			<td><p:commandButton value="Buscar" action="#{BuscarComisionado.mostrar}" ajax="false"  /></td>
 	    		</tr>
     		</TABLE>
     		</h:form>
@@ -78,45 +69,53 @@ xmlns:p="http://primefaces.org/ui" >
     <tr>
     	<td colspan="2" align="center" >
 	    <div align="center" style="width: 971px;" >
-			<h:form>
-				<p:dataTable var="comision" value="#{BuscarComision.comisiones}" paginator="true" rows="5" paginatorPosition="bottom" >
+			
+				<p:dataTable var="comisionado" value="#{BuscarComisionado.comisionados}" paginator="true" rows="5" paginatorPosition="bottom" >
 					<p:column>
 						<f:facet name="header">
 							<h:outputText value="N° Comision" />
 						</f:facet>
-						<h:outputText value="#{comision.comisionId}" />
+						<h:outputText value="#{comisionado.c_dni}" />
 					</p:column>
 					<p:column>
 						<f:facet name="header">
 							<h:outputText value="Apellido Paterno" />
 						</f:facet>			
-						<h:outputText value="#{comision.apellidoPaterno}" />
+						<h:outputText value="#{comisionado.c_t_apellido_paterno}" />
 					</p:column>
 					
 					<p:column>
 						<f:facet name="header">
 							<h:outputText value="Apellido Materno" />
 						</f:facet>
-						<h:outputText value="#{comision.apellidoMaterno}" />
+						<h:outputText value="#{comisionado.c_t_apellido_materno}" />
 					</p:column>
 					
 					<p:column>
 						<f:facet name="header">
 							<h:outputText value="Nombres" />
 						</f:facet>
-						<h:outputText value="#{comision.nombre}" />
+						<h:outputText value="#{comisionado.c_t_nombre}" />
 					</p:column>
 					
 					<p:column style="align:center" >
 						<f:facet name="header"  >
 							<h:outputText value=" " />
 						</f:facet>
-						 <p:button value="Modificar" outcome="requerimientoComision" >
-						 	<f:param name="comisionId" value="#{comision.comisionId}" />
-						 </p:button>
+						<h:form>
+						 <p:commandButton  value="Seleccionar" action="#{RequerimientoComision.mostrar}" ajax="false" >
+						 	<f:param name="c_c_codigo" value="#{comisionado.c_c_codigo}" />
+						 	<f:param name="c_dni" value="#{comisionado.c_dni}" />
+						 	<f:param name="c_t_apellido_paterno" value="#{comisionado.c_t_apellido_paterno}" />
+						 	<f:param name="c_t_apellido_materno" value="#{comisionado.c_t_apellido_materno}" />
+						 	<f:param name="c_t_nombre" value="#{comisionado.c_t_nombre}" />
+						 	<f:param name="c_c_puesto" value="#{comisionado.c_c_puesto}" />
+						 	<f:param name="c_t_area" value="#{comisionado.c_t_area}" />
+						 </p:commandButton>
+						 </h:form>
 					</p:column>
 				</p:dataTable>
-			</h:form>
+			
 		</div>
 		</td>
 	</tr>

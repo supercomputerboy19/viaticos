@@ -15,6 +15,9 @@ public class RequerimientoComision implements Serializable {
 	private Comisionado comisionado;
 	
 	public Comision getComision() {
+		if(comision==null){
+			comision = new Comision();
+		}
 		return comision;
 	}
 
@@ -25,6 +28,10 @@ public class RequerimientoComision implements Serializable {
 
 
 	public Comisionado getComisionado() {
+		if(comisionado==null){
+			comisionado = new Comisionado();
+		}
+		System.out.println(comisionado.getC_c_codigo());
 		return comisionado;
 	}
 
@@ -42,15 +49,14 @@ public class RequerimientoComision implements Serializable {
 	
 	
 	public String buscar(){
-		
-		
-		
+		System.out.println("buscar");
 		return CONSTANTE.SUCCESS;
 	}
 	
 	public String mostrar(){
-		try{
-			Map<String, Object> mapSession = Utiles.getSession();
+		System.out.println("mostrar");
+//		try{
+//			Map<String, Object> mapSession = Utiles.getSession();
 //			Comisionado comisionado = (Comisionado) mapSession.get(CONSTANTE.COMISIONADO);
 //			if(comisionado!=null){
 //				nombres = comisionado.getC_t_nombre();
@@ -61,14 +67,14 @@ public class RequerimientoComision implements Serializable {
 //				condicionLaboral = comisionado.getC_c_situacion_trab();
 //				dependencia = comisionado.getC_c_area();
 //			}
-			if(comision==null){
-				comision = new Comision();
-			}
+//			if(comision==null){
+//				comision = new Comision();
+//			}
 			return CONSTANTE.SUCCESS;
-		}catch(Exception e){
-			e.printStackTrace();
-			return null;
-		}
+//		}catch(Exception e){
+//			e.printStackTrace();
+//			return null;
+//		}
 	}
 	
 	public String registrar(){
