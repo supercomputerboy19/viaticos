@@ -54,10 +54,10 @@
           upper(COMISIONADO.C_T_APELLIDO_PATERNO) like upper(#c_t_apellido_paterno#||'%')
         </isNotEmpty>
         <isNotEmpty prepend="AND" property="c_t_apellido_materno">
-          COMISIONADO.C_T_APELLIDO_MATERNO like #c_t_apellido_materno#
+          COMISIONADO.C_T_APELLIDO_MATERNO like ()#c_t_apellido_materno#||'%')
         </isNotEmpty>
         <isNotEmpty prepend="AND" property="c_t_nombre">
-          COMISIONADO.C_T_NOMBRE like #c_t_nombre#
+          COMISIONADO.C_T_NOMBRE like (#c_t_nombre#||'%')
         </isNotEmpty>
       </dynamic>
        order by c_t_apellido_paterno, c_t_apellido_materno, c_t_nombre

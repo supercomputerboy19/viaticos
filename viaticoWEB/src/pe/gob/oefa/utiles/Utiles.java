@@ -11,9 +11,11 @@ import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 
 public class Utiles{
+	@SuppressWarnings("deprecation")
 	public static Object getBean(String beanName){
 		FacesContext facesContext = FacesContext.getCurrentInstance();
-		return facesContext.getApplication().createValueBinding("#{" + beanName + "}").getValue(facesContext);
+		Object temporal = facesContext.getApplication().createValueBinding("#{" + beanName + "}").getValue(facesContext);
+		return temporal;
 	}
 	
 	public static Map<String,Object> getSession(){

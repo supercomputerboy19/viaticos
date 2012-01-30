@@ -103,16 +103,8 @@ xmlns:p="http://primefaces.org/ui" >
 							<h:outputText value=" " />
 						</f:facet>
 						<h:form>
-						 <p:commandButton  value="Seleccionar" action="#{RequerimientoComision.mostrar}" ajax="false" >
-						 	<f:param name="c_c_codigo" value="#{comisionado.c_c_codigo}" />
-						 	<f:param name="c_dni" value="#{comisionado.c_dni}" />
-						 	<f:param name="c_t_apellido_paterno" value="#{comisionado.c_t_apellido_paterno}" />
-						 	<f:param name="c_t_apellido_materno" value="#{comisionado.c_t_apellido_materno}" />
-						 	<f:param name="c_t_nombre" value="#{comisionado.c_t_nombre}" />
-						 	<f:param name="c_c_puesto" value="#{comisionado.c_c_puesto}" />
-						 	<f:param name="c_t_area" value="#{comisionado.c_t_area}" />
-						 </p:commandButton>
-						 </h:form>
+						  <p:commandButton  value="Seleccionar" action="#{RequerimientoComision.mostrar}" ajax="false" />
+						</h:form>
 					</p:column>
 				</p:dataTable>
 			

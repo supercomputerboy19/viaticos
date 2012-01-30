@@ -9,7 +9,9 @@
  
     <parameterMap id="insertveccomision" class="comision">
        <parameter property="fechaSalida" javaType="date" mode="IN" jdbcType="DATE"/>
+       <parameter property="horaSalida" javaType="date" mode="IN" jdbcType="DATE"/>
        <parameter property="fechaRetorno" javaType="date" mode="IN" jdbcType="DATE"/>
+       <parameter property="horaRetorno" javaType="date" mode="IN" jdbcType="DATE"/>
        <parameter property="objetivo" javaType="string" mode="IN" jdbcType="VARCHAR"/>
        <parameter property="fechaGestion" javaType="date" mode="IN" jdbcType="DATE"/>
        <parameter property="destino" javaType="string" mode="IN" jdbcType="CHAR"/>
@@ -42,6 +44,8 @@
     <resultMap id="comisionmap" class="comision">
        <result column="FECHASALIDA" property="fechaSalida"/>
        <result column="FECHARETORNO" property="fechaRetorno"/>
+       <result column="HORASALIDA" property="horaSalida"/>
+       <result column="HORARETORNO" property="horaRetorno"/>
        <result column="OBJETIVO" property="objetivo"/>
        <result column="FECHAGESTION" property="fechaGestion"/>
        <result column="DESTINO" property="destino"/>
@@ -72,8 +76,10 @@
             SELECT COMISIONSEQUENCE.NEXTVAL FROM DUAL
         </selectKey>
        INSERT INTO COMISION(
-            FECHASALIDA,        
-            FECHARETORNO,        
+            FECHASALIDA,
+            FECHARETORNO,
+            HORASALIDA,
+            HORARETORNO,
             OBJETIVO,
             FECHAGESTION,       
             DESTINO,
@@ -100,6 +106,8 @@
             ) VALUES (
             #fechaSalida#,
             #fechaRetorno#,
+            #horaSalida#,
+            #horaRetorno#,
             #objetivo#,
             #fechaGestion#,
             #destino#,
@@ -127,8 +135,10 @@
    
     <update id="updateComision" parameterClass="comision">
         UPDATE COMISION
-        SET FECHASALIDA = #fechaSalida#,        
-            FECHARETORNO = #fechaRetorno#,        
+        SET FECHASALIDA = #fechaSalida#,
+            FECHARETORNO = #fechaRetorno#,
+            HORASALIDA = #horaSalida#,
+            HORARETORNO = #horaRetorno#,
             OBJETIVO = #objetivo#,
             FECHAGESTION = #fechaGestion#,       
             DESTINO = #destino#,
@@ -157,7 +167,9 @@
     
     <select id="findByID" parameterClass="comision" resultClass="comision">
    		SELECT  FECHASALIDA,
-                FECHARETORNO,        
+                FECHARETORNO,
+                HORASALIDA,
+                HORARETORNO,
                 OBJETIVO,
                 FECHAGESTION,       
                 DESTINO,
@@ -194,7 +206,10 @@
        			C_T_NOMBRE as NOMBRE,
                 C_T_APELLIDO_PATERNO as APELLIDOPATERNO,
                 C_T_APELLIDO_MATERNO as APELLIDOMATERNO,
-                FECHARETORNO,        
+                FECHARETORNO,
+                HORARETORNO,
+                FECHASALIDA,
+                HORASALIDA,
                 OBJETIVO,
                 FECHAGESTION,       
                 DESTINO,
@@ -225,13 +240,13 @@
           COMISION.C_C_CODIGO=#numComision#
         </isNotEmpty>
         <isNotEmpty prepend="AND" property="apePaterno">
-          COMISIONADO.C_T_APELLIDO_PATERNO like #apePaterno#%
+          COMISIONADO.C_T_APELLIDO_PATERNO like #apePaterno#||'%'
         </isNotEmpty>
         <isNotEmpty prepend="AND" property="apeMaterno">
-          COMISIONADO.C_T_APELLIDO_MATERNO like #apeMaterno#%
+          COMISIONADO.C_T_APELLIDO_MATERNO like #apeMaterno#||'%'
         </isNotEmpty>
         <isNotEmpty prepend="AND" property="nombre">
-          COMISIONADO.C_T_NOMBRE like #nombre#%
+          COMISIONADO.C_T_NOMBRE like #nombre#||'%'
         </isNotEmpty>
         <isNotEmpty prepend="AND" property="fInicio">
           COMISION.FECHASALIDA <![CDATA[>=]]> #fInicio#
