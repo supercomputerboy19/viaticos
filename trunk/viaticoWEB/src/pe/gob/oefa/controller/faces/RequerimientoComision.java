@@ -1,7 +1,6 @@
 package pe.gob.oefa.controller.faces;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.Map;
 
 import pe.gob.oefa.be.Comision;
@@ -54,6 +53,8 @@ public class RequerimientoComision implements Serializable {
 	}
 	
 	public String mostrar(){
+		Comisionado comisionadoSession = (Comisionado)Utiles.getBean(CONSTANTE.COMISIONADO);
+		this.comisionado = comisionadoSession;
 		System.out.println("mostrar");
 //		try{
 //			Map<String, Object> mapSession = Utiles.getSession();

@@ -14,8 +14,7 @@
 	</h:head>
 	<f:view>
 	<h:body>
-        <h:form id="ingresoComision" >
-        <table width="971" align="center">
+        <table style="width: 971px;" align="center" >
             <tr>
               <td><img src="img/cabecera.jpg" alt="" width="971" height="62" /></td>
             </tr>
@@ -39,35 +38,65 @@
 				</h:form>
 			  </td>
             </tr>
-            <tr> <td align="left" style="font-size: 18px" ><strong>REGISTRO DE REQUERIMIENTO DE COMISION</strong></td></tr>
-            <!-- <tr>
-              <td align="justify">
-              	Coloque en los recuadros la fecha de salida y la fecha de retorno, incluyendo las horas, para que se pueda calcular su asignación por comisión de servicios.
-              </td>
-            </tr>-->
+        </table>
+        <h:form id="comisionado" >
+        <table style="width: 971px;" align="center"  >
+            <tr><td align="left" style="font-size: 18px" ><strong>REGISTRO DE REQUERIMIENTO DE COMISION</strong></td></tr>
             <tr>
-              <td align="left">
-              	<table><tr>
-              	  <td width="800">
+              <td align="center">
+              	<table style="width: 100%"><tr>
+              	  <td>
 		            <fieldset>
 		                <legend>Datos del funcionario y/o trabajador comisionado</legend>
-		                  <table width="100%" >
+		                  <table style="width: 100%">
 		                    <tr>
-		                      <td style="width:70px" >DNI</td>
-		                      <td>
-		                      <h:inputHidden id="c_c_codigo" value="#{RequerimientoComision.comisionado.c_c_codigo}" />
-		                      <p:inputText id="c_dni" value="#{RequerimientoComision.comisionado.c_dni}" size="8" readonly="TRUE" /></td>
-		                      <td> </td>
-		                      <td>Nombres y Apellidos de comisionado </td>
-		                      <td><p:inputText id="nombreCompleto" value="#{RequerimientoComision.comisionado.c_t_nombre} #{RequerimientoComision.comisionado.c_t_apellido_paterno}" size="80" readonly="TRUE" /></td>
+		                      <td>DNI</td>
+		                      <td style="width: 90px"><h:inputHidden id="c_c_codigo" value="#{RequerimientoComision.comisionado.c_c_codigo}" />
+			                      <p:inputText id="c_dni" size="8" value="#{RequerimientoComision.comisionado.c_dni}" readonly="true" />
+			                  </td>
+		                      <td style="width: 140px" >Nombres y Apellidos</td>
+		                      <td colspan="8" >
+		                      	<p:inputText id="nombre" size="80" value="#{RequerimientoComision.comisionado.c_t_nombre} #{RequerimientoComision.comisionado.c_t_apellido_paterno} #{RequerimientoComision.comisionado.c_t_apellido_materno}" readonly="true" />
+		                      </td>
 		                    </tr>
 		                    <tr>
 		                      <td>Cargo</td>
-		                      <td> <p:inputText id="c_t_puesto" value="#{RequerimientoComision.comisionado.c_t_puesto}" size="40" readonly="TRUE" /></td>
+		                      <td colspan="7" >
+		                      	<p:inputText id="c_t_puesto" size="60" value="#{RequerimientoComision.comisionado.c_t_puesto}" readonly="true" />
+		                      </td>
 		                      <td> </td>
-		                      <td>Unidad organica</td>
-		                      <td> <p:inputText id="c_t_area" value="#{RequerimientoComision.comisionado.c_t_area}" size="4" readonly="TRUE" /></td>
+		                      <td style="width: 120px" >Unidad organica</td>
+		                      <td>
+								<p:inputText id="c_t_area" size="40"  value="#{RequerimientoComision.comisionado.c_t_area}" readonly="true" />
+							  </td>
 		                    </tr>
+		                    <tr>
+		                    	<td colspan="11" >
+		                    		<table style="width: 100%" ><tr>
+		                    			<td>L.M.</td><td><p:inputText id="lm" size="10" value="#{RequerimientoComision.comision.lm}" maxlength="12" /></td><td></td>
+		                    			<td>N° Pasaporte</td><td><p:inputText id="pasaporte" size="10" value="#{RequerimientoComision.comision.pasaporte}" maxlength="12" /></td><td></td>
+		                    			<td>N° SSP/AFP</td><td></td><td><p:inputText id="afp" size="10" value="#{RequerimientoComision.comision.afp}" maxlength="12" /></td>
+		                    			<td>Remuneración<br/>Económica</td><td><p:inputText id="remuneracion" size="10" value="#{RequerimientoComision.comision.remuneracion}" maxlength="12" /></td><td></td>
+		                    		</tr></table>
+		                    	</td>
+		                    </tr><tr>
+		                    	<td colspan="11" >
+		                    		<table>
+		                    		<tr><td colspan="9" >Tipo de seguro:</td></tr>
+		                    		<tr><td>Accidentes Personales</td>
+		                    			<td><p:selectBooleanCheckbox id="seguroAccidentes" value="#{RequerimientoComision.comision.seguroAccidentes}" /></td>
+		                    			<td></td>
+		                    			<td>Complementario de Trabajo<br/>de Riesgo Pensión</td>
+		                    			<td><p:selectBooleanCheckbox id="seguroTrabajoPension" value="#{RequerimientoComision.comision.seguroTrabajoPension}" /></td>
+		                    			<td></td>
+		                    			<td>Complementario de Trabajo<br/>de Riesgo Salud</td>
+		                    			<td><p:selectBooleanCheckbox id="seguroTrabajoSalud" value="#{RequerimientoComision.comision.seguroTrabajoSalud}" /></td>
+		                    			<td></td>
+		                    		</tr>
+		                    		</table>
+		                    	</td>
+		                    </tr>
+		                    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
 		                  </table>
 		              </fieldset>
 	              </td><td align="center" >
@@ -80,128 +109,189 @@
 	              		</tr>
 	              	</table>
 	              </td>
-	            </tr></table>
+	            </tr>
+	            </table>
               </td>
             </tr>
             <tr>
             	<td align="left">
             		<fieldset>
-            		 <legend>Datos de la comisión</legend>
-	                  <table>
-	                  	<tr>
-	                  		<td>Fecha de Salida:</td>
-	                  		<td>
-	                  			<p:calendar id="fechaSalida" value="#{RequerimientoComision.comision.fechaSalida}" pattern="dd/MM/yyyy" mode="popup" showOn="button" locale="es" readOnlyInputText="TRUE" size="10" required="true" >
-	                  				<f:validateLength minimum="2" />
-	                  			</p:calendar>
-	                  			<p:message for="fechaSalida" />
-	                  		</td>
-	                  		<td> </td>
-	                  		<td>Asignación Diaria: S/.</td>
-	                  		<td>
-	                  			<p:selectOneMenu id="asignacionDiaria" value="#{RequerimientoComision.comision.asignacionDiaria}" style="width:120px" > 
-									<f:selectItem itemLabel="180" itemValue="180" />
-									<f:selectItem itemLabel="210" itemValue="210" />
-									<f:selectItem itemLabel="250" itemValue="250" />
-								</p:selectOneMenu>
-	                  		</td>
-	                  		<td></td><td></td><td></td>
-	                  	</tr>
-	                  	<tr>
-	                  		<td>Fecha de Retorno:</td>
-	                  		<td>
-	                  			<p:calendar id="fechaRetorno" pattern="dd/MM/yyyy" value="#{RequerimientoComision.comision.fechaRetorno}" mode="popup" showOn="button" locale="es" readOnlyInputText="TRUE" size="10" required="true" >
-	                  				<f:validateLength minimum="2" />
-	                  			</p:calendar>
-	                  			<p:message for="fechaRetorno" />
-	                  		</td>
-	                  		<td> </td>
-	                  		<td>Destino:</td>
-	                  		<td colspan="4">
-	                  			<p:inputText id="destino" size="60" value="#{RequerimientoComision.comision.destino}" maxlength="60" required="true">
-	                  				<f:validateLength minimum="10" />
-	                  			</p:inputText>
-	                  			<p:message for="destino" /> 
-	                  		</td>
-	                  	</tr>
-	                  	<tr>
-	                  		<td>Dependencia:</td>
-	                  		<td colspan="7" >
-	                  			<p:inputText id="dependencia" value="#{RequerimientoComision.comisionado.c_t_area}" size="80" readonly="TRUE" />
-	                  		</td>
-	                  	</tr>
-	                  	<tr>
-	                  		<td>Objetivo:</td>
-	                  		<td colspan="7" >
-	                  			<p:inputText id="objetivo" value="#{RequerimientoComision.comision.objetivo}" size="80" maxlength="80" required="true" >
-	                  				<f:validateLength minimum="10" />
-	                  			</p:inputText>
-	                  			<p:message for="objetivo" />
-	                  		</td>
-	                  	</tr>
-	                  	<tr>
-	                  		<td>Condición Laboral:</td>
-	                  		<td>
-	                  			<p:inputText id="condicionLaboral" value="#{RequerimientoComision.comisionado.c_c_situacion_trab}" maxlength="60" readonly="TRUE" />
-	                  		</td>
-	                  		<td> </td>
-	                  		<td colspan="2" >Cargo:</td>
-	                  		<td> </td>
-	                  		<td>Fecha de Gestión:</td>
-	                  		<td>
-	                  			<p:calendar id="fechaGestion" value="#{RequerimientoComision.comision.fechaGestion}" pattern="dd/MM/yyyy" mode="popup" showOn="button" locale="es" required="true" readOnlyInputText="TRUE" size="10" >
-	                  				<f:validateLength minimum="2" />
-	                  			</p:calendar>
-	                  			<p:message for="fechaGestion" />
-	                  		</td>
-	                  	</tr>
-	                  </table>
+            		  <legend>Datos de la comisión</legend>
+            		  <fieldset>
+	            	    <legend>Viaje</legend>
+		                  <table style="width: 100%" >
+		                  	<tr>
+		                  		<td>Itinerario</td>
+		                  		<td colspan="3" >
+		                  			<p:inputText id="destino" size="60" value="#{RequerimientoComision.comision.destino}" maxlength="60" required="true">
+		                  				<f:validateLength minimum="10" />
+		                  			</p:inputText>
+		                  			<p:message for="destino" />
+		                  		</td>
+		                  		<td> </td>
+		                  		<td> </td>
+		                  		<td> </td>
+		                  		<td> </td>
+	                  		</tr>
+	                  	  </table>
+	                  	</fieldset>
+	                  	
+	                  	<fieldset>
+		            	  <legend>Fecha</legend>
+		                  <table style="width: 100%">
+		                  	<tr>
+		                  		<td  style="width: 40px" >Del:</td>
+		                  		<td style="width: 140px">
+		                  			<p:calendar id="fechaSalida" value="#{RequerimientoComision.comision.fechaSalida}" pattern="dd/MM/yyyy" mode="popup" showOn="button" locale="es" readOnlyInputText="TRUE" size="10" required="true" >
+		                  				<f:validateLength minimum="2" />
+		                  			</p:calendar>
+		                  			<p:message for="fechaSalida" />
+		                  		</td>
+		                  		<td style="width: 40px">Hora:</td>
+		                  		<td style="width: 40px"><p:inputMask id="horaSalida" value="#{RequerimientoComision.comision.horaSalida}" mask="99:99" size="3" /></td>
+		                  		<td> </td>
+		                  		<td style="width: 40px">Al:</td>
+		                  		<td style="width: 140px"><p:calendar id="fechaRetorno" value="#{RequerimientoComision.comision.fechaRetorno}" pattern="dd/MM/yyyy" mode="popup" showOn="button" locale="es" readOnlyInputText="TRUE" size="10" required="true" >
+		                  				<f:validateLength minimum="2" />
+		                  			</p:calendar>
+		                  			<p:message for="fechaRetorno" /></td>
+		                  		<td style="width: 40px">Hora:</td>
+		                  		<td style="width: 40px"><p:inputMask id="horaRetorno" value="#{RequerimientoComision.comision.horaRetorno}" mask="99:99" size="4" /></td>
+		                  		<td></td>
+		                  	</tr>
+		                  </table>
+		                </fieldset>
+			            
+	                	<fieldset>
+			        		<legend>Medio de Transporte</legend>
+								<table style="width: 100%" >
+									<tr>
+										<td style="width: 100px" >TERRESTRE</td>
+										<td style="width: 30px"><p:selectBooleanCheckbox id="viaTerrestre"
+												value="#{RequerimientoComision.comision.viaTerrestre}" /></td>
+										<td></td>
+										<td style="width: 60px">AEREO</td>
+										<td style="width: 30px"><p:selectBooleanCheckbox id="viaAerea"
+												value="#{RequerimientoComision.comision.viaAerea}" /></td>
+										<td></td>
+										<td style="width: 50px">TUUA</td>
+										<td style="width: 30px"><p:selectBooleanCheckbox id="tuua"
+												value="#{RequerimientoComision.comision.tuua}" /></td>
+										<td></td>
+										<td style="width: 60px">NINGUNO</td>
+										<td style="width: 30px"><p:selectBooleanCheckbox id="vianinguno"
+												value="#{RequerimientoComision.comision.viaNinguno}" /></td>
+										<td></td>
+										<td style="width: 120px">Viaje Programado</td>
+										<td style="width: 60px">
+											<p:selectOneRadio id="asignacionDiaria" value="#{RequerimientoComision.comision.asignacionDiaria}">
+												<f:selectItem itemLabel="Si" itemValue="S" />
+												<f:selectItem itemLabel="No" itemValue="N" />
+											</p:selectOneRadio></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>Motivo del Viaje</td>
+										<td colspan="7" ><p:inputTextarea id="objetivo" rows="2"
+												cols="45" value="#{RequerimientoComision.comision.objetivo}" /></td>
+										<td>Otros Gastos</td>
+										<td colspan="6" valign="top">
+											<p:inputTextarea
+												id="otrosGastos" rows="2" cols="45"
+												value="#{RequerimientoComision.comision.otrosGastos}" />
+										</td>
+									</tr>
+
+								</table>
+							</fieldset>
+		                
 	                </fieldset>
             	</td>
             </tr>
-            <tr>
-	            <td align="left">
-		            <fieldset>
-			        	<legend>PASAJES</legend>
-			            	<table width="100%" >
-			                	<tr>
-			                		<td>VIA AREA</td>
-			                		<td>
-			                			<p:selectBooleanCheckbox id="viaAerea" value="#{RequerimientoComision.comision.viaAerea}" />
-			                		</td>
-			                		<td> </td>
-			                		<td>TUUA</td>
-			                		<td>
-			                			<p:selectBooleanCheckbox id="tuua" value="#{RequerimientoComision.comision.tuua}" />
-			                		</td>
-			                		<td> </td>
-			                    	<td>VIA TERRESTRE</td>
-			                		<td>
-			                			<p:selectBooleanCheckbox id="viaTerrestre" value="#{RequerimientoComision.comision.viaTerrestre}" />
-			                		</td>
-			                		<td> </td>
-			                		<td>PASAJE TERRESTRE</td>
-			                		<td>
-			                			<p:selectBooleanCheckbox id="pasajeTerrestre" value="#{RequerimientoComision.comision.pasajeTerrestre}" />
-			                		</td>
-			                    </tr>
-			                </table>
-			        </fieldset>
-		        </td>
-	        </tr>
-	        <tr>
-            	<td>
-            	<fieldset>
-			        <legend>DATOS CALCULADOS</legend>
-						<table width="100%" >
-			            	<tr>
-			                	<td class="h1" >2 Días 0 horas</td>
-			                	<td class="h1" >S/. 540.00</td>
-			                </tr>
-						</table>
-				</fieldset>
-            	</td>
-            </tr>
+            <tr><td>
+	            <fieldset>
+	            	<LEGEND>Datos solicitud de seguro</LEGEND>
+	            		<TABLE style="width: 100%" >
+	            		  <tr><td>
+	            		    <fieldset>
+				              <LEGEND>Domicilio del solicitante</LEGEND>
+				              <TABLE style="width: 100%" >
+				            	<tr><td colspan="2" nowrap="nowrap" >Departamento 
+				            			<p:inputText id="departamento" size="30" value="#{RequerimientoComision.comision.departamento}" maxlength="30" required="true" />
+				            		</td>
+				            		<td colspan="3" nowrap="nowrap" >Provincia
+				            			<p:inputText id="provincia" size="30" value="#{RequerimientoComision.comision.provincia}" maxlength="30" required="true" />
+				            		</td>
+				            		<td colspan="2" nowrap="nowrap" >Distrito
+				            			<p:inputText id="distrito" size="30" value="#{RequerimientoComision.comision.distrito}" maxlength="30" required="true" />
+									</td></tr>
+								<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+				            	<tr><td>
+			            			<p:selectOneRadio id="direccionTipoZona" value="#{RequerimientoComision.comision.direccionTipoZona}">
+										<f:selectItem itemLabel="URB." itemValue="URB" />
+										<f:selectItem itemLabel="PP.JJ." itemValue="PPJJ" />
+										<f:selectItem itemLabel="Km." itemValue="KM" />
+									</p:selectOneRadio>
+									</td><td colspan="2" >
+										<p:inputText id="direccionZona" size="20" value="#{RequerimientoComision.comision.direccionZona}" maxlength="20" />
+									</td><td>
+										<p:selectOneRadio id="direccionTipoVia" value="#{RequerimientoComision.comision.direccionTipoVia}">
+											<f:selectItem itemLabel="Av." itemValue="AV" />
+											<f:selectItem itemLabel="Jr." itemValue="LR" />
+											<f:selectItem itemLabel="Calle" itemValue="CALLE" />
+										</p:selectOneRadio>
+										</td><td colspan="3">
+										<p:inputText id="direccionVia" size="20" value="#{RequerimientoComision.comision.direccionVia}" maxlength="20" />
+									</td></tr>
+									<tr><td nowrap="nowrap" >
+										N° <p:inputText id="direccionNumero" size="4" value="#{RequerimientoComision.comision.direccionNumero}" maxlength="5" />
+									</td><td nowrap="nowrap" >
+										Interior <p:inputText id="direccionInterior" size="4" value="#{RequerimientoComision.comision.direccionInterior}" maxlength="5" />
+									</td><td nowrap="nowrap" >
+										Mz.° <p:inputText id="direccionManzana" size="4" value="#{RequerimientoComision.comision.direccionManzana}" maxlength="5" />
+									</td><td colspan="2" nowrap="nowrap" >
+										Lote <p:inputText id="direccionLote" size="4" value="#{RequerimientoComision.comision.direccionLote}" maxlength="5" />
+									</td><td colspan="2" >
+									Telefono <p:inputText id="direccionTelefono" size="10" value="#{RequerimientoComision.comision.direccionTelefono}" maxlength="10" />
+									</td></tr>
+				              </TABLE>
+				            </fieldset>
+	            		  </td></tr>
+	            		  <tr><td>
+	            		  <fieldset>
+				            <LEGEND>Beneficiario del Seguro</LEGEND>
+				              <TABLE style="width: 100%" >
+				            	<tr>
+				            	<td>Apellidos y nombres<br/><p:inputText id="beneficiarioNombre" size="120" value="#{RequerimientoComision.comision.beneficiarioNombre}" maxlength="120" required="true" /></td>
+				            	<td>DNI N°<br/><p:inputMask id="beneficiarioDNI" size="8" value="#{RequerimientoComision.comision.beneficiarioDNI}" maxlength="8" required="true" /></td></tr>
+				            	<tr><td colspan="2" >
+				            		Observaciones<br/>
+				            		<p:inputTextarea id="observacionesSeguro" rows="2" cols="130"
+												value="#{RequerimientoComision.comision.observacionesSeguro}" />
+				            		</td></tr>
+				              </TABLE>
+				            </fieldset>
+	            		  </td></tr>
+	            		</TABLE>
+	            </fieldset>
+            </td></tr>
+            <tr><td>
+	            <fieldset>
+	            	<LEGEND>Generar Anexo</LEGEND>
+	            		<TABLE style="width: 100%" >
+	            			<tr>
+	            			<td align="center" ><h:form>
+								  <p:commandButton  value="Generar Anexo 2" action="#{RequerimientoComision.mostrar}" ajax="false" />
+								</h:form></td>
+	            			<td align="center" ><h:form>
+								  <p:commandButton  value="Generar Anexo 9" action="#{RequerimientoComision.mostrar}" ajax="false" />
+								</h:form></td>
+	            			<td align="center" ><h:form>
+								  <p:commandButton  value="Generar Credenciales" action="#{RequerimientoComision.mostrar}" ajax="false" />
+								</h:form></td></tr>
+	            		</TABLE>
+	            </fieldset>
+            </td></tr>
             <tr>
             	<td><img src="img/pie.jpg" alt="" width="971" height="40" /></td>
             </tr>

@@ -55,14 +55,17 @@ public class Comision implements Serializable {
 	private String apellidoPaterno;
 	private String apellidoMaterno;
 	private Date fechaSalida;
+	private Date horaSalida;
     private String fechaSalidaRangoInicial;
     private String fechaSalidaRangoFinal;
     private Date fechaRetorno;
+    private Date horaRetorno;
     private String objetivo;
     private Date fechaGestion;
     private String destino;
     private Boolean viaAerea;
     private Boolean viaTerrestre;
+    private Boolean viaNinguno;
     private Boolean tuua;
     private Boolean pasajeTerrestre;
     private String asignacionDiaria;
@@ -82,6 +85,31 @@ public class Comision implements Serializable {
     private String estadoId;
     private String tipoActividadId;
     private String usuarioId;
+    private String otrosGastos;
+    //Datos para la Solicitud de seguro
+    private String lm;
+    private String departamento;
+    private String provincia;
+    private String distrito;
+    private String direccionTipoZona;
+    private String direccionZona;
+    private String direccionTipoVia;
+    private String direccionVia;
+    private String direccionNumero;
+    private String direccionInterior;
+    private String direccionManzana;
+    private String direccionLote;
+    private String direccionTelefono;
+    private String beneficiarioNombre;
+    private String beneficiarioDNI;
+    private String observacionesSeguro;
+    private String pasaporte;
+    private String afp;
+    private String remuneracion;
+    private String seguroAccidentes;
+    private String seguroTrabajoPension;
+    private String seguroTrabajoSalud;
+    
     private DeclaracionJurada declaracionJurada;
     private List<ItemRendicion> items;
     
@@ -352,7 +380,215 @@ public class Comision implements Serializable {
         this.viaTerrestre = viaTerrestre;
     }
     
-    @Override
+    public Date getHoraSalida() {
+		return horaSalida;
+	}
+
+	public void setHoraSalida(Date horaSalida) {
+		this.horaSalida = horaSalida;
+	}
+
+	public Date getHoraRetorno() {
+		return horaRetorno;
+	}
+
+	public void setHoraRetorno(Date horaRetorno) {
+		this.horaRetorno = horaRetorno;
+	}
+
+	public Boolean getViaNinguno() {
+		return viaNinguno;
+	}
+
+	public void setViaNinguno(Boolean viaNinguno) {
+		this.viaNinguno = viaNinguno;
+	}
+
+	public String getOtrosGastos() {
+		return otrosGastos;
+	}
+
+	public void setOtrosGastos(String otrosGastos) {
+		this.otrosGastos = otrosGastos;
+	}
+
+	public String getLm() {
+		return lm;
+	}
+
+	public void setLm(String lm) {
+		this.lm = lm;
+	}
+
+	public String getDepartamento() {
+		return departamento;
+	}
+
+	public void setDepartamento(String departamento) {
+		this.departamento = departamento;
+	}
+
+	public String getProvincia() {
+		return provincia;
+	}
+
+	public void setProvincia(String provincia) {
+		this.provincia = provincia;
+	}
+
+	public String getDistrito() {
+		return distrito;
+	}
+
+	public void setDistrito(String distrito) {
+		this.distrito = distrito;
+	}
+
+	public String getDireccionTipoZona() {
+		return direccionTipoZona;
+	}
+
+	public void setDireccionTipoZona(String direccionTipoZona) {
+		this.direccionTipoZona = direccionTipoZona;
+	}
+
+	public String getDireccionZona() {
+		return direccionZona;
+	}
+
+	public void setDireccionZona(String direccionZona) {
+		this.direccionZona = direccionZona;
+	}
+
+	public String getDireccionTipoVia() {
+		return direccionTipoVia;
+	}
+
+	public void setDireccionTipoVia(String direccionTipoVia) {
+		this.direccionTipoVia = direccionTipoVia;
+	}
+
+	public String getDireccionVia() {
+		return direccionVia;
+	}
+
+	public void setDireccionVia(String direccionVia) {
+		this.direccionVia = direccionVia;
+	}
+
+	public String getDireccionNumero() {
+		return direccionNumero;
+	}
+
+	public void setDireccionNumero(String direccionNumero) {
+		this.direccionNumero = direccionNumero;
+	}
+
+	public String getDireccionInterior() {
+		return direccionInterior;
+	}
+
+	public void setDireccionInterior(String direccionInterior) {
+		this.direccionInterior = direccionInterior;
+	}
+
+	public String getDireccionManzana() {
+		return direccionManzana;
+	}
+
+	public void setDireccionManzana(String direccionManzana) {
+		this.direccionManzana = direccionManzana;
+	}
+
+	public String getDireccionLote() {
+		return direccionLote;
+	}
+
+	public void setDireccionLote(String direccionLote) {
+		this.direccionLote = direccionLote;
+	}
+
+	public String getDireccionTelefono() {
+		return direccionTelefono;
+	}
+
+	public void setDireccionTelefono(String direccionTelefono) {
+		this.direccionTelefono = direccionTelefono;
+	}
+
+	public String getBeneficiarioNombre() {
+		return beneficiarioNombre;
+	}
+
+	public void setBeneficiarioNombre(String beneficiarioNombre) {
+		this.beneficiarioNombre = beneficiarioNombre;
+	}
+
+	public String getBeneficiarioDNI() {
+		return beneficiarioDNI;
+	}
+
+	public void setBeneficiarioDNI(String beneficiarioDNI) {
+		this.beneficiarioDNI = beneficiarioDNI;
+	}
+
+	public String getObservacionesSeguro() {
+		return observacionesSeguro;
+	}
+
+	public void setObservacionesSeguro(String observacionesSeguro) {
+		this.observacionesSeguro = observacionesSeguro;
+	}
+
+	public String getPasaporte() {
+		return pasaporte;
+	}
+
+	public void setPasaporte(String pasaporte) {
+		this.pasaporte = pasaporte;
+	}
+
+	public String getAfp() {
+		return afp;
+	}
+
+	public void setAfp(String afp) {
+		this.afp = afp;
+	}
+
+	public String getRemuneracion() {
+		return remuneracion;
+	}
+
+	public void setRemuneracion(String remuneracion) {
+		this.remuneracion = remuneracion;
+	}
+
+	public String getSeguroAccidentes() {
+		return seguroAccidentes;
+	}
+
+	public void setSeguroAccidentes(String seguroAccidentes) {
+		this.seguroAccidentes = seguroAccidentes;
+	}
+
+	public String getSeguroTrabajoPension() {
+		return seguroTrabajoPension;
+	}
+
+	public void setSeguroTrabajoPension(String seguroTrabajoPension) {
+		this.seguroTrabajoPension = seguroTrabajoPension;
+	}
+
+	public String getSeguroTrabajoSalud() {
+		return seguroTrabajoSalud;
+	}
+
+	public void setSeguroTrabajoSalud(String seguroTrabajoSalud) {
+		this.seguroTrabajoSalud = seguroTrabajoSalud;
+	}
+
+	@Override
     public String toString() {
     
         String cadena = "fechaSalida = " + fechaSalida +"\n" +
